@@ -12,7 +12,8 @@
     <div>
         <img style="width: 1000px; height: 300px;"
             src="./images/racing-road-background-with-red-checkered-borders-vector-36471470.jpg" />
-        <img id="car" src="./images/download.png" style="width: 200px; height: 100px;  position: absolute; top: 50px; left: 50px;">
+        <img id="car" src="./images/download.png"
+            style="width: 200px; height: 100px;  position: absolute; top: 50px; left: 50px;">
         <img id="car2" src="./images/download.png"
             style="width: 200px; height: 100px;  position: absolute; top: 160px; ">
 
@@ -27,7 +28,7 @@
         function left(event) {
             let e = event.charCode;
             console.log(e)
-            // document.getElementById("utaa1").style.display = e == 97 ? "block" : "none"
+            e == 97 ? document.getElementById("utaa1").style.display = "block" : document.getElementById("utaa1").style.display = "none"
             if (e == 97) {
                 document.getElementById("car").style.marginLeft = x + "px"
                 document.getElementById("utaa1").style.marginLeft = utaa11 + "px"
