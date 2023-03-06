@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <canvas
+      id="myCanvas"
+      width="520px"
+      height="500px"
+      style="border: solid black 2px"
+    ></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      class Durvuljin {
+        constructor(x, y, urgun, undur) {
+          this.x = x;
+          this.y = y;
+          this.urgun = urgun;
+          this.undur = undur;
+        }
+        zurah() {
+          ctx.beginPath();
+          ctx.rect(this.x, this.y, this.urgun, this.undur);
+          ctx.fillStyle = "green";
+          ctx.fill();
+          ctx.closePath();
+        }
+      }
+
+      for (var x = 30; x < 500; x += 80) {
+        for (var y = 30; y < 250; y += 40) {
+          let durvuljin = new Durvuljin(x, y, 60, 20);
+          durvuljin.zurah();
+        }
+      }
+      class Tsohiur extends Durvuljin {
+        constructor(x, y, urgun, undur) {
+          super(x, y, urgun, undur);
+        }
+        hodloh(x) {
+          ctx.clearRect(this.x, this.y, this.urgun, this.undur);
+          this.x += x;
+          this.zurah();
+        }
+      }
+
+      let tsohiur = new Tsohiur(200, 400, 80, 10);
+      tsohiur.zurah();
+      document.addEventListener("keydown", keyDownHandler);
+      function keyDownHandler(e) {
+        if (e.keyCode == 39) {
+          if (tsohiur.x < 440) {
+            tsohiur.hodloh(5);
+          }
+        } else if (e.keyCode == 37) {
+          if (tsohiur.x > 0) {
+            tsohiur.hodloh(-5);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -17,7 +17,7 @@
   </body>
   <script>
     let canvas = document.getElementById("myCanvas");
-    let ctx = can.getContext("2d");
+    let ctx = canvas.getContext("2d");
     class Durvuljin {
       constructor(x, y, orgon, ondor) {
         this.x = x;
@@ -48,7 +48,7 @@
       }
       hodloh(x) {
         ctx.clearRect(this.x, this.y, this.orgon, this.ondor);
-        this.x = this.x + x;
+        this.x += x;
         this.zurah();
       }
     }
