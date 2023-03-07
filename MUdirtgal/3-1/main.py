@@ -20,8 +20,7 @@ def cbRight(event):
     y1 = c.coords(rect)[1]
     if (440 < x1 < 500 and 440 < y1 < 500):
         print(1)
-
-    if (x1 < 450):
+    elif (x1 < 450):
         c.move(rect, 50, 0)
     elif (x1 >= 450 and y1 < 450):
         c.move(rect, -450, 50)
@@ -33,7 +32,9 @@ def cbRight(event):
 def cbLeft(event):
     x1 = c.coords(rect)[0]
     y1 = c.coords(rect)[1]
-    if (x1 > 50):
+    if (x1 <= 5 and y1 <= 5):
+        print(2)
+    elif (x1 > 50):
         c.move(rect, -50, 0)
     elif (x1 < 50 and y1 > 50):
         c.move(rect, 450, -50)
