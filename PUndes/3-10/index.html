@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="forEach"> </p>
+    <p id="for"> </p>
+    <p id="forOf"> </p>
+    <p id="reduce"> </p>
+    <p id="filterr"> </p>
+    <p id="reduce2"> </p>
+    <script>
+        let arr = [25, 14, 36, 20, 45, 96]
+        // forEach
+        let sum = 0;
+        arr.forEach(myFunctin);
+        function myFunctin(utga) {
+            sum += utga
+        }
+        document.getElementById("forEach").innerHTML = `1. forEach <br >Massive: ${arr} and Niilber: ${sum}`;
+
+        // for
+        let niilberFor = 0;
+        for (let i = 0; i < arr.length; i++) {
+            niilberFor += arr[i]
+        }
+        document.getElementById("for").innerHTML = ` for <br >Massive: ${arr} and Niilber: ${niilberFor}`;
+        // forOf
+        let niilber = 0;
+        for (let i of arr) {
+            niilber += i
+        }
+        document.getElementById("forOf").innerHTML = ` forOf <br >Massive: ${arr} and Niilber: ${niilber}`;
+        // reduce 
+        function fun(a, b) {
+            return a + b
+        }
+        document.getElementById("reduce").innerHTML = ` reduce <br >Massive: ${arr} and Niilber: ${arr.reduce(fun)}`;
+
+        function Huvaah(a) {
+            if (a % 10 == 0) {
+                return a
+            }
+        }
+        document.getElementById("filterr").innerHTML = `2. filter: ${arr.filter(Huvaah)}`;
+
+        function ihToo(x, y) {
+            x > y
+            return x
+        }
+        function bagaToo(x, y) {
+            x < y
+            return x
+        }
+        document.getElementById("reduce2").innerHTML = `3. reduce ih too: ${arr.reduce(ihToo)} baga too: ${arr.reduce(ihToo)}`;
+
+    </script>
+</body>
+
+</html>
