@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lhavka</title>
+    <style>
+        .figure{
+            display: inline-flex;
+        }
+        .figure1{
+            height: 100px;
+            width: 100px;
+            filter: blur(3px);
+        }
+        .figure2{
+            height: 100px;
+            width: 100px;
+            filter: blur(3px);
+        }
+        .figure3{
+            height: 100px;
+            width: 100px;
+            filter: blur(3px);
+        }
+        .figure4{
+            height: 100px;
+            width: 100px;
+            filter: blur(3px);
+        }
+        .figure5{
+            height: 100px;
+            width: 100px;
+            filter: blur(3px);
+        }
+        .figure6{
+            height: 100px;
+            width: 100px;
+            filter: blur(3px);
+        }
+        .figure7{
+            height: 100px;
+            width: 100px;
+            filter: blur(3px);
+        }
+        .figure8{
+            height: 100px;
+            width: 100px;
+            filter: blur(3px);
+        }
+        img:hover{
+            filter: blur(0px);
+        }
+    </style>
+</head>
+<body>
+    <figure>
+        <figcaption><img src="https://media.istockphoto.com/id/1369926465/photo/mother-kissing-with-her-baby-boy-in-her-arms.jpg?s=1024x1024&w=is&k=20&c=MjyOsiF5zK6osw3FAXAktjMCrFF2UNNx_X2_Qpkdq5A=" class="figure1" id="p1" onclick="function1()"></figcaption>
+    </figure>
+    <figure>
+        <figcaption><img src="https://media.istockphoto.com/id/1373896787/photo/shot-of-a-young-family-bonding-with-their-baby-boy-at-home.jpg?s=1024x1024&w=is&k=20&c=Z8RTUC34-BS1NwGLVesEHNlS61sHnz9MHab_7WVi-_c=" class="figure2" id="p2" onclick="function2()"></figcaption>
+    </figure>
+    <figure>
+        <figcaption><img src="https://images.unsplash.com/photo-1566004100631-35d015d6a491?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="figure3" id="p3" onclick="function3()"></figcaption>
+    </figure>
+    <figure>
+        <figcaption><img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" class="figure4" id="p4" onclick="function4()"></figcaption>
+    </figure>
+    <figure>
+        <figcaption><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyBnAF30Yx3SWWpe9PWZgg6PScWXg3J5XO1A&usqp=CAU" class="figure5" id="p5" onclick="function5()"></figcaption>
+    </figure>
+    <figure>
+        <figcaption><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2iT0L7ZZVMnCxX9W-MdRb7aj-bEYwfBpDxw&usqp=CAU" class="figure6" id="p6" onclick="function6()"></figcaption>
+    </figure>
+    <figure>
+        <figcaption><img src="https://images.prismic.io/barnebys/46e35b10-37b2-4713-a1b5-7ec5126c915f_4.jpg?auto=compress,format" class="figure7" id="p7" onclick="function7()"></figcaption>
+    </figure>
+    <figure>
+        <figcaption><img src="https://img.lemde.fr/2022/12/05/93/0/2000/1333/1440/960/60/0/0b00287_1670228961747-lot-8-georges-seurat-les-poseuses-ensemble-petite-version.jpg" class="figure8" id="p8" onclick="function8()"></figcaption>
+    </figure>
+    <script>
+        let lly1 = true
+        let lly2 = true
+        let lly3 = true
+        let lly4 = true
+        let lly5 = true 
+        let lly6 = true
+        let lly7 = true
+        let lly8 = true
+        function function1(){
+            if(lly1){
+                document.getElementById("p1").style.width = "250px";
+                document.getElementById("p1").style.height = "250px";
+                lly1 = false;
+            }else{
+                document.getElementById("p1").style.width = "100px";
+                document.getElementById("p1").style.height = "100px";
+                lly1 = true
+            }
+        }
+        function function2(){
+            if(lly2){
+                document.getElementById("p2").style.width = "250px";
+                document.getElementById("p2").style.height = "250px";
+                lly2 = false
+            }else{
+                document.getElementById("p2").style.width = "100px";
+                document.getElementById("p2").style.height = "100px";
+                lly2 = true 
+            }
+        }
+        function function3(){
+            if(lly3){
+                document.getElementById("p3").style.width = "250px";
+                document.getElementById("p3").style.height = "250px";
+                lly3 = false
+            }else{
+                document.getElementById("p3").style.width = "100px";
+                document.getElementById("p3").style.height = "100px";
+                lly3 = true 
+            }
+        }
+        function function4(){
+            if(lly4){
+                document.getElementById("p4").style.width = "250px";
+                document.getElementById("p4").style.height = "250px";
+                lly4 = false
+            }else{
+                document.getElementById("p4").style.width = "100px";
+                document.getElementById("p4").style.height = "100px";
+                lly4 = true 
+            }
+        }
+        function function5(){
+            if(lly5){
+                document.getElementById("p5").style.width = "250px";
+                document.getElementById("p5").style.height = "250px";
+                lly5 = false
+            }else{
+                document.getElementById("p5").style.width = "100px";
+                document.getElementById("p5").style.height = "100px";
+                lly5 = true 
+            }
+        }
+        function function6(){
+            if(lly6){
+                document.getElementById("p6").style.width = "250px";
+                document.getElementById("p6").style.height = "250px";
+                lly6 = false
+            }else{
+                document.getElementById("p6").style.width = "100px";
+                document.getElementById("p6").style.height = "100px";
+                lly6 = true 
+            }
+        }
+        function function7(){
+            if(lly7){
+                document.getElementById("p7").style.width = "250px";
+                document.getElementById("p7").style.height = "250px";
+                lly7 = false
+            }else{
+                document.getElementById("p7").style.width = "100px";
+                document.getElementById("p7").style.height = "100px";
+                lly7 = true 
+            }
+        }
+        function function8(){
+            if(lly8){
+                document.getElementById("p8").style.width = "250px";
+                document.getElementById("p8").style.height = "250px";
+                lly8 = false
+            }else{
+                document.getElementById("p8").style.width = "100px";
+                document.getElementById("p8").style.height = "100px";
+                lly8 = true 
+            }
+        }
+    </script>    
+</body>
+</html>
