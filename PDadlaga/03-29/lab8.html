@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+
+<body style="background-color: gray;">
+    <div style="width: 1500px; height: 1000px; border: solid gtay 1px;">
+        <img height="300" id="image" src="https://images.unsplash.com/photo-1679940573633-6eb737c8b7f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80" width="450" style="margin-top: 90px; margin-left: 50px;" />
+        <img height="300" width="450" id='im' src="https://images.unsplash.com/photo-1679939099475-384a2ff77e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" 
+        onmouseover="hover(im);"
+            style="margin-left: 200px; margin-top: -450px;" />
+        <img id="im " onmouseleave="clearInterval(zogsoh)">
+        <br>
+        <button onclick="call()" style="margin-left: 200px">Play</button>
+        <button onclick="clearInterval(time)" style="margin-left: 25px">Stop</button>
+        <br>
+        <br>
+        <img width="450" height="300" id="ima" src="https://images.unsplash.com/photo-1679920672358-cd0b98b258a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" style="margin-left: 50px">
+    </div>
+    
+    <script>
+        // setInterval()
+        var path = [
+            path[0] = "https://images.unsplash.com/photo-1679939099475-384a2ff77e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+            path[1] = "https://images.unsplash.com/photo-1680034200960-4ed128f6a9ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+            path[2] = "https://images.unsplash.com/photo-1679918632666-029a8fcf51dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+            path[3] = "https://images.unsplash.com/photo-1679940573633-6eb737c8b7f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80",
+            path[4] = "https://images.unsplash.com/photo-1679936167452-18a6119f4006?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+            path[5] = "https://images.unsplash.com/photo-1679920672358-cd0b98b258a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        ]
+        var time;
+        function call() {
+            time = setInterval(function () { msg() }, 1500);
+        }
+        var i = 0;
+        function msg() {
+            {
+                if (i < path.length - 1) {
+                    i++;
+                    // zamiin ugugdsun holboosiin daguu ajuluulah
+                    document.getElementById("image").src = path[i];
+                }
+                else
+                // zurgiin URL uurchlunu, path duudaj ajiluulna 
+                {
+                    i = 0;
+                    document.getElementById("image").src = path[i];
+                }
+            }
+        }
+//  path utgiig lenght holboj zuragt soligdoh gol uureg guitsetgene ene funtion ni hhuvsagch zarlaad zuragiig automataar solino
+    </script>
+
+    <script>
+        var i = 0;
+        var path = new Array();
+
+        // var ni huvisagch ni ugugdsun utgiin utgiig hadgaldag sav 
+        path[0] = "https://images.unsplash.com/photo-1679939099475-384a2ff77e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80";
+        path[1] = "https://images.unsplash.com/photo-1680034200960-4ed128f6a9ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80";
+        path[2] = "https://images.unsplash.com/photo-1679918632666-029a8fcf51dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80";
+        path[3] = "https://images.unsplash.com/photo-1679940573633-6eb737c8b7f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80";
+        path[4] = "https://images.unsplash.com/photo-1679936167452-18a6119f4006?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80";
+        path[5] = "https://images.unsplash.com/photo-1679920672358-cd0b98b258a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80";
+        //  patch hedench udaa zurag oruuljh bolno zamiin utga oruulna ajillah arga ugnun
+        function hover(img) {
+            { 
+                
+            onmouseover = setInterval(function (zogsoh) { msg() }, 1500); }
+            function msg() {
+                if (i < path.length - 1) {
+                    i++;
+                    // zamiin ugugdsun holboosiin daguu ajuluulah
+                    document.getElementById("im").src = path[i];
+                }
+                else {
+                    i = 0;
+                    // zamiin ugugdsun holboosiin daguu ajuluulah
+                    document.getElementById("im").src = path[i];
+                }
+            }
+        }
+        function hover(img) {
+            // mouse ochih uyd zurag uurchlugdunu
+            var timer = setInterval(function () {
+                if (i < path.length - 1) {
+                    i++;
+                    // zamiin ugugdsun holboosiin daguu ajuluulah
+                } else {
+                    i = 0;
+                }
+                img.src = path[i];
+            }, 1000);
+            // Failiin zamiig gadaad failuudtai holbohod ashigladag
+            img.onmouseout = function () {
+                clearInterval(timer);
+            }
+        }
+    // ene function ni zurag der mouse ochhod automataar hudlunu bas soligdoh hugatsaa
+
+    </script>
+
+    <script>
+        var i = 0;
+        var path = new Array();
+        path[0] = "https://images.unsplash.com/photo-1679939099475-384a2ff77e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80";
+        path[1] = "https://images.unsplash.com/photo-1680034200960-4ed128f6a9ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80";
+        path[2] = "https://images.unsplash.com/photo-1679918632666-029a8fcf51dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80";
+        path[3] = "https://images.unsplash.com/photo-1679940573633-6eb737c8b7f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80";
+        path[4] = "https://images.unsplash.com/photo-1679936167452-18a6119f4006?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80";
+        path[5] = "https://images.unsplash.com/photo-1679920672358-cd0b98b258a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80";
+
+        function next()
+        // elyemyent buriin ekhlekh argiig daraagiin elyemyented butsaana
+        {
+            if (i < path.length - 1) {
+                i++;
+                document.getElementById("ima").src = path[i];
+            }
+            else {
+                i = 0;
+                document.getElementById("ima").src = path[i];
+            }
+        }
+        window.setInterval(next, 500)
+// Ene fumction ni zuragiig avtomataar soligduulna
+   
+   </script>
+</body>
+
+</html>
