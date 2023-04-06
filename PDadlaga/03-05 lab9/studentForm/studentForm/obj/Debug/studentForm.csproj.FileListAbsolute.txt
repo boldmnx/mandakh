@@ -1,6 +1,5 @@
 C:\Users\MU-207-10\Desktop\mandakh\PDadlaga\03-05 lab9\studentForm\studentForm\obj\Debug\studentForm.csprojAssemblyReference.cache
 C:\Users\MU-207-10\Desktop\mandakh\PDadlaga\03-05 lab9\studentForm\studentForm\obj\Debug\studentForm.createStudents.resources
-C:\Users\MU-207-10\Desktop\mandakh\PDadlaga\03-05 lab9\studentForm\studentForm\obj\Debug\studentForm.studentValues.resources
 C:\Users\MU-207-10\Desktop\mandakh\PDadlaga\03-05 lab9\studentForm\studentForm\obj\Debug\studentForm.Properties.Resources.resources
 C:\Users\MU-207-10\Desktop\mandakh\PDadlaga\03-05 lab9\studentForm\studentForm\obj\Debug\studentForm.csproj.GenerateResource.cache
 C:\Users\MU-207-10\Desktop\mandakh\PDadlaga\03-05 lab9\studentForm\studentForm\obj\Debug\studentForm.csproj.CoreCompileInputs.cache
@@ -9,3 +8,4 @@ C:\Users\MU-207-10\Desktop\mandakh\PDadlaga\03-05 lab9\studentForm\studentForm\b
 C:\Users\MU-207-10\Desktop\mandakh\PDadlaga\03-05 lab9\studentForm\studentForm\bin\Debug\studentForm.pdb
 C:\Users\MU-207-10\Desktop\mandakh\PDadlaga\03-05 lab9\studentForm\studentForm\obj\Debug\studentForm.exe
 C:\Users\MU-207-10\Desktop\mandakh\PDadlaga\03-05 lab9\studentForm\studentForm\obj\Debug\studentForm.pdb
+C:\Users\MU-207-10\Desktop\mandakh\PDadlaga\03-05 lab9\studentForm\studentForm\obj\Debug\studentForm.horwuulegch.resources

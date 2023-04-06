@@ -19,23 +19,43 @@ namespace studentForm
 
         private void save_Click(object sender, EventArgs e)
         {
+            string gender;
             ner.Text = nerText.Text;
             nerText.Clear();
             nas.Text = nasText.Text;
             nasText.Clear();
-            if (erRadio.Text == "Эр")
+            gender = erRadio.Text;
+            gender = emRadio.Text;
+            if (erRadio.Checked == true)
             {
-                huis.Text =erRadio.Text;
-                    }
-             if (emRadio.Text == "Эм")
-            {
-                huisEm.Text =emRadio.Text;
+                gender = "Эр";
+                huis.Text = gender;
             }
+            else
+            {
+                gender = "Эм";
+                huisEm.Text = gender;
+            }
+            label12.Text = mergejil.Text;
+            date.Text = dateTimePicker1.Text;
         }
 
         private void createStudents_Load(object sender, EventArgs e)
         {
+            MessageBox.Show("Hello Teacher");
+        }
 
+        private void mergejil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            createStudents createStudents = new createStudents();
+            createStudents.Hide();
+            horwuulegch horwuulegch = new horwuulegch();
+            horwuulegch.ShowDialog();
         }
     }
 }

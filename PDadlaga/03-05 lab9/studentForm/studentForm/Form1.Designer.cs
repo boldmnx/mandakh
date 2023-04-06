@@ -41,6 +41,7 @@
             this.mergejil = new System.Windows.Forms.ComboBox();
             this.save = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.huisEm = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.huis = new System.Windows.Forms.Label();
@@ -51,7 +52,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.huisEm = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -146,14 +148,18 @@
             // mergejil
             // 
             this.mergejil.FormattingEnabled = true;
+            this.mergejil.Items.AddRange(new object[] {
+            "Программ хангамж",
+            "Мэдээллийн систем"});
             this.mergejil.Location = new System.Drawing.Point(309, 75);
             this.mergejil.Name = "mergejil";
             this.mergejil.Size = new System.Drawing.Size(136, 21);
             this.mergejil.TabIndex = 10;
+            this.mergejil.SelectedIndexChanged += new System.EventHandler(this.mergejil_SelectedIndexChanged);
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(181, 195);
+            this.save.Location = new System.Drawing.Point(159, 195);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(75, 23);
             this.save.TabIndex = 11;
@@ -164,6 +170,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.huisEm);
             this.groupBox1.Controls.Add(this.date);
             this.groupBox1.Controls.Add(this.label6);
@@ -177,9 +184,17 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Location = new System.Drawing.Point(483, 49);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(391, 294);
+            this.groupBox1.Size = new System.Drawing.Size(410, 294);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
+            // 
+            // huisEm
+            // 
+            this.huisEm.AutoSize = true;
+            this.huisEm.Location = new System.Drawing.Point(63, 104);
+            this.huisEm.Name = "huisEm";
+            this.huisEm.Size = new System.Drawing.Size(0, 13);
+            this.huisEm.TabIndex = 31;
             // 
             // date
             // 
@@ -266,19 +281,30 @@
             this.label11.TabIndex = 21;
             this.label11.Text = "Нэр:";
             // 
-            // huisEm
+            // label12
             // 
-            this.huisEm.AutoSize = true;
-            this.huisEm.Location = new System.Drawing.Point(63, 104);
-            this.huisEm.Name = "huisEm";
-            this.huisEm.Size = new System.Drawing.Size(0, 13);
-            this.huisEm.TabIndex = 31;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(292, 51);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(0, 13);
+            this.label12.TabIndex = 32;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(259, 195);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Next";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // createStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 392);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.save);
             this.Controls.Add(this.mergejil);
@@ -329,6 +355,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label huisEm;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button1;
     }
 }
 
