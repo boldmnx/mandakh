@@ -15,6 +15,8 @@ namespace studentForm
         public createStudents()
         {
             InitializeComponent();
+
+         
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -42,7 +44,11 @@ namespace studentForm
 
         private void createStudents_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello Teacher");
+            lab12 lab12 = new lab12();
+            lab12.ShowDialog();
+            //createStudents createStudent = new createStudents();
+            //createStudent.Hide();
+            //MessageBox.Show("Hello Teacher");
         }
 
         private void mergejil_SelectedIndexChanged(object sender, EventArgs e)

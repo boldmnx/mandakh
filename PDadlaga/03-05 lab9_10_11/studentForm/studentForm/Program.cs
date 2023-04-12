@@ -16,7 +16,7 @@ namespace studentForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new createStudents());
+            Application.Run(new lab12());
         }
     }
 }
