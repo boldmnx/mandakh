@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChildNotepad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildNotepad.Designer.cs">
+      <DependentUpon>ChildNotepad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fonts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fonts.Designer.cs">
+      <DependentUpon>Fonts.cs</DependentUpon>
+    </Compile>
     <Compile Include="lab11.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,8 +82,26 @@
     <Compile Include="lab10.Designer.cs">
       <DependentUpon>lab10.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notepad%28lab13%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notepad%28lab13%29.Designer.cs">
+      <DependentUpon>Notepad%28lab13%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PageSetup.Designer.cs">
+      <DependentUpon>PageSetup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChildNotepad.resx">
+      <DependentUpon>ChildNotepad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fonts.resx">
+      <DependentUpon>Fonts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="lab12.resx">
       <DependentUpon>lab12.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,6 +111,12 @@
     <EmbeddedResource Include="lab10.resx">
       <DependentUpon>lab10.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Notepad%28lab13%29.resx">
+      <DependentUpon>Notepad%28lab13%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageSetup.resx">
+      <DependentUpon>PageSetup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -89,6 +125,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -102,6 +139,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Annotation 2023-04-19 164755.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fonts.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
