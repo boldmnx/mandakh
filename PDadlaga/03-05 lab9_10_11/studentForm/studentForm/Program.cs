@@ -16,7 +16,7 @@ namespace studentForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Notepad_lab13_());
+            Application.Run(new BolderdeneCalculator());
         }
     }
 }

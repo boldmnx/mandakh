@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BolderdeneCalculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BolderdeneCalculator.Designer.cs">
+      <DependentUpon>BolderdeneCalculator.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChildNotepad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,12 +63,6 @@
     </Compile>
     <Compile Include="Fonts.Designer.cs">
       <DependentUpon>Fonts.cs</DependentUpon>
-    </Compile>
-    <Compile Include="lab11.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="lab11.Designer.cs">
-      <DependentUpon>lab11.cs</DependentUpon>
     </Compile>
     <Compile Include="lab12.cs">
       <SubType>Form</SubType>
@@ -96,6 +96,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BolderdeneCalculator.resx">
+      <DependentUpon>BolderdeneCalculator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChildNotepad.resx">
       <DependentUpon>ChildNotepad.cs</DependentUpon>
     </EmbeddedResource>

@@ -38,3 +38,4 @@ D:\mandakh\PDadlaga\03-05 lab9_10_11\studentForm\studentForm\obj\Debug\studentFo
 D:\mandakh\PDadlaga\03-05 lab9_10_11\studentForm\studentForm\obj\Debug\studentForm.ChildNotepad.resources
 D:\mandakh\PDadlaga\03-05 lab9_10_11\studentForm\studentForm\obj\Debug\studentForm.Fonts.resources
 D:\mandakh\PDadlaga\03-05 lab9_10_11\studentForm\studentForm\obj\Debug\studentForm.PageSetup.resources
+D:\mandakh\PDadlaga\03-05 lab9_10_11\studentForm\studentForm\obj\Debug\studentForm.BolderdeneCalculator.resources
