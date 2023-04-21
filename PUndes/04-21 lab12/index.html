@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script>
+        fetch("http://127.0.0.1:5500/PUndes/04-21%20lab12/movie.html")
+            .then((r) => r.text())
+            .then((result) => {
+                let datas = JSON.parse(result);
+
+                for (let i = 0; i < datas.movies.length; i++) {
+                    const div = document.createElement("div")
+                    const img = document.createElement("img")
+                    const h3 = document.createElement("h3")
+                    const p = document.createElement("p")
+
+                    img.src = datas.movies[i].src
+                    h3.innerHTML = datas.movies[i].name
+                    p.innerHTML = datas.movies[i].time
+
+                    div.appendChild(img)
+                    div.appendChild(h3)
+                    div.appendChild(p)
+                    document.body.appendChild(div)
+                }
+                console.log(`${datas.movies[0].name} энэ нэртэй кино нь ${datas.movies[0].time}-н минут үргэлжилнэ`)
+            })
+    </script>
+</body>
+
+</html>
