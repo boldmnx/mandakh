@@ -39,3 +39,20 @@ D:\mandakh\PDadlaga\03-05 lab9_10_11\studentForm\studentForm\obj\Debug\studentFo
 D:\mandakh\PDadlaga\03-05 lab9_10_11\studentForm\studentForm\obj\Debug\studentForm.Fonts.resources
 D:\mandakh\PDadlaga\03-05 lab9_10_11\studentForm\studentForm\obj\Debug\studentForm.PageSetup.resources
 D:\mandakh\PDadlaga\03-05 lab9_10_11\studentForm\studentForm\obj\Debug\studentForm.BolderdeneCalculator.resources
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\bin\Debug\studentForm.exe.config
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\bin\Debug\studentForm.exe
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\bin\Debug\studentForm.pdb
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\obj\Debug\studentForm.csprojAssemblyReference.cache
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\obj\Debug\studentForm.ChildNotepad.resources
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\obj\Debug\studentForm.Fonts.resources
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\obj\Debug\studentForm.lab12.resources
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\obj\Debug\studentForm.createStudents.resources
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\obj\Debug\studentForm.horwuulegch.resources
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\obj\Debug\studentForm.Notepad_lab13_.resources
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\obj\Debug\studentForm.PageSetup.resources
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\obj\Debug\studentForm.Properties.Resources.resources
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\obj\Debug\studentForm.csproj.GenerateResource.cache
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\obj\Debug\studentForm.csproj.CoreCompileInputs.cache
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\obj\Debug\studentForm.exe
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\obj\Debug\studentForm.pdb
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\studentForm\studentForm\obj\Debug\studentForm.Calculator.resources

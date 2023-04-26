@@ -1,6 +1,6 @@
 ﻿namespace studentForm
 {
-    partial class BolderdeneCalculator
+    partial class Calculator
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BolderdeneCalculator));
-            this.txtDisplay = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calculator));
             this.btnOne = new System.Windows.Forms.Button();
             this.btnTwo = new System.Windows.Forms.Button();
             this.btnThree = new System.Windows.Forms.Button();
@@ -58,19 +57,8 @@
             this.btnEquals = new System.Windows.Forms.Button();
             this.btnPlus = new System.Windows.Forms.Button();
             this.btnMC = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
-            // 
-            // txtDisplay
-            // 
-            this.txtDisplay.BackColor = System.Drawing.SystemColors.Window;
-            this.txtDisplay.Location = new System.Drawing.Point(12, 12);
-            this.txtDisplay.MaxLength = 10;
-            this.txtDisplay.Name = "txtDisplay";
-            this.txtDisplay.ReadOnly = true;
-            this.txtDisplay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtDisplay.Size = new System.Drawing.Size(229, 20);
-            this.txtDisplay.TabIndex = 0;
-            this.txtDisplay.TabStop = false;
             // 
             // btnOne
             // 
@@ -180,6 +168,7 @@
             this.btnZero.TabIndex = 10;
             this.btnZero.Text = "0";
             this.btnZero.UseVisualStyleBackColor = true;
+            this.btnZero.Click += new System.EventHandler(this.btnZero_Click);
             // 
             // btnDot
             // 
@@ -190,6 +179,7 @@
             this.btnDot.TabIndex = 11;
             this.btnDot.Text = ".";
             this.btnDot.UseVisualStyleBackColor = true;
+            this.btnDot.Click += new System.EventHandler(this.btnDot_Click);
             // 
             // btnMR
             // 
@@ -201,6 +191,7 @@
             this.btnMR.TabIndex = 13;
             this.btnMR.Text = "MR";
             this.btnMR.UseVisualStyleBackColor = false;
+            this.btnMR.Click += new System.EventHandler(this.btnMR_Click);
             // 
             // btnMS
             // 
@@ -212,6 +203,7 @@
             this.btnMS.TabIndex = 14;
             this.btnMS.Text = "MS";
             this.btnMS.UseVisualStyleBackColor = false;
+            this.btnMS.Click += new System.EventHandler(this.btnMS_Click);
             // 
             // btnMPlus
             // 
@@ -223,6 +215,7 @@
             this.btnMPlus.TabIndex = 15;
             this.btnMPlus.Text = "M+";
             this.btnMPlus.UseVisualStyleBackColor = false;
+            this.btnMPlus.Click += new System.EventHandler(this.btnMPlus_Click);
             // 
             // btmMinus
             // 
@@ -234,6 +227,7 @@
             this.btmMinus.TabIndex = 16;
             this.btmMinus.Text = "M-";
             this.btmMinus.UseVisualStyleBackColor = false;
+            this.btmMinus.Click += new System.EventHandler(this.btmMinus_Click);
             // 
             // btnSum
             // 
@@ -245,6 +239,7 @@
             this.btnSum.TabIndex = 18;
             this.btnSum.Text = "<--";
             this.btnSum.UseVisualStyleBackColor = false;
+            this.btnSum.Click += new System.EventHandler(this.btnSum_Click);
             // 
             // btnCE
             // 
@@ -256,6 +251,7 @@
             this.btnCE.TabIndex = 19;
             this.btnCE.Text = "CE";
             this.btnCE.UseVisualStyleBackColor = false;
+            this.btnCE.Click += new System.EventHandler(this.btnCE_Click);
             // 
             // btnC
             // 
@@ -267,6 +263,7 @@
             this.btnC.TabIndex = 20;
             this.btnC.Text = "C";
             this.btnC.UseVisualStyleBackColor = false;
+            this.btnC.Click += new System.EventHandler(this.btnC_Click);
             // 
             // btnPlusMinus
             // 
@@ -278,6 +275,7 @@
             this.btnPlusMinus.TabIndex = 21;
             this.btnPlusMinus.Text = "+-";
             this.btnPlusMinus.UseVisualStyleBackColor = false;
+            this.btnPlusMinus.Click += new System.EventHandler(this.btnPlusMinus_Click);
             // 
             // btnSquareRoot
             // 
@@ -289,6 +287,7 @@
             this.btnSquareRoot.TabIndex = 22;
             this.btnSquareRoot.Text = "SR";
             this.btnSquareRoot.UseVisualStyleBackColor = false;
+            this.btnSquareRoot.Click += new System.EventHandler(this.btnSquareRoot_Click);
             // 
             // btnDivision
             // 
@@ -312,6 +311,7 @@
             this.btnPercent.TabIndex = 24;
             this.btnPercent.Text = "%";
             this.btnPercent.UseVisualStyleBackColor = false;
+            this.btnPercent.Click += new System.EventHandler(this.btnPercent_Click);
             // 
             // btnTimes
             // 
@@ -335,6 +335,7 @@
             this.btnOneX.TabIndex = 26;
             this.btnOneX.Text = "1/x";
             this.btnOneX.UseVisualStyleBackColor = false;
+            this.btnOneX.Click += new System.EventHandler(this.btnOneX_Click);
             // 
             // btnMinus
             // 
@@ -382,6 +383,15 @@
             this.btnMC.TabIndex = 12;
             this.btnMC.Text = "MC";
             this.btnMC.UseVisualStyleBackColor = false;
+            this.btnMC.Click += new System.EventHandler(this.btnMC_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(13, 5);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(229, 52);
+            this.richTextBox1.TabIndex = 30;
+            this.richTextBox1.Text = "";
             // 
             // BolderdeneCalculator
             // 
@@ -389,6 +399,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(254, 316);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btnPlus);
             this.Controls.Add(this.btnEquals);
             this.Controls.Add(this.btnMinus);
@@ -417,7 +428,6 @@
             this.Controls.Add(this.btnThree);
             this.Controls.Add(this.btnTwo);
             this.Controls.Add(this.btnOne);
-            this.Controls.Add(this.txtDisplay);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(270, 355);
             this.MinimizeBox = false;
@@ -427,13 +437,10 @@
             this.Text = "Тооны машин";
             this.Load += new System.EventHandler(this.BolderdeneCalculator_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtDisplay;
         private System.Windows.Forms.Button btnOne;
         private System.Windows.Forms.Button btnTwo;
         private System.Windows.Forms.Button btnThree;
@@ -462,5 +469,6 @@
         private System.Windows.Forms.Button btnEquals;
         private System.Windows.Forms.Button btnPlus;
         private System.Windows.Forms.Button btnMC;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

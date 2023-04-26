@@ -16,7 +16,7 @@ namespace studentForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BolderdeneCalculator());
+            Application.Run(new Calculator());
         }
     }
 }

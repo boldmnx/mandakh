@@ -1,0 +1,41 @@
+C:\Users\apoxm\OneDrive\Desktop\dadlag15\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\apoxm\OneDrive\Desktop\dadlag15\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\apoxm\OneDrive\Desktop\dadlag15\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\apoxm\OneDrive\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\apoxm\OneDrive\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\apoxm\OneDrive\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\apoxm\OneDrive\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\apoxm\OneDrive\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\apoxm\OneDrive\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\apoxm\OneDrive\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\MU-207-04\Desktop\dadlag15\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\MU-207-04\Desktop\dadlag15\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\MU-207-04\Desktop\dadlag15\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\MU-207-04\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\MU-207-04\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\MU-207-04\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\MU-207-04\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\MU-207-04\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\MU-207-04\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\MU-207-04\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\MU-207-01\Desktop\dadlag15\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\MU-207-01\Desktop\dadlag15\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\MU-207-01\Desktop\dadlag15\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\MU-207-01\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\MU-207-01\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.SuggestedBindingRedirects.cache
+C:\Users\MU-207-01\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\MU-207-01\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\MU-207-01\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\MU-207-01\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\MU-207-01\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\MU-207-01\Desktop\dadlag15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\dadlaga15\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\dadlaga15\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\dadlaga15\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\dadlaga15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\dadlaga15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\dadlaga15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\dadlaga15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\dadlaga15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\dadlaga15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\MU-207-04\Desktop\mandakh\PDadlaga\03-05 Visual Studio\dadlaga15\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
