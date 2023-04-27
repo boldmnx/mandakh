@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="list">
+        <li>Backend</li>
+        <li>Frontend</li>
+    </ul>
+
+    <button onclick="add()">Add</button>
+    <button onclick="del()">Delete</button>
+    <script>
+        function add() {
+            var list = document.getElementById("list")
+            var li = document.createElement("li")
+            var text = document.createTextNode("Design")
+
+            li.appendChild(text)
+            list.appendChild(li)
+
+            for (let i = 0; i < list; i++) {
+            console.log(i)
+            }
+        }
+
+        function del() {
+            var list = document.getElementById("list")
+            list.removeChild(list.lastChild)
+        }
+    </script>
+</body>
+
+</html>
