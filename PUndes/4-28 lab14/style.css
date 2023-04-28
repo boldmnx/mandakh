@@ -1,0 +1,16 @@
+img {
+  width: 300px;
+  height: 200px;
+}
+div {
+  float: left;
+  padding-left: 10px;
+}
+p {
+  width: 300px;
+}
+input{
+  
+    width: 250px;
+    padding: 5px;
+}
