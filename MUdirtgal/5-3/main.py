@@ -7,7 +7,7 @@ for i in range(0, 300, 25):
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
     table = soup.find('table', class_='table table-condensed')
-    # print(table)
+
 
     for row in table.find_all('tr'):
         columns = row.find_all('td')

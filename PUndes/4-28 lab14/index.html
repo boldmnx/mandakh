@@ -1,101 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <!-- <input id="search" /><button onclick="Search()">search</button> -->
-    <ul id="list">
-      <li>Backend</li>
-      <li>Frontend</li>
-    </ul>
-    <button onclick="add()">Add</button>
-    <button onclick="del()">Delete</button>
-    <button onclick="delAll()">Delete All</button>
-    <script>
-      let count = 0;
-      function delAll() {
-        // var list = document.getElementById("list"); 
-        // let count = list
-        while (count > 0) {
-          list.removeChild(list.firstChild)
-          count--
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-        }
+<body>
+  <input id="search" /><button onclick="Search()">search</button>
+  <script>
+      function Search() {
+        const search = document.getElementById("search").value;
+        fetch("https://forkify-api.herokuapp.com/api/search?q=" + search)
+          .then((r) => r.text())
+          .then((res) => {
+            const data = JSON.parse(res);
 
+            var div = document.createElement("div");
+            var img = document.createElement("img");
 
+            img.src = data.recipes[0].image_url;
 
-        // for (let i = 0; i < list.count; i++) {
-        //   list.removeChild(list[i].lastChild);
-        // }
+            div.appendChild(img);
+            document.body.appendChild(div);
+          });
       }
 
-      function add() {
-        var list = document.getElementById("list");
-        var li = document.createElement("li");
-        var text = document.createTextNode("Design");
+      fetch("https://forkify-api.herokuapp.com/api/search?q=pizza")
+        .then((r) => r.text())
+        .then((res) => {
+          const data = JSON.parse(res);
+          for (let i = 0; i < 8; i++) {
+            var div = document.createElement("div");
+            var image_url = document.createElement("img");
+            var publisher_url = document.createElement("p");
+            var publisher = document.createElement("p");
+            var recipe_id = document.createElement("p");
+            var social_rank = document.createElement("p");
+            var source_url = document.createElement("p");
+            var title = document.createElement("p");
 
-        li.appendChild(text);
-        list.appendChild(li);
-      }
-      function del() {
-        var list = document.getElementById("list");
-        list.removeChild(list.lastChild);
-      }
+            div.appendChild(image_url);
+            div.appendChild(publisher_url);
+            div.appendChild(publisher);
+            div.appendChild(recipe_id);
+            div.appendChild(social_rank);
+            div.appendChild(source_url);
+            div.appendChild(title);
+            document.body.appendChild(div);
 
-      // function Search() {
-      //   const search = document.getElementById("search").value;
-      //   fetch("https://forkify-api.herokuapp.com/api/search?q=" + search)
-      //     .then((r) => r.text())
-      //     .then((res) => {
-      //       const data = JSON.parse(res);
+            image_url.src = data.recipes[i].image_url;
+            publisher_url.innerHTML = data.recipes[i].publisher_url;
+            publisher.innerHTML = data.recipes[i].publisher;
+            recipe_id.innerHTML = data.recipes[i].recipe_id;
+            social_rank.innerHTML = data.recipes[i].social_rank;
+            source_url.innerHTML = data.recipes[i].source_url;
+          }
+        });
+  </script>
+</body>
 
-      //       var div = document.createElement("div");
-      //       var img = document.createElement("img");
-
-      //       img.src = data.recipes[0].image_url;
-
-      //       div.appendChild(img);
-      //       document.body.appendChild(div);
-      //     });
-      // }
-
-      // fetch("https://forkify-api.herokuapp.com/api/search?q=pizza")
-      //   .then((r) => r.text())
-      //   .then((res) => {
-      //     const data = JSON.parse(res);
-      //     for (let i = 0; i < 8; i++) {
-      //       var div = document.createElement("div");
-      //       var image_url = document.createElement("img");
-      //       var publisher_url = document.createElement("p");
-      //       var publisher = document.createElement("p");
-      //       var recipe_id = document.createElement("p");
-      //       var social_rank = document.createElement("p");
-      //       var source_url = document.createElement("p");
-      //       var title = document.createElement("p");
-
-      //       div.appendChild(image_url);
-      //       div.appendChild(publisher_url);
-      //       div.appendChild(publisher);
-      //       div.appendChild(recipe_id);
-      //       div.appendChild(social_rank);
-      //       div.appendChild(source_url);
-      //       div.appendChild(title);
-      //       document.body.appendChild(div);
-
-      //       image_url.src = data.recipes[i].image_url;
-      //       publisher_url.innerHTML = data.recipes[i].publisher_url;
-      //       publisher.innerHTML = data.recipes[i].publisher;
-      //       recipe_id.innerHTML = data.recipes[i].recipe_id;
-      //       social_rank.innerHTML = data.recipes[i].social_rank;
-      //       source_url.innerHTML = data.recipes[i].source_url;
-      //     }
-      //   });
-    </script>
-  </body>
 </html>
