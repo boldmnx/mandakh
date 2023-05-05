@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <body>
+    <ul id="list"></ul>
+    <button onclick="add()">Add</button>
+    <button onclick="del()">Delete</button>
+    <button onclick="delAll()">Delete All</button>
+    <script>
+      let count = 0;
+      function add() {
+        var data = prompt("Та мэргэжлээ оруулна уу");
+        var list = document.getElementById("list");
+        var li = document.createElement("li");
+        var text = document.createTextNode(data);
 
-<body>
-  <ul id="list">
-  </ul>
-  <button onclick="add()">Add</button>
-  <button onclick="del()">Delete</button>
-  <button onclick="delAll()">Delete All</button>
-  <script>
-    let count = 0;
-    function add() {
-      var data = prompt("Та мэргэжлээ оруулна уу")
-      var list = document.getElementById("list");
-      var li = document.createElement("li");
-      var text = document.createTextNode(data);
-
-      li.appendChild(text);
-      list.appendChild(li);
-      count++
-    }
-    function del() {
-      var list = document.getElementById("list");
-      list.removeChild(list.lastChild);
-    }
-    function delAll() {
-      var list = document.getElementById("list");
-
-      while (count != 0) {
-        list.removeChild(list.firstChild)
-        count--
+        li.appendChild(text);
+        list.appendChild(li);
+        count++;
       }
-    }
-  </script>
-</body>
+      function del() {
+        var list = document.getElementById("list");
+        list.removeChild(list.lastChild);
+      }
+      function delAll() {
+        var list = document.getElementById("list");
+
+        while (count != 0) {
+          list.removeChild(list.firstChild);
+          count--;
+        }
+      }
+    </script>
+  </body>
 </html>

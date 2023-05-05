@@ -9,3 +9,27 @@
 #para {
   color: red;
 }
+form {
+        margin: 0 auto;
+        width: 400px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        /* border-radius: 5px; */
+        background-color: rgb(156, 131, 240);
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+      }
+      input[type="radio"] {
+        display: inline;
+        margin-left: 10px;
+      }
