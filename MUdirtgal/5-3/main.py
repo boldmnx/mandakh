@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+
 a = []
 for i in range(0, 300, 25):
     url = 'https://www.spoj.com/RGB7/ranks2/?start='+str(i)
@@ -18,7 +19,7 @@ for i in range(0, 300, 25):
             # print(rank, username, solved)
             a.append([rank, username, solved])
 
-print(a)
+# print(a)
 
 with open('your_file.txt', 'w') as f:
     for line in a:
