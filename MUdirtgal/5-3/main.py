@@ -21,6 +21,6 @@ for i in range(0, 300, 25):
 
 # print(a)
 
-with open('your_file.txt', 'w') as f:
-    for line in a:
-        f.write(f"{line}\n")
+    with open('your_file.txt', 'w') as f:
+        for line in a:
+            f.write(f"{line}\n")
