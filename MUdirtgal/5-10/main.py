@@ -1,25 +1,28 @@
 import math
 
+# Anhnii too esehiig shalgah
 
-n = int(input())
-# b = int(n)
+# m=math.sqrt(int(input()))
+# n=int(m)
+# ans="YES"
 
-# print(b)
-# for i in range(0, b + 1, 1):
-#     if b % i == 0:
+# for i in range(2,n + 1, 1):
+#     if int(n) % i == 0:
 #         ans = "NO"
 #     break
 
-# if b == 1:
+# if n == 1:
 #     print("NO")
 # else:
 #     print(ans)
 
+# garaas orson toonuudiin Tugs toog olov
+
+n=int(input())
 
 def checktugs(n):
-    count = 0
     sum1 = 0
-    for i in range(1, n/2+1, 1):
+    for i in range(1, n//2+1, 1):
         if n % i == 0:
             sum1 += i
             # print(i)
@@ -30,6 +33,6 @@ def checktugs(n):
         return False
 
 
-for i in range(1, 1000, 1):
+for i in range(1, n, 1):
     if checktugs(i) == True:
         print(i)
