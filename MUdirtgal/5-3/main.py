@@ -3,12 +3,11 @@ from bs4 import BeautifulSoup
 
 
 a = []
-for i in range(0, 300, 25):
+for i in range(0, 75, 25):
     url = 'https://www.spoj.com/RGB7/ranks2/?start='+str(i)
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
     table = soup.find('table', class_='table table-condensed')
-
 
     for row in table.find_all('tr'):
         columns = row.find_all('td')
@@ -21,6 +20,6 @@ for i in range(0, 300, 25):
 
 # print(a)
 
-    with open('your_file.txt', 'w') as f:
-        for line in a:
-            f.write(f"{line}\n")
+with open('your_file.txt', 'w', encoding="utf-8") as f:
+    for line in a:
+        f.write(f"{line}\n")
