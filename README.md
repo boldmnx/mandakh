@@ -1,1 +1,1 @@
-# mandakh-bolderdenej
+# mandakh
