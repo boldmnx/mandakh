@@ -1,2 +1,3 @@
 # 1 Томоос жижигт
-print("K".lower())
+s=str(input())
+print(s.lower())

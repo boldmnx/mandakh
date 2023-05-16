@@ -1,6 +1,3 @@
-
-
-
 # 11	Палиндром эсэх	
 too = str(input())
 con = True
@@ -13,19 +10,3 @@ if(con):
     print("YES")
 else:
     print("NO")
-
-
-
-# from sys import maxsize; maxsize
-# a =int(input()); 
-# cnt=maxsize
-# for i in range(0,a):
-#     input(a[i])
-# for j in range(0,a):
-#     if(a[i]<cnt):
-#         cnt=a[i]
-# print(cnt)
-
-
-
-

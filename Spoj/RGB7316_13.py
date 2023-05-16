@@ -1,16 +1,16 @@
 # Гурван тооны ХБЕХ
-def gcd(a, b):
-    if a == 0:
-        return b
+a, b, e = map(int, input().split())
+s = a*b
+while (a != b):
+    if (a > b):
+        a -= b
     else:
-        gcd(b % a, a)
-
-
-def lcm(a, b):
-    return a / int(gcd(a, b)*b)
-
-
-a = int(input())
-b = int(input())
-c = int(input())
-print(lcm(a, lcm(b, c)))
+        b -= a
+d = s//a
+f = d*e
+while (d != e):
+    if (d > e):
+        d -= e
+    else:
+        e -= d
+print(f//d)
