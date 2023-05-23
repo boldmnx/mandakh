@@ -16,7 +16,7 @@
 .row {
     width: 900px;
     height: 800px;
-    margin-left: 200px;
+    margin-left: 300px;
 }
 
 img {
@@ -30,6 +30,6 @@ p {
 }
 
 [class*="sum"] {
-    float: left;
+    float:right;
     width: 200px;
 }

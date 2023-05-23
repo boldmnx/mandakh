@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .button {
+        margin: 10px;
+        float: left;
+      }
+      #note {
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+      #a {
+        margin: 10px;
+        float: left;
+        height: 500px;
+        width: 500px;
+        background-color: yellow;
+      }
+      .b {
+        height: 400px;
+        width: 400px;
+        background-color: purple;
+      }
+      .c {
+        height: 300px;
+        width: 300px;
+        background-color: blue;
+      }
+      .d {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+      }
+      .e {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="a" onmousemove="mouseMove(event)">
+      <div class="b">
+        <div class="c">
+          <div class="d">
+            <div class="e"></div>
+          </div>
+        </div>
+      </div>
+      <p id="note"></p>
+    </div>
+    <div class="button">
+      <button id="btn" onclick="btn()">Password</button>
+    </div>
+
+    <script>
+      function mouseMove(event) {
+        let x = event.clientX;
+        let y = event.clientY;
+        document.getElementById("note").innerHTML = `Өргөн: ${x}, өндөр: ${y}`;
+      }
+
+      function btn() {
+        let a = prompt("nuuts ugee oruulna uu!");
+        while (a != "12345678") {
+          a = prompt("nuuts buruu bna dahin oruulna uu!");
+        }
+        document.getElementById("btn").innerHTML = "Tavtai moril";
+      }
+    </script>
+  </body>
+</html>

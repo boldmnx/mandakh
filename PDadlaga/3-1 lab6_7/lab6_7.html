@@ -1,81 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./lab6_7.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="./lab6_7.css" />
+  </head>
 
-<body>
+  <body>
     <div class="a" onmousemove="getCoords(event)">
-        <!-- // div deer mouse guih uyd getCoords function ajillana// -->
-        <div class="b">
-            <div class="c">
-                <div class="d">
-                    <div class="e"></div>
-                </div>
-            </div>
+      <!-- // div deer mouse guih uyd getCoords function ajillana// -->
+      <div class="b">
+        <div class="c">
+          <div class="d">
+            <div class="e"></div>
+          </div>
         </div>
+      </div>
     </div>
     <p id="coords"></p>
-    <button type="button" onclick="Guest()"> button</button>
+    <button type="button" onclick="Guest()">button</button>
     <p id="guestP"></p>
 
-    <img class="img" id="1" onclick='tom()'
-        src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1274&q=80">
+    <img
+      class="img"
+      id="1"
+      onclick="tom()"
+      src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1274&q=80"
+    />
     <!-- //zurag deer darah uyd tom function ajillana// -->
-    
-    <img class="img" id="2"
-        src="https://media.istockphoto.com/id/1321098236/photo/sunset-at-the-quiraing-on-the-isle-of-skye-in-scotland.jpg?s=1024x1024&w=is&k=20&c=HAbUgOAmd0ckgTTX5l3hxVnAf-wZ5Fq_NE5puXWUM94=">
-    <img class="img" id="3"
-        src="https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80">
-    <img class="img" id="4"
-        src="https://images.unsplash.com/photo-1444464666168-49d633b86797?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80">
-    <br>
-    <img class="img" id="5"
-        src="https://images.unsplash.com/photo-1431794062232-2a99a5431c6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80">
-    <img class="img" id="6"
-        src="https://images.unsplash.com/photo-1414609245224-afa02bfb3fda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=689&q=80">
-    <img class="img" id="7"
-        src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80">
-    <img class="img" id="8"
-        src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80">
 
+    <img
+      class="img"
+      id="2"
+      src="https://media.istockphoto.com/id/1321098236/photo/sunset-at-the-quiraing-on-the-isle-of-skye-in-scotland.jpg?s=1024x1024&w=is&k=20&c=HAbUgOAmd0ckgTTX5l3hxVnAf-wZ5Fq_NE5puXWUM94="
+    />
+    <img
+      class="img"
+      id="3"
+      src="https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    />
+    <img
+      class="img"
+      id="4"
+      src="https://images.unsplash.com/photo-1444464666168-49d633b86797?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
+    />
+    <br />
+    <img
+      class="img"
+      id="5"
+      src="https://images.unsplash.com/photo-1431794062232-2a99a5431c6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    />
+    <img
+      class="img"
+      id="6"
+      src="https://images.unsplash.com/photo-1414609245224-afa02bfb3fda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=689&q=80"
+    />
+    <img
+      class="img"
+      id="7"
+      src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    />
+    <img
+      class="img"
+      id="8"
+      src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80"
+    />
 
     <script>
-        function getCoords(event) { //coordinat haruulah function//
-            let x = event.clientX;//x tenhleg//
-            let y = event.clientY;//y tenhleg//
-            let text = "Coordinates: ( " + x + ',' + y + ')';
-            document.getElementById("coords").innerHTML = text;//coords idtai p tagt text iin utga onooj ogoh//
-
+      function getCoords(event) {
+        //coordinat haruulah function//
+        let x = event.clientX; //x tenhleg//
+        let y = event.clientY; //y tenhleg//
+        let text = "Coordinates: ( " + x + "," + y + ")";
+        document.getElementById("coords").innerHTML = text; //coords idtai p tagt text iin utga onooj ogoh//
+      }
+      function Guest() {
+        let text;
+        let zochin = prompt("нэрээ оруулна уу", "guest");
+        if (zochin != "guest" || zochin == null) {
+          prompt("нэрээ оруулна уу", "guest");
+        } else {
+          text = "guest";
+          document.getElementById("guestP").innerHTML = text;
         }
-        function Guest() {
-            let text;
-            let zochin = prompt('нэрээ оруулна уу', 'guest');
-            if (zochin != 'guest' || zochin == null) {
-                prompt('нэрээ оруулна уу', 'guest')
-            }
-            else {
-                text = 'guest';
-                document.getElementById('guestP').innerHTML = text;
-            }
+      }
+      let mg1 = true;
+      function tom() {
+        //zurgiin hemjee oorchloh function//
+        if (mg1) {
+          document.getElementById("1").style.width = "300px"; //orgon oorchlolt//
+          document.getElementById("1").style.height = "350px"; //ondor oorchlolt//
+          mg1 = false;
+        } else {
+          document.getElementById("1").style.width = "100px"; // nohtsol hudal bol orgon oorchlolt//
+          document.getElementById("1").style.height = "100px"; // nohtsol hudal bol orgon  oorchlolt//
         }
-        let mg1 = true;
-        function tom() {  //zurgiin hemjee oorchloh function//
-            if (mg1) {
-                document.getElementById('1').style.width = '300px' //orgon oorchlolt//
-                document.getElementById('1').style.height = '350px'//ondor oorchlolt//
-                mg1 = false;
-            } else {
-                document.getElementById('1').style.width = '100px' // nohtsol hudal bol orgon oorchlolt//
-                document.getElementById('1').style.height = '100px' // nohtsol hudal bol orgon  oorchlolt//
-            }
-        }
+      }
     </script>
-</body>
-
+  </body>
 </html>

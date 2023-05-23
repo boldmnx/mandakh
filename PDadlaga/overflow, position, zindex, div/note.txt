@@ -1,0 +1,13 @@
+position---------------------
+1. absolute is relative to position
+2. fixed is relative to the window
+3. relative is relative to html
+4. sticky is relative to scroll
+----------------------------------z-index
+zurgiig textiin tsaana oruulahad ashiglana
+davharlah bol hamgiin tsaana bhiig n 0 geed tgeed 1,2,3 gd yvna
+-----------------------------overflow
+1. visible is in div
+2. hidden is used in div
+3. scroll is used in div
+4. auto is similar scroll but added when needs

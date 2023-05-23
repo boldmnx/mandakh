@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function digitSum(x) {
+        let sum = 0;
+        while (x > 0) {
+          sum += x % 10;
+          //Math.ceil() 15.1=>16 bolgoj avna
+          //Math.floor() 15.1=>15 bolgoj avna
+          x = Math.floor(x / 10);
+        }
+        return sum;
+      }
+      console.log(digitSum(43333344));
+    </script>
+  </body>
+</html>

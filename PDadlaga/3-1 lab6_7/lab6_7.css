@@ -2,14 +2,14 @@
     width: 500px;
     height: 500px;
     background-color: yellow;
-    position: relative;
+    position:relative;
 
 }
 .b{
     width: 400px;
     height: 400px;
     background-color: orange;
-    position: relative;
+    position:relative;
 }
 .c{
     width: 300px;
