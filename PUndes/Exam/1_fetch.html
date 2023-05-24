@@ -8,22 +8,56 @@
   </head>
   <body>
     <script>
+      cnt = 0;
       fetch("https://forkify-api.herokuapp.com/api/search?q=pizza")
-        .then((res) => res.json())
-        .then((data) => {
-          data.recipes.forEach((e) => {
-            if (cnt != 10) {
+        .then((r) => r.json())
+        .then((res) => {
+          res.recipes.forEach((e) => {
+            if (cnt != 5) {
               const div = document.createElement("div");
               const h3 = document.createElement("h3");
-              const text = document.createTextNode(e.title);
+              const img = document.createElement("img");
 
-              h3.appendChild(text);
+              div.style.float = "left";
+              div.style.margin = "10px";
+              img.width = 300;
+              img.height = 200;
+              img.src = e.image_url;
+              h3.innerHTML = e.title;
+
               div.appendChild(h3);
+              div.appendChild(img);
               document.body.appendChild(div);
+              cnt++;
             }
           });
         })
         .catch((err) => console.log(err));
+
+      arr1 = [1, 2, 3, 4, 5];
+      arr2 = [6, 7, 8, 9];
+      sArr = arr1.concat(arr2);
+      console.log(sArr);
+
+      m = [1, [6, 7, 8, 9]];
+      mFlat = m.flat();
+      console.log(mFlat);
+
+      s = "FFffaatherfF";
+      sum = "";
+      for (let i = 0; i < s.length; i++) {
+        if (s[i] === "F") {
+          sum += "p";
+        }
+        if (s[i] === "f") {
+          sum += "p";
+        }
+        sum += s[i];
+      }
+      console.log(sum);
+
+      // sRe = s.replace(/f/gi, "p");
+      // console.log(sRe)
     </script>
   </body>
 </html>
