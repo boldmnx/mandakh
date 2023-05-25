@@ -46,13 +46,11 @@
       s = "FFffaatherfF";
       sum = "";
       for (let i = 0; i < s.length; i++) {
-        if (s[i] === "F") {
+        if (s[i] === "F" || s[i] === "f") {
           sum += "p";
+        } else {
+          sum += s[i];
         }
-        if (s[i] === "f") {
-          sum += "p";
-        }
-        sum += s[i];
       }
       console.log(sum);
 

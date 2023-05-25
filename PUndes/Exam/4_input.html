@@ -7,15 +7,20 @@
     <title>Document</title>
   </head>
   <body>
-    <input id="input" /> + <input id="input1" /> =
-    <button onclick="btn()" id="button">Нийлбэр</button>
-    <script>
-      function btn() {
-        let input = document.getElementById("input").value;
-        let input1 = document.getElementById("input1").value;
-        let button = document.getElementById("button");
+    <input id="input" />
+    <button onclick="btn()">=</button>
+    <p id="p"></p>
 
-        button.innerHTML = `${parseInt(input) + parseInt(input1)}`;
+    <script>
+      arr = [];
+      function btn() {
+        input = document.getElementById("input").value;
+        sum = 0;
+
+        arr.push(parseInt(input));
+        arr.forEach((e) => (sum += e));
+
+        document.getElementById("p").innerHTML = sum;
       }
     </script>
   </body>
