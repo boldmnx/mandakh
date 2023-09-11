@@ -61,10 +61,37 @@
 # Даалгавар 6 ##
 #################
 # •	1-10 хүртэлх тоог while давталт ашиглан хэвлэх
-i = 0
+# i = 0
 # while i < 10:
 #     i += 1
 #     print(i)
+
+
+# too = print('sn Bnuu my applicationd tavtai moril')
+# while too != 0:
+#     too = int(input("1-7hurtel too oruulna uu garah bol 0 tovchiig darn uu: "))
+#     if too == 1:
+#         print('davaa garig')
+#     elif too == 2:
+#         print('mygmar garig')
+#     elif too == 3:
+#         print('lhagva garig')
+#     elif too == 4:
+#         print('purev garig')
+#     elif too == 5:
+#         print('baasan garig')
+#     continue
+
+if __name__=='__main__':
+
+
+
+
+
+
+
+
+
 # •	100-10 хүртэлх тоог хэвлэх (break)
 # for i in range(100,10,-1):
 #     if i==11:
@@ -87,11 +114,11 @@ i = 0
 #################
 # •	“Python” тэмдэгтээс “h” тэмдэгтийг хасаж хэвлэх
 # a = 'Pythonh'
-# b = ''
+# too = ''
 # for i in a:
 #     if i != 'h':
-#         b += i
-# print(b)
+#         too += i
+# print(too)
 # print(a.replace('h', '',2))
 # •	1-50 хүртэлх тоонуудаас тэгш тоог хэвлэх (continue)
 # for i in range(1, 50):
@@ -114,9 +141,9 @@ i = 0
 #################
 # •	Гараас ямар нэгэн тоон утга авч оронгийн нийлбэрийг хэвлэх. Жишээ нь:
 # a = 123
-# b = str(a)
+# too = str(a)
 # s = 0
-# for i in b:
+# for i in too:
 #     s += int(i)
 # print(s)
 # •	Оролт: 123

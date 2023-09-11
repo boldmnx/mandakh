@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        @media screen {
+
+            input[type=text],
+            input[type=email] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            input[type=submit] {
+                width: 100%;
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+            div {
+                width: 100%;
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
+        }
+
+        input[type=text],
+        input[type=email] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        div {
+            width: 100%;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            width: 400px;
+            margin-left: 400px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form action="" onsubmit="return myFunction()">
+            <label for="lName">Овог:</label>
+            <input type="text" id="lName" name="lName" />
+            <label for="fName">Нэр:</label>
+            <input type="text" id="fName" name="fName" />
+            <label for="age">Нас:</label>
+            <input type="text" name="age" id="age">
+            <label for="email">Имэйл:</label>
+            <input type="email" name="email" id="email">
+            <label for="phone"> Утасны дугаар:</label>
+            <input type="text" name="phone" id="phone">
+            <input type="submit" value="Бүртгүүлэх" />
+        </form>
+    </div>
+    <script>
+        function myFunction() {
+            let lName = document.getElementById("lName").value
+            let fName = document.getElementById("fName").value
+            let age = document.getElementById("age").value
+            let email = document.getElementById("email").value.indexOf()
+            let phone = document.getElementById("phone").value
+            let submitOk = 'true'
+
+            if (lName == "") {
+                submitOk = 'false'
+                alert('Ovogoo oruulna uu!')
+            }
+            if (fName == "") {
+                submitOk = 'false'
+                alert('Neree oruulna uu!')
+            }
+            if (isNaN(age) || age < 1) {
+                submitOk = 'false'
+                alert('Nasaa oruulna uu!')
+            }
+            if (email == -1) {
+                submitOk = 'false'
+                alert('Email oruulna uu!')
+            }
+            if (phone == "" || isNaN(phone)) {
+                submitOk = 'false'
+                alert('Dugaaraa oruulna uu!')
+            }
+            if (submitOk = 'false')
+                return false
+        }
+    </script>
+</body>
+
+</html>
