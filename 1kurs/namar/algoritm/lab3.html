@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab3</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <script>
+        let golch = parseFloat(prompt("Голчоо оруулна уу"))
+        let u1
+        if (4.0 == golch) u1 = 'A'
+        else if (3.6 <= golch) u1 = "A-"
+        else if (3.1 < golch) u1 = "B"
+        else if (2.7 <= golch) u1 = "B-"
+        else if (2.3 <= golch) u1 = "C"
+        else if (1.9 <= golch) u1 = "C-"
+        else if (1.4 <= golch) u1 = "D"
+        else if (1.0 <= golch) u1 = "D-"
+        else if (golch >= 0) u1 = "F"
+        else u1 = 'Golch oo zov oruulna uu'
+        document.getElementById('demo').innerHTML = `Таны дүн: ${u1}`
+
+        //     let too = parseInt(prompt("Оноогоо оруулна уу"))
+        // switch (true) {
+        //     case 95 <= too && too <= 100:
+        //         u = 'A'
+        //         break
+        //     case 90 <= too && too <= 94:
+        //         u = '-AF'
+        //         break
+        //     case 85 <= too && too <= 89:
+        //         u = 'B'
+        //         break
+        //     case 80 <= too && too <= 84:
+        //         u = 'B-'
+        //         break
+        //     case 75 <= too && too <= 79:
+        //         u = 'C'
+        //         break
+        //     case 70 <= too && too <= 74:
+        //         u = 'C-'
+        //         break
+        //     case 65 <= too && too <= 69:
+        //         u = 'D'
+        //         break
+        //     case 60 <= too && too <= 64:
+        //         u = 'D-'
+        //         break
+        //     case 0 <= too && too <= 59:
+        //         u = 'F'
+        //         break
+        //     case too > 100:
+        //         u = '100аас бага тоо оруулна уу'
+        //         break
+        //     default:
+        //         u = 'too oruulna uu'
+        // }
+        // document.getElementById('demo').innerHTML = `Таны дүн: ${u}`
+    </script>
+</body>
+
+</html>
