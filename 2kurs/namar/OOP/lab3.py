@@ -60,7 +60,9 @@
 
 
 # # # task4
-# x = input('Хайх: ')
+x = input('Хайх: ')
+a = {'bad': "муу", 'good': 'сайн'}
+print(a[x])
 # def trans(x):
 #     t = ''
 #     if x == 'bad' or x == 'Bad':

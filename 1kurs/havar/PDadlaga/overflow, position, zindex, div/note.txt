@@ -1,7 +1,7 @@
 position---------------------
-1. absolute is relative to position
-2. fixed is relative to the window
-3. relative is relative to html
+1. absolute is relative to div
+2. relative is relative to html
+3. fixed is relative to the window
 4. sticky is relative to scroll
 ----------------------------------z-index
 zurgiig textiin tsaana oruulahad ashiglana

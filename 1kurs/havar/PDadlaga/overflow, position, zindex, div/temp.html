@@ -1,48 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./styles.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h3>hello</h3>
-      <div class="relative">
-        its relative
-        <div class="absolute">its absolute</div>
-      </div>
 
-      <div class="sticky">Its sticky</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .div1 {
+      padding: 15px;
+      float: left;
+      background-color: blueviolet;
+    }
 
-      <div class="fixed">Its fixed</div>
-      <div>
-        <div class="overflow">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Reprehenderit eum assumenda tempora distinctio dolorum non, totam eius
-          repellat esse nemo laudantium, aliquam qui quisquam temporibus
-          eligendi fugit quaerat illum officia. Lorem ipsum dolor, sit amet
-          consectetur adipisicing elit. Reprehenderit eum assumenda tempora
-          distinctio dolorum non, totam eius repellat esse nemo laudantium,
-          aliquam qui quisquam temporibus eligendi fugit quaerat illum officia.
-        </div>
-        <div class="zindex">
-          <img
-            width="400px"
-            height="200px"
-            src="https://media.istockphoto.com/id/935746242/photo/mata-atlantica-atlantic-forest-in-brazil.jpg?s=1024x1024&w=is&k=20&c=ulailuEo5KUCoZdHvG2Pyi5tv34XlVUleT3uxhFIZG0="
-          />
-        </div>
-      </div>
-      <div class="float">
-        <div class="div1">div</div>
-        <div class="div2">div2</div>
-        <div class="div3">div3</div>
+    .div2 {
+      float: left;
+      padding: 15px;
+      background-color: blue;
+    }
 
-      </div>
-      <div class="temp"></div>
+    .div3 {
+      float: left;
+      background-color: green;
+      padding: 15px;
+    }
+
+    .float {
+      border: 2px solid black;
+      position: absolute;
+      top: 185px;
+      left: 450px;
+      width: 200px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .container {
+      position: relative;
+    }
+
+    .zindex {
+      position: absolute;
+      z-index: -1;
+      top: 185px;
+      margin-top: 20px;
+    }
+
+    .overflow {
+      width: 300px;
+      margin-left: 30px;
+      overflow:auto;
+      color: aliceblue;
+      height: 150px;
+      border: 2px solid gray;
+      margin-top: 20px;
+    }
+
+    .fixed {
+      position: fixed;
+      border: 2px solid green;
+      padding: 5px;
+      bottom: 2px;
+      right: 2px;
+      background-color: aquamarine;
+    }
+
+    .sticky {
+      position: sticky;
+      border: 2px solid gray;
+      padding: 5px;
+      top: 2px;
+      text-align: center;
+      background-color: aquamarine;
+    }
+
+    .temp {
+      height: 1500px;
+    }
+
+    .relative {
+      position: relative;
+      border: 2px solid green;
+      height: 100px;
+      padding: 10px;
+      bottom: 10px;
+    }
+
+    .absolute {
+      position: absolute;
+      top: 50px;
+      right: 10px;
+      padding: 10px;
+      border: 2px solid gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>hello</h3>
+    <div class="relative">
+      its relative
+      <div class="absolute">its absolute</div>
     </div>
-  </body>
+
+    <div class="sticky">Its sticky</div>
+
+    <div class="fixed">Its fixed</div>
+    <div>
+      <div class="overflow">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        Reprehenderit eum assumenda tempora distinctio dolorum non, totam eius
+        repellat esse nemo laudantium, aliquam qui quisquam temporibus
+        eligendi fugit quaerat illum officia. Lorem ipsum dolor, sit amet
+        consectetur adipisicing elit. Reprehenderit eum assumenda tempora
+        distinctio dolorum non, totam eius repellat esse nemo laudantium,
+        aliquam qui quisquam temporibus eligendi fugit quaerat illum officia.
+      </div>
+      <div class="zindex">
+        <img width="400px" height="200px"
+          src="https://media.istockphoto.com/id/935746242/photo/mata-atlantica-atlantic-forest-in-brazil.jpg?s=1024x1024&w=is&k=20&c=ulailuEo5KUCoZdHvG2Pyi5tv34XlVUleT3uxhFIZG0=" />
+      </div>
+    </div>
+    <div class="float">
+      <div class="div1">div</div>
+      <div class="div2">div2</div>
+      <div class="div3">div3</div>
+
+    </div>
+    <div class="temp"></div>
+  </div>
+</body>
+
 </html>

@@ -1,39 +1,45 @@
-.a{
+.a {
     width: 500px;
     height: 500px;
     background-color: yellow;
-    position:relative;
+    position: relative;
 
 }
-.b{
+
+.b {
     width: 400px;
     height: 400px;
     background-color: orange;
-    position:relative;
+    position: relative;
 }
-.c{
+
+.c {
     width: 300px;
     height: 300px;
     background-color: red;
     position: relative;
 }
-.d{
+
+.d {
     width: 200px;
     height: 200px;
-    background-color:rosybrown;
+    background-color: rosybrown;
     position: relative;
 }
-.e{
+
+.e {
     width: 100px;
     height: 100px;
     background-color: brown;
     position: relative;
-    
+
 }
-#demo{
+
+#demo {
     color: red;
 }
-.img{
+
+.img {
     width: 100px;
     height: 100px;
     opacity: 0.5;
@@ -41,8 +47,8 @@
 
 }
 
-img:hover{
-width: 100px;
+img:hover {
+    width: 100px;
     height: 100px;
     opacity: 1;
 }
