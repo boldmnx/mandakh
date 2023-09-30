@@ -1,0 +1,74 @@
+div{float: left;}
+.main{  margin: auto; 
+        /* background-color: aqua; */
+}
+.first{ width: 300px;
+        height: 600px;
+        margin-left: 0px;
+        margin-top: 30px;
+        border: 1px black solid;
+        /* padding-top: 20px; */
+        color: #004276;
+        border-radius: 50px;
+        border: 2px green solid;
+        }
+.news{  width: 580px;
+        height: 400px;
+        column-count: 3;
+        column-gap: 40px;
+        column-width: 100%;
+        column-rule: rgb(235, 103, 125) solid 3px;
+        /* column-count: 3; */
+        column-fill: auto;
+        /* column-gap: 20px; */
+        /* column-rule: pink solid 2px; */
+}
+.ul1{color: yellow;}
+.ul2{color: red;}
+.second{width: 600px;
+        height: 600px;
+        margin-left: 20px;
+        margin-top: 30px;
+        border: 2px green solid;}
+
+.third{ width: 300px;
+        height: 600px;
+        margin-left: 20px;
+        margin-top: 30px;
+        border: 2px red solid;
+        border-radius: 30px;}
+.header{width: 601px;
+        padding-top: 6px;
+        height: 27px;
+        color: darkblue;
+        text-align: center;
+        background: linear-gradient(to top, blue, white);
+        }
+date{padding-left: 120px;
+        color: grey;}
+.header1{width: 601px;
+        padding-top: 6px;
+        height: 27px;
+        color: darkblue;
+        text-align: center;
+        background: radial-gradient(circle, blue, green, red);        
+}
+        
+.header2{width: 598px;
+        padding-top: 6px;
+        height: 27px;
+        color: darkblue;
+        text-align: center;
+        border: yellow 2px solid;
+        background: conic-gradient( red, yellow, green);
+        }
+.footer{width: 601px;
+        height: 30px;
+        text-align: center;
+        margin-top: 55px;
+        padding-top: 3px;
+        background-image: radial-gradient( circle,rgb(233, 54, 135),rgb(93, 44, 66));
+        /* background-image: radial-gradient(to circle,rgb(233, 54, 135)); */
+}
+a{text-decoration: none;}
+h3{text-align: center;}

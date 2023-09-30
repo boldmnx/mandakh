@@ -40,16 +40,43 @@
             height: 42px;
         }
 
-        .orange,
-        .zurhai:hover {
+        .orange {
             background-color: orange;
             top: 0;
         }
+
+        .zurhai {
+            .fa-cloud {
+                display: none;
+            }
+
+        }
+
+        .zurhai:hover {
+            .fa-cloud {
+                display: inline-block;
+            }
+
+            .fa-star {
+                display: none;
+            }
+
+            background-color: orange;
+        }
+
 
         .yellow,
         .tsagAgaar:hover {
             background-color: #F1F22E;
             top: 47px;
+
+            .fa-cloud {
+                display: none;
+            }
+
+            .fa-star {
+                display: inline-block;
+            }
         }
 
 
@@ -88,7 +115,7 @@
 
 <body>
     <div class="menu">
-        <a href="" class="zurhai">Зурхай<i class="fa fa-star"></i></a>
+        <a href="" class="zurhai">Зурхай<i class="fa fa-star"></i><i class="fas fa-cloud"></i></a>
         <div class="orange"></div>
 
         <a href="" class="tsagAgaar">Цаг агаар <i class="fas fa-cloud"></i> </a>
@@ -109,7 +136,8 @@
         <a href="" class="onigoo">Онигоо<i class="fa fa-smile"></i></a>
         <div class="red"></div>
     </div>
+    <a href="./lab5.2.html">previous</a>
+    <a href="./lab7/index.html">lab7</a>
 </body>
-
 
 </html>

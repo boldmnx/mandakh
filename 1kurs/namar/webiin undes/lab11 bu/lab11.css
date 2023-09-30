@@ -1,0 +1,14 @@
+.first{width:400px;height:750px;border-radius: 10px;border:solid 3px green; float:left;}
+.ul{color: yellow;}
+p{color: black;}
+#p{color: grey;text-align:right;padding-right: 30px;}
+.second{width:700px;height:750px;border: solid green 1px; float: left;margin-left: 20px;}
+#n1{background-image:linear-gradient( white , blue);; width: 700px;height:50px;float: left;}
+#n2{background-image:linear-gradient( red , green , blue);; width: 700px;height:50px;float: left;border-top: solid wheat 3px;}
+#n3{background-image:linear-gradient( white , grey);; width: 700px;height:50px;float: left;border-top: solid yellow 3px;border-bottom: yellow solid 3px;}
+img{width: 200px;height: 400px;}
+.col{column-count:3;float: left;column-rule: solid 3px pink;width: 700px;height:540px;}
+#n4{background-image:linear-gradient( pink , purple);; width: 700px;height:50px;float:left}
+.ul1{color: red;}
+.third{width:400px;height:750px;border-radius: 10px;border:solid 3px red; float:left;margin-left: 20px;}
+.main{width:1560px;height: 750px;}

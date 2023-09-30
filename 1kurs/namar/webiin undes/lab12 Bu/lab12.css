@@ -1,0 +1,43 @@
+body{background-color: rgb(85, 77, 77);}
+.main{margin:auto;background-color: rgb(45, 38, 39);width: 1300px;height: 100px;}
+.bar{padding-left: 147.5px;padding-right: 147.5px;padding-top: 25px;padding-bottom: 25px;}
+.bar1{display: inline-block;position: relative;float: left;border-left: solid 1px white;}
+.bar5{display: inline-block;position: relative;float: left; border-left: solid 1px white;}
+.but{background-color: grey;width:200px;height: 50px;border:none;font-size: 20px;}
+.but1{background-color: green;width:200px;height: 50px;border:none;font-size: 20px;}
+.dot{
+    position:absolute;
+    display: none;
+    background-color: grey;
+    min-width:100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;}
+.dot a{ 
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dot1{
+    position:absolute;
+    display: none;
+    background-color: grey;
+    min-width:100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;}
+.dot1 a{ 
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.bar1:hover .but{background-color:rgb(86, 79, 79);}
+.bar5:hover .but1{background-color: rgb(8, 90, 8); color: red;}
+.bar1:hover .dot{display: block;}
+.bar5:hover .dot1{display: block; color: green;}
+.dot a:hover {background-color: rgb(94, 88, 88);color: yellowgreen;}
+.dot1 a:hover {background-color: rgb(94, 88, 88);color: green;}
+img{width: 300px;height: 300px;}
+.zurag{width: 300px;height: 350px;border: solid 4px red;float: left;margin-left: 70px;background-color: rgb(53, 45, 45);}
+.deed3{float: left; padding-left:150px;margin-top: 50px;}
+.dood2{float: left;padding-left: 300px;margin-top: 50px;}
