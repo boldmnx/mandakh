@@ -1,0 +1,60 @@
+img {
+    height: 300px;
+    width: 435px;
+}
+
+div {
+    float: left;
+    margin: auto;
+    padding-left: 10px;
+}
+
+h2 {
+    padding: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #ff6347;
+    font-size: 12px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.nuur {
+    border-bottom: solid 4px#E5EFF3;
+    border-top: solid 4px#E5EFF3;
+    padding-top: 10px;
+}
+
+.garch {
+    color: #A9A9A9;
+    float: left;
+    padding-right: 20px;
+}
+
+.garchig {
+    padding-left: 275px;
+}
+
+span {
+    background-color: yellow;
+    font-size: 14px;
+}
+
+.zuun {
+    padding-left: 60px;
+    float: left;
+    width: 400px;
+}
+
+.baruun {
+    float: left;
+    width: 400px;
+}
+
+.b {
+    float: left;
+}

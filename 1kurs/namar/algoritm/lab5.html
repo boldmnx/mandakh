@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab5</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <p id="1"></p>
+    <p id="2"></p>
+    <p id="3"></p>
+    <p id="4"></p>
+    <p id="5"></p>
+    <p id="6"></p>
+    <p id="7"></p>
+    <p id="8"></p>
+    <p id="9"></p>
+
+    <script>
+        //---------------------task1
+        // i = 100
+        // while (i < 1000) {
+        //     i % 2 != 0 ? console.log(i) : ''
+        //     i++
+        // }
+        //---------------------task2
+        // x = 800
+        // while (x > 300) {
+        //     if (x % 2 == 0) {
+        //         a = document.createElement('a')
+        //         a.innerText = x + '\t'
+        //         document.body.appendChild(a)
+        //     } else {
+        //     }
+        //     x--
+        // }
+        //---------------------task3
+        // str = 'Javascript'
+        // newStr = ''
+        // for (i of str) {
+        //     if (i == 'r') {
+        //         newStr += 't'
+        //     }
+        //     else if (i == 'a') {
+
+        //         newStr += 'b'
+        //     } else {
+        //         newStr += i
+        //     }
+        // }
+        // i = document.createElement('i')
+        // document.body.appendChild(i)
+        // i.innerText = newStr
+
+        // //---------------------task4
+        // inp = prompt('Neree oruulna uu!: ')
+        // newInp = ''
+        // for (i of inp) {
+        //     if (i == 'a') {
+        //         newInp += 'c'
+        //     }
+        //     else {
+        //         newInp += i
+        //     }
+        // }
+        // document.getElementById('demo').innerHTML = newInp
+        //---------------------task5
+        // s = prompt('stop gej oruulna uu!: ')
+        // while (s != 'stop') {
+        //     s = prompt('stop gej oruulna uu: ')
+        // }
+        // document.getElementById('demo').innerHTML = 'success'
+        //---------------------task6
+
+        for (let i = 1; i < 10; i++) {
+            for (let j = 1; j <= i; j++) {
+                let a = document.createElement('a')
+                a.innerHTML = i
+                document.body.appendChild(a)
+            }
+            let br = document.createElement('br')
+            document.body.appendChild(br)
+        }
+
+    </script>
+</body>
+
+</html>
