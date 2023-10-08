@@ -43,13 +43,16 @@
 # ---------------------------------------------Task1
 try:
     too = int(input('too oruulna uu! '))
+
     print(type(too))
     if too == 1:
         print(f'Davaa garig')
     elif too == 2:
         print(f'Mygmar garig')
     elif too == 3:
-        print(f'Lkhagva garig')
+        print(f'Lkhagva garig'
+              )
+
     elif too == 4:
         print(f'Purev garig')
     elif too == 5:
@@ -61,4 +64,4 @@ try:
     else:
         print(f'buruu too oruulsan bna!')
 except ValueError:
-     print('тооо оруулалдаа')
+    print('тооо оруулалдаа')

@@ -1,4 +1,3 @@
-</html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lab6</title>
+    <style>
+        #myDiv {
+            width: 300px;
+            height: 300px;
+            background-color: chocolate;
+        }
+    </style>
 </head>
 
 <body>
+    <div style="margin-left: 20px;">
+        <h1>Манай сайтад тавтай морил</h1>
+        <p>Энэ бол лаб№6-н дагуу хийж гүйцэтгэсэн миний анхны вэб хуудас</p>
+        <a href="">Энэ бол Мандах их сургуулийн албан ёсны вэб сайт</a>
+        <p> Энэ бол сургуулийн лого:</p>
+        <img src="./lab6.jpg">
+        <p>Мандах их сургуулийн салбар сургуулиуд:</p>
+        <ol>
+            <li>Төв сургууль</li>
+            <li>Мэдээлэл, технологийн сургууль</li>
+            <li>Дарханы салбар сургууль</li>
+        </ol>
+        <p>Лаб№6 хийж гүйцэтгэсэн <b>Ж.Болд-Эрдэнэ</b></p>
+        <select id="mySelect">
+            <option>Select</option>
+            <option value="ulaan">Улаан</option>
+            <option value="nogoon">Ногоон</option>
+            <option value="shar">Шар</option>
+        </select>
+        <button onclick="change_color()">Өнгө солих</button>
+        <div id="myDiv">
+            <p id="demo"></p>
+        </div>
+    </div>
     <form action="login" method="POST" style="margin-top: 20px;">
         <fieldset>
             <label for="username">Username: </label>
@@ -16,6 +46,21 @@
             <input type="submit" name="submit">
         </fieldset>
     </form>
+    <script>
+        function change_color() {
+            let mySelect = document.getElementById('mySelect').value
+            let ungu = ''
+            if (mySelect == 'ulaan')
+                ungu = 'red'
+            else if (mySelect == 'nogoon')
+                ungu = 'green'
+            else if (mySelect == 'shar')
+                ungu = 'yellow'
+            document.getElementById('myDiv').style.backgroundColor = ungu
+            document.getElementById('demo').innerHTML = `<h2>Энэ бол ${ungu} өнгө</h2>`
+        }
+    </script>
+
 </body>
 
 </html>
