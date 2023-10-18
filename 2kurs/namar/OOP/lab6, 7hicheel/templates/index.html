@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index</title>
+  </head>
+  <body>
+    <form method="post">
+      <fieldset>
+        <legend>Салбар бүртгэл</legend>
+        <label>Name</label>
+        <input type="text" name="sName" />
+        <input type="submit" value="Save" />
+      </fieldset>
+    </form>
+    <br />
+    <table border="1">
+      <tr>
+        <td>Салбарын дугаар</td>
+        <td>Салбарын нэр</td>
+      </tr>
+      {% for i in branchs%}
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.bname}}</td>
+      </tr>
+      {%endfor%}
+    </table>
+  </body>
+</html>

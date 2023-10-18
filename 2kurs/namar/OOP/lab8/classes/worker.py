@@ -1,30 +1,32 @@
-import sqlite3
+import sqlite3 as sql
 
 
 class Worker:
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def getRecord(self, id):
-        with sqlite3.connect('data/Employee.db') as con:
-            con.row_factory = sqlite3.Row
+        with sql.connect('data/employee.db') as con:
+            con.row_factory = sql.Row
             cur = con.cursor()
-            cur.execute(f'\
-                SELECT *\
-                FROM tbl_worker\
-                INNER JOIN tbl_branch \
-                ON tbl_worker.b_id = {id}')
-            data = cur.fetchall()
-            return data
+            cur.execute('''
+                        SELECT w.id,
+                            w.name,
+                            b.bname
+                        FROM worker AS w
+                            INNER JOIN branch AS b ON w.b_id = b.id
+                        WHERE w.id = '''+id+'''''')
+            data = cur.fetchone()
+        return data
 
     def getRecords(self):
-        with sqlite3.connect('data/Employee.db') as con:
-            con.row_factory = sqlite3.Row
+        with sql.connect('data/employee.db') as con:
+            con.row_factory = sql.Row
             cur = con.cursor()
-            cur.execute(
-                '''SELECT *
-                FROM tbl_worker
-                INNER JOIN tbl_branch 
-                ON tbl_worker.b_id = tbl_branch.bid''')
+            cur.execute('''
+                SELECT w.id,w.name,b.bname
+                FROM worker AS w
+                INNER JOIN branch AS b 
+                ON w.b_id = b.id''')
             data = cur.fetchall()
         return data

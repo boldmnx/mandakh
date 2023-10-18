@@ -5,6 +5,7 @@ s = 'django'
 print(s[0])
 print(s[5])
 print(s[:-1])
+
 print(s[:-2][1:])
 print(s[4:])
 print(s[3:-1])
@@ -81,14 +82,6 @@ print(s[3:-1])
 #     elif too == 5:
 #         print('baasan garig')
 #     continue
-
-
-
-
-
-
-
-
 
 
 # •	100-10 хүртэлх тоог хэвлэх (break)

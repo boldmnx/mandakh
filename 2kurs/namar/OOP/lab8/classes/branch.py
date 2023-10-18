@@ -1,17 +1,14 @@
-import sqlite3
+import sqlite3 as sql
 
 
 class Branch:
     def __init__(self):
         pass
 
-    def getRecord(self, id):
-        pass
-
     def getRecords(self):
-        with sqlite3.connect('data/Employee.db') as con:
-            con.row_factory = sqlite3.Row
+        with sql.connect('data/employee.db') as con:
+            con.row_factory = sql.Row
             cur = con.cursor()
-            cur.execute('SELECT * FROM tbl_branch')
+            cur.execute('SELECT * FROM branch')
             data = cur.fetchall()
         return data

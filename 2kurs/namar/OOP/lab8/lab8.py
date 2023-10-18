@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from classes.worker import Worker
 from classes.branch import Branch
 
@@ -12,19 +12,20 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/branch')
+@app.route('/branches')
 def branch():
-    return render_template('branch/branch.html', branches=b.getRecords())
+    return render_template('branch/list_branch.html', branches=b.getRecords())
 
 
 @app.route('/workers')
+def workers():
+    return render_template('worker/list_worker.html', workers=w.getRecords())
+
+
+@app.route('/worker')
 def worker():
-    return render_template('worker/workers.html', workers=w.getRecords())
-
-
-# @app.route('/worker<int: id>')
-# def worker(id):
-#     return render_template('worker/worker.html', workers=w.getRecord(id))
+    id = request.args.get('detail')
+    return render_template('worker/worker.html', detail=w.getRecord(id))
 
 
 if __name__ == '__main__':
