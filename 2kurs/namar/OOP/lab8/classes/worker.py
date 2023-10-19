@@ -1,4 +1,5 @@
 import sqlite3 as sql
+import json
 
 
 class Worker:
@@ -17,7 +18,7 @@ class Worker:
                             INNER JOIN branch AS b ON w.b_id = b.id
                         WHERE w.id = '''+id+'''''')
             data = cur.fetchone()
-        return data
+            return data
 
     def getRecords(self):
         with sql.connect('data/employee.db') as con:
