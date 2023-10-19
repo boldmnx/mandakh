@@ -1,1 +1,25 @@
 # mandakh
+
+https://www.pexels.com/
+iconarchive.com
+cssbattle.dev
+monkeytyping.com
+https://www.000webhost.com/
+https://www.useblackbox.io/
+www.codeconvert.ai
+programz
+playcode.io
+
+interpreter
+reload window in ctl+ shift + p
+
+Filehippo
+Filepuma
+Softpedia
+Cnet Download
+SourceForge
+Google Play Store
+APKMirror
+Slide Me
+Aptoide
+Softonic.com
