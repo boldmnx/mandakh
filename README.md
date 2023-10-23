@@ -1,5 +1,7 @@
 # mandakh
 
+#find /path/to/base_directory -type f -name "\*.extention" -exec rm {} \;
+
 https://www.pexels.com/
 iconarchive.com
 cssbattle.dev

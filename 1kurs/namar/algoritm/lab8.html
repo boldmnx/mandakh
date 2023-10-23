@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab8</title>
+  </head>
+  <body>
+    <script>
+      function module(too) {
+        mod = 0;
+        if (too < 0) mod = -too;
+        else mod = too;
+        return alert("Module: " + mod);
+      }
+      let modu = function (too) {
+        mod = 0;
+        if (too < 0) mod = -too;
+        else mod = too;
+        return alert("Module: " + mod);
+      };
+
+      let addClass = function (arg) {
+        return alert(arg + " (програм хангамж)");
+      };
+      arr = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      //   arr.splice(0, 7);
+      //   arr.splice(4);
+      //   alert(arr);
+      function removeA(arg) {
+        res = "";
+        for (i in arg) {
+          if (arg[i] == "a") {
+            continue;
+          } else {
+            res += arg[i];
+          }
+        }
+        return alert(res);
+      }
+
+      //   module(prompt());
+      //   modu(prompt());
+      //   addClass(prompt());
+      //   alert(arr.slice(7, 11));
+      // removeA(prompt());
+    </script>
+  </body>
+</html>

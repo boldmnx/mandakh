@@ -49,6 +49,11 @@
 
 
 # task6 MS sum
+def ms_sum(**args):
+    summ = 1
+    for value in args.values():
+        summ *= value
+    print(summ)
 
 # # task5
 
@@ -60,44 +65,18 @@
 
 
 # # # task4
-x = input('Хайх: ')
-a = {'bad': "муу", 'good': 'сайн'}
-print(a[x])
-# def trans(x):
-#     t = ''
-#     if x == 'bad' or x == 'Bad':
-#         t = 'bad --- Муу'
-#     elif x == 'Муу' or x == 'муу':
-#         t = 'муу --- bad'
-#     elif x == 'good' or x == 'Good':
-#         t = 'good --- Сайн'
-#     elif x == 'Сайн' or x == 'сайн':
-#         t = 'сайн --- good'
-#     elif x == 'Улаан' or x == 'улаан':
-#         t = 'улаан --- red'
-#     elif x == 'red' or x == 'Red':
-#         t = 'red --- улаан'
-
-#     elif x == 'This is computer':
-#         t = f'{x} --- Энэ бол компьютер'
-#     elif x == 'Энэ бол компьютер':
-#         t = f'{x} --- This is computer'
-#     elif x == 'Hello':
-#         t = f'{x} --- Сайн байн уу'
-#     elif x == 'Сайн байн уу':
-#         t = f'{x} --- Hello'
-#     elif x == 'How are you?':
-#         t = f'{x} --- Сонин юу байна?'
-#     elif x == 'Сонин юу байна?':
-#         t = f'{x} --- How are you?'
-#     else:
-#         t = (f'{x} --- илэрц олдсонгүй')
-
-#     return t
-
-
-# res = trans(x)
-# print(res)
+def dict_function(arg):
+    dictionary = {
+        'bad': 'муу',
+        'good': 'сайн',
+        'red': 'улаан',
+        'This is computer': 'Энэ бол компьютер'
+    }
+    for key, value in dictionary.items():
+        if arg == key:
+            print(f'{key} --- {value}')
+        elif arg == value:
+            print(f'{value} --- {key}')
 
 
 # # task3
@@ -126,6 +105,8 @@ print(a[x])
 # print(f'a: {res[0]}\nb: {res[1]}\nc: {res[2]}\nd: {res[3]}\ne: {res[4]}')
 
 # task2
+
+
 # a = 'hello world'
 # s = 0
 # for i in a:
@@ -157,3 +138,6 @@ print(a[x])
 #     print(f'Бага тоо: {res[0]} \nДундаж тоо: {res[1]} \nИх тоо: {res[2]}')
 # except ValueError:
 #     print('Зөвхөн тоо оруулна уу!')
+
+# dict_function(input('search: '))
+# ms_sum(b=3, c=3)
