@@ -19,10 +19,6 @@
         else mod = too;
         return alert("Module: " + mod);
       };
-
-      let addClass = function (arg) {
-        return alert(arg + " (програм хангамж)");
-      };
       arr = [
         "Jan",
         "Feb",
@@ -37,7 +33,9 @@
         "Nov",
         "Dec",
       ];
-      //   arr.splice(0, 7);
+      // v = arr.slice(3, 6);
+      // console.log(v);
+      // arr.splice(0, 7);
       //   arr.splice(4);
       //   alert(arr);
       function removeA(arg) {
@@ -52,11 +50,37 @@
         return alert(res);
       }
 
-      //   module(prompt());
-      //   modu(prompt());
-      //   addClass(prompt());
-      //   alert(arr.slice(7, 11));
+      // module(prompt());
+      // modu(prompt());
+      // alert(arr.slice(7, 11));
       // removeA(prompt());
+      sw = [];
+      is = [];
+      let addClass = function (arg) {
+        angi = parseInt(
+          prompt(
+            `Та ангиа сонгон уу: (зөвхөн харгалзах тоо оруулаарай):
+           1.програм хангамж 
+           2. Мэдээлийн систес`
+          )
+        );
+        if (angi == 1) {
+          sw.push(arg);
+          alert(`програм хангамж:  
+                ${sw}`);
+        } else if (angi == 2) {
+          is.push(arg);
+          alert(`Мэдээлийн систес:  
+                ${is}`);
+        } else {
+          alert("Zubhun hargalzah toog oruulna uu!");
+        }
+        next = prompt("tsaash urgeljluulehuu (yes / no)");
+        if (next == "yes") {
+          addClass(prompt("neree oruulnuu"));
+        }
+      };
+      addClass(prompt("neree oruulnuu"));
     </script>
   </body>
 </html>
