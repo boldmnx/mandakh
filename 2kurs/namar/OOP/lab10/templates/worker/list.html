@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Worker list</title>
+  </head>
+  <body style="margin-left: 50px">
+    <h3>Worker list</h3>
+    {% if wData %}
+    <button>
+      <a href="{{url_for('add_worker')}}"> add worker</a>
+    </button>
+    <hr />
+    <table border="1" cellpadding="3">
+      <tr>
+        <td></td>
+        <th>Нэр</th>
+        <th>Салбар</th>
+        <th>...</th>
+      </tr>
+      {%for worker in wData %}
+      <tr>
+        <td>{{worker.id}}</td>
+        <td>{{worker.name}}</td>
+        <td>{{worker.bname}}</td>
+        <td>
+          <a href="/worker/edit/{{worker.id}}">edit</a>
+          <a href="/worker/delete/{{worker.id}}">delete</a>
+        </td>
+      </tr>
+      {%endfor%}
+    </table>
+    {% else %}
+    <h3>Ажилчин алга</h3>
+    {% endif%}
+    <br />
+    <a href="{{url_for('index')}}">back</a>
+  </body>
+</html>

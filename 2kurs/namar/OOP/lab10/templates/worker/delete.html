@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete worker</title>
+  </head>
+  <body>
+    <h3>are you sure this?</h3>
+    <form method="post">
+      <input type="text" name="name" value="{{wdata.name}}" disabled />
+      <input type="submit" value="Delete" /><br /><br />
+      <label for="b_id">Салбар:</label>
+      <select name="b_id" disabled>
+        <option value="wdata.b_id">{{wdata.bname}}</option>
+      </select>
+    </form>
+    <br />
+    <a href="{{url_for('worker')}}">cancel</a>
+  </body>
+</html>

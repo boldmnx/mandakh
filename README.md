@@ -13,15 +13,3 @@ programz
 playcode.io
 
 interpreter
-reload window in ctl+ shift + p
-
-Filehippo
-Filepuma
-Softpedia
-Cnet Download
-SourceForge
-Google Play Store
-APKMirror
-Slide Me
-Aptoide
-Softonic.com

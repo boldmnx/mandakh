@@ -1,10 +1,12 @@
 n = int(input())
-c = 1
-resul = 0
+m = []
+m.append(n)
+while True:
+    descending = int(''.join(sorted(str(n), reverse=True)))
+    ascending = int(''.join(sorted(str(n))))
+    n = descending-ascending
+    if n in m:
+        break
+    m.append(n)
 
-while result > 6174:
-    descending = int(''.join(sorted(str(number_str), reverse=True)))
-    ascending = int(''.join(sorted(str(number_str))))
-    result = descending-ascending
-    c += 1
-print(c)
+print(len(m))

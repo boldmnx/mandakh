@@ -3,15 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Employee web app</title>
+    <title>Edit branch</title>
   </head>
   <body>
     <div style="margin: 0 auto; width: 900px">
       <br />
-      <h3>Welcome to Employee app</h3>
+      <h3>Edit branch</h3>
       <hr />
-      <a href="{{url_for('branch')}}">Салбар</a>
-      <a href="{{url_for('worker')}}">Ажилтан</a>
+      <form method="post">
+        <input type="text" name="bname" value="{{bname}}" />
+        <input type="submit" value="Edit" />
+      </form>
+      <br />
+      <a href="{{url_for('branch')}}">back</a>
     </div>
   </body>
 </html>
