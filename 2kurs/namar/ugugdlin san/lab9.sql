@@ -1,6 +1,6 @@
 -- 3
 SELECT *
-FROM tbl_order;
+FROM worker;
 -- 4
 SELECT a.id,
     a.name,
@@ -24,8 +24,17 @@ SELECT w.name,
     f.name,
     f.une,
     p.paid
-FROM paid p ,tbl_order t 
-    INNER JOIN food f ON p.food_id = f.id
-    INNER JOIN worker w ON t.worker_id = w.id
+FROM worker w
+    INNER JOIN paid p ON p.worker_id = w.id
+    INNER JOIN tbl_order t ON t.id = p.id
+    INNER JOIN food f ON f.id = t.food_id
 WHERE t.id = '20121024/001'
-OR p.id = '20121024/001'
+    OR p.id = '20121024/001';
+--8
+SELECT w.name,
+    b.name,
+    p.paid
+FROM worker w
+    INNER JOIN branch b ON b.id = w.branch_id
+    INNER JOIN paid p ON p.worker_id = w.id
+WHERE w.name = 'Баатархүү';

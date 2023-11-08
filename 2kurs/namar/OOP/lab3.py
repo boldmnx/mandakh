@@ -140,4 +140,4 @@ def dict_function(arg):
 #     print('Зөвхөн тоо оруулна уу!')
 
 # dict_function(input('search: '))
-# ms_sum(b=3, c=3)
+ms_sum(b=3, c=3)

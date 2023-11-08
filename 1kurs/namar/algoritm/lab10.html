@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab10</title>
+  </head>
+  <body>
+    <p id="p"></p>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <script>
+      function replace_too() {
+        toonuud = [];
+        for (let i = 0; i < 20; i++) {
+          toonuud.push(Math.round(Math.random() * 101));
+        }
+
+        ihToo = toonuud[0];
+        ihIndex = 0;
+        bagToo = toonuud[0];
+        index = 0;
+        for (i in toonuud) {
+          if (ihToo < toonuud[i]) {
+            ihToo = toonuud[i];
+            ihIndex = i;
+          } else if (bagToo > toonuud[i]) {
+            bagToo = toonuud[i];
+            index = i;
+          }
+        }
+        document.getElementById(
+          "p"
+        ).innerHTML = `1. Хамгийн бага утга: <b>${bagToo}</b> үүний индекс нь: <b> ${index}</b>`;
+
+        document.getElementById(
+          "p1"
+        ).innerHTML = `2. Хамгийн их утга: <b>${ihToo}</b> үүний индекс нь: <b> ${ihIndex}</b> `;
+
+        bagaIndex = toonuud[index];
+        toonuud[index] = toonuud[ihIndex];
+        toonuud[ihIndex] = bagaIndex;
+        document.getElementById(
+          "p2"
+        ).innerHTML = `3.	Хамгийн их тоо болон хамгийн бага утгуудын барыг нь солив: ${toonuud}`;
+      }
+
+      function replace_useg(arg) {
+        usegnuud = arg;
+        re_useg = "";
+        for (i of usegnuud) {
+          if (i == "f") {
+            re_useg += "p";
+          } else {
+            re_useg += i;
+          }
+        }
+        document.getElementById("p3").innerHTML = "4. " + re_useg;
+      }
+
+      replace_too();
+      replace_useg(prompt());
+    </script>
+  </body>
+</html>
