@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab11</title>
+  </head>
+  <body>
+    <input type="text" id="too" placeholder="тоо оруулна уу" />
+    <button onclick="sum_too()">нэмэх</button>
+    <p id="result"></p>
+    <input type="text" id="insert" />
+    <button onclick="insert_adjacent()">insertt</button><br />
+
+    <p id="insertt">Hello</p>
+
+    <script>
+      function reverse_arr(arr) {
+        return arr.reverse();
+      }
+
+      sum = 0;
+      function sum_too() {
+        too = document.getElementById("too").value;
+        document.getElementById("result").innerHTML = `Нийлбэр: ${(sum +=
+          parseInt(too))}`;
+        document.getElementById("too").value = "";
+      }
+
+      function insert_adjacent() {
+        const insertt = document.getElementById("insertt");
+        const insert = document.getElementById("insert");
+
+        html = `<span style="color:red">${insert.value}</span>`;
+        insertt.insertAdjacentHTML("afterend", html);
+        insertt.insertAdjacentHTML("beforebegin", html);
+        insertt.insertAdjacentHTML("afterbegin", html);
+        insertt.insertAdjacentHTML("beforeend", html);
+      }
+      arr = [1, 2, 3, 4, 5];
+      //   console.log(reverse_arr(arr));
+    </script>
+  </body>
+</html>

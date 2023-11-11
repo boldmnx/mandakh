@@ -29,7 +29,7 @@ class Branch:
             cur = con.cursor()
             cur.execute(f'SELECT * FROM branch WHERE id={id}')
             data = cur.fetchone()
-        return data[0]
+        return data[1]
 
     def edit(self, id, name):
         with sql.connect('employee.db') as con:

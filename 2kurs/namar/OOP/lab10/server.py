@@ -71,7 +71,7 @@ def edit_worker(id):
         wdata = worker_obj.get(id)
         bdata = branch_obj.get_all()
         return render_template('worker/edit.html', wdata=wdata, bdata=bdata)
-    if request.method == 'POST':
+    elif request.method == 'POST':
         wname = request.form['name']
         b_id = request.form['b_id']
         worker_obj.edit(id, wname, b_id)

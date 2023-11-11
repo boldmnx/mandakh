@@ -15,11 +15,12 @@
       <br />
       <h3>Салбаруудын мэдээлэл</h3>
       <hr />
-      <a href="{{url_for('add_branch')}}"> add </a>
+      <button><a href="{{url_for('add_branch')}}"> add </a></button><br /><br />
       {% if branches %}
-      <table border="1">
+      <table border="1" cellpadding="3">
         <tr>
           <th>#</th>
+          
           <th>Нэр</th>
           <th>...</th>
         </tr>
