@@ -37,14 +37,10 @@ def edit_branch(id):
         return redirect(url_for('branch'))
 
 
-@app.route('/branch/delete/<int:id>', methods=['GET', 'POST'])
+@app.route('/branch/delete/<int:id>')
 def delete_branch(id):
-    if request.method == 'GET':
-        bname = branch_obj.get(id)
-        return render_template('/branch/delete.html', bname=bname)
-    elif request.method == 'POST':
-        branch_obj.delete(id)
-        return redirect(url_for('branch'))
+    branch_obj.delete(id)
+    return redirect(url_for('branch'))
 
 
 @app.route('/worker')
@@ -78,15 +74,10 @@ def edit_worker(id):
         return redirect(url_for('worker'))
 
 
-@app.route('/worker/delete/<int:id>', methods=['GET', 'POST'])
+@app.route('/worker/delete/<int:id>')
 def delete_worker(id):
-    if request.method == 'GET':
-        wdata = worker_obj.get(id)
-        bdata = branch_obj.get_all()
-        return render_template('worker/delete.html', wdata=wdata, bdata=bdata)
-    elif request.method == 'POST':
-        worker_obj.delete(id)
-        return redirect(url_for('worker'))
+    worker_obj.delete(id)
+    return redirect(url_for('worker'))
 
 
 if __name__ == '__main__':

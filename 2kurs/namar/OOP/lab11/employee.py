@@ -52,10 +52,21 @@ class Worker:
 
     def add(self, name, b_id):
         with sql.connect('employee.db') as con:
+            con.row_factory = sql.Row
             cur = con.cursor()
-            cur.execute(
-                f'INSERT INTO worker VALUES(null, "{name}", {b_id})')
-            con.commit()
+            cur.execute(f'SELECT id FROM worker')
+            data = cur.fetchall()
+
+            too = 1
+            for i in data:
+                if too != i['id']:
+                    with sql.connect('employee.db') as conn:
+                        cur = conn.cursor()
+                        cur.execute('INSERT INTO worker VALUES(?,?,?)',
+                                    (too, name, b_id))
+                        conn.commit()
+                    break
+                too += 1
 
     def get_all(self):
         with sql.connect('employee.db') as con:

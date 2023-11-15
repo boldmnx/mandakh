@@ -3,23 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Employee web app</title>
   </head>
   <body>
-    {%if session['user'] %}
-    <h3>Welcome {{session['user']}}</h3>
-    <p>
-      you logged in {% if session['role']==1 %}
-      <strong>Admin</strong>
-      {%else%}
-      <strong> USER</strong>
-      {%endif%}
-    </p>
-    <a href="{{url_for('logout')}}">logout</a>
-    {%else%}
-    <h3>Welcome GUEST</h3>
-    <a href="{{url_for('register')}}">register </a>
-    <a href="{{url_for('login')}}">login</a>
-    {% endif %}
+    <div style="margin: 0 auto; width: 900px">
+      <br />
+      <h3>Welcome to Employee app</h3>
+      <hr />
+      <a href="{{url_for('branch')}}">Салбар</a>
+      <a href="{{url_for('worker')}}">Ажилтан</a>
+    </div>
   </body>
 </html>

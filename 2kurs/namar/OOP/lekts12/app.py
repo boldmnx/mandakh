@@ -41,7 +41,7 @@ def login():
                     flash('succesfully login')
                     return render_template('index.html')
                 else:
-                    flash('no such user')
+                    flash('iim hereglegch bhgui')
                     return render_template('login.html')
     else:
         return redirect('/')
@@ -54,19 +54,20 @@ def register():
             return render_template('register.html')
         elif request.method == 'POST':
             username = request.form['username']
-            password = request.form['password']
+            password = request.form['pwd']
             repassword = request.form['repassword']
             if password == repassword:
                 with sqlite3.connect('user.db') as con:
                     cur = con.cursor()
-
                     cur.execute(
-                        f'INSERT INTO user VALUES(null, "{username}", "{hash_pass(password)}", 2')
+                        f'INSERT INTO user VALUES(null,"{username}","{hash_pass(password)}",2)')
                     con.commit()
-                    flash('Succesfully signup')
-                    return redirect(url_for('login'))
+                    session['user'] = username
+                    session['role'] = 2
+                flash('amjilttai burtgelee')
+                return redirect(url_for('index'))
             else:
-                flash('error password')
+                flash('password zorj bna')
                 return render_template('register.html')
     else:
         return redirect('/')

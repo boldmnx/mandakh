@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron"></div>
+      <div class="col-3">
+        <form method="POST">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input
+              type="text"
+              name="username"
+              class="form-control"
+              placeholder="Enter username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              name="password"
+              class="form-control"
+              placeholder="Enter password"
+            />
+          </div>
+
+          <input type="submit" value="Login" class="btn btn-primary" />
+        </form>
+        {%with messages=get_flashed_messages() %} {%if messages%}
+        <div class="alert alert-warning" id="flash">{{messages[-1]}}</div>
+        {%endif%} {%endwith%}
+      </div>
+    </div>
+    <script>
+      setTimeout(flash, 2000);
+      function flash() {
+        document.getElementById("flash").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

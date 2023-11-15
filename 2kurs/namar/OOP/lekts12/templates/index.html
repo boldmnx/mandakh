@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    {%if session['user'] %}
+    <h3>Welcome {{session['user']}}</h3>
+    <p>
+      you logged in {% if session['role']==1 %}
+      <strong>Admin</strong>
+      {%else%}
+      <strong> USER</strong>
+      {%endif%}
+    </p>
+    <a href="{{url_for('logout')}}">logout</a>
+    {%else%}
+    <h3>Welcome GUEST</h3>
+    <a href="{{url_for('register')}}">register </a>
+    <a href="{{url_for('login')}}">login</a>
+    {% endif %}
+  </body>
+</html>
