@@ -2,9 +2,11 @@ from flask import Flask, request, redirect, render_template, abort, url_for
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return render_template('login.html')
+
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
@@ -15,6 +17,7 @@ def login():
             return abort(400)
     else:
         return redirect(url_for('index'))
+
 
 @app.route('/success')
 def success():
