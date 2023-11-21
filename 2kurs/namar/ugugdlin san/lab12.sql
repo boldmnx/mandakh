@@ -38,13 +38,14 @@ FROM customer
 ORDER BY regdate DESC;
 --9
 SELECT *
-FROM deposit;
+FROM worker;
 --10
-SELECT w.wname,
+SELECT w.wlast,
     SUM(CAST(d.deposit as int)) 'нийт орлого'
 FROM deposit d
     INNER JOIN worker w ON w.wcode = d.wcode
-GROUP BY w.wname;
+WHERE w.wcode = 'T101'
+GROUP BY w.wlast;
 --11
 SELECT w.wname,
     w.wlast,

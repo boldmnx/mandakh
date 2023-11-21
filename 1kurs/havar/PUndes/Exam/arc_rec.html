@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>arc and rec</title>
+  </head>
+  <body>
+    <canvas
+      style="border: 2px solid"
+      id="canvas"
+      width="400"
+      height="290"
+    ></canvas>
+    <script>
+      function draw_rectangle(x, y, width, height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.zurah = function () {
+          can = document.getElementById("canvas");
+          ctx = can.getContext("2d");
+          ctx.beginPath();
+          ctx.rect(this.x, this.y, this.width, this.height);
+          ctx.fillStyle = "green";
+          ctx.fill();
+          ctx.closePath();
+        };
+      }
+
+      for (let i = 5; i < 400; i += 100) {
+        rect = new draw_rectangle(i, 5, 90, 50);
+        rect.zurah();
+        for (let j = 5; j < 250; j += 55) {
+          rect = new draw_rectangle(i, j, 90, 50);
+          rect.zurah();
+        }
+      }
+
+      // can = document.getElementById("canvas");
+      // ctx = can.getContext("2d");
+      // sum = 50;
+      // sumR = 5;
+      // for (let i = 0; i < 4; i++) {
+      //   //drawing a rectangle
+      //   ctx.fillStyle = "purple";
+      //   ctx.fillRect(sumR, 150, 90, 50);
+      //   sumR += 100;
+      //   //drawing a circle
+      //   ctx.beginPath();
+      //   ctx.fillStyle = "green";
+      //   ctx.arc(sum, 50, 40, 0, 2 * Math.PI);
+      //   ctx.fill();
+      //   ctx.closePath();
+      //   sum += 100;
+      // }
+    </script>
+  </body>
+</html>

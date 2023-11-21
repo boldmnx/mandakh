@@ -32,10 +32,10 @@
         const insert = document.getElementById("insert");
 
         html = `<span style="color:red">${insert.value}</span>`;
-        insertt.insertAdjacentHTML("afterend", html);
         insertt.insertAdjacentHTML("beforebegin", html);
         insertt.insertAdjacentHTML("afterbegin", html);
         insertt.insertAdjacentHTML("beforeend", html);
+        insertt.insertAdjacentHTML("afterend", html);
       }
       arr = [1, 2, 3, 4, 5];
       //   console.log(reverse_arr(arr));

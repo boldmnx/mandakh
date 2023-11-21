@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      apikey = "277a60c1225f93a52591707e0f7de1e8";
+      fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=ulaanbaatar&appid=${apikey}`
+      )
+        .then((r) => r.json())
+        .then((e) => console.log(e));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>insertAdjacentHTML Example</title>
+  </head>
+  <body>
+    <div id="myDiv">This is the original content.</div>
+
+    <script>
+      // Get a reference to the element with the id 'myDiv'
+      var myDiv = document.getElementById("myDiv");
+
+      // Use insertAdjacentHTML to insert a new paragraph before the content of 'myDiv'
+      myDiv.insertAdjacentHTML(
+        "beforebegin",
+        "<p>This is a new paragraph!beforebegin</p>"
+      );
+
+      // Use insertAdjacentHTML to insert a new paragraph after the content of 'myDiv'
+      myDiv.insertAdjacentHTML(
+        "afterend",
+        "<p>This is another new paragraph!afterend</p>"
+      );
+
+      // Use insertAdjacentHTML to insert a new span inside 'myDiv' before its existing content
+      myDiv.insertAdjacentHTML(
+        "afterbegin",
+        "<span>This is a span inside the div.afterbegin</span>"
+      );
+
+      // Use insertAdjacentHTML to insert a new span inside 'myDiv' after its existing content
+      myDiv.insertAdjacentHTML(
+        "beforeend",
+        "<span>This is another span inside the div. beforeend</span>"
+      );
+    </script>
+  </body>
+</html>

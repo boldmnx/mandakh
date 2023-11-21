@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>carspeed</title>
+    <style>
+      .main {
+        width: 100%;
+        background-image: url("images/zam.jpg");
+        height: 700px;
+        background-size: cover;
+      }
+      img {
+        width: 400px;
+        position: absolute;
+        margin-left: 0px;
+      }
+      #car1 {
+        margin-top: 100px;
+      }
+      #car2 {
+        margin-top: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <img id="car1" src="./images/car1.png" />
+      <img id="car2" src="./images/car2.png" />
+    </div>
+    <input
+      type="text"
+      id="txt"
+      style="font-size: 2em; width: 400px; height: 100px"
+      onkeypress="road(event)"
+    />
+    <script>
+      car1 = document.getElementById("car1");
+      car2 = document.getElementById("car2");
+      txt = document.getElementById("txt");
+      go1 = 0;
+      go2 = 0;
+      function road(event) {
+        key = event.which;
+        if (key == 115) {
+          go1 += 40;
+          document.getElementById("car1").style.marginLeft = go1 + "px";
+        } else if (key == 103) {
+          go2 += 40;
+          document.getElementById("car2").style.marginLeft = go2 + "px";
+        }
+        if (go2 > 2000) {
+          go1 = 0;
+          go2 = 0;
+          txt.value = "";
+          alert("green car winner");
+          document.getElementById("car2").style.marginLeft = "0px";
+        } else if (go1 > 2000) {
+          txt.value = "";
+          go1 = 0;
+          go2 = 0;
+          document.getElementById("car1").style.marginLeft = "0px";
+          alert("pink car winner");
+        }
+      }
+    </script>
+  </body>
+</html>

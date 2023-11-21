@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zoom</title>
+  </head>
+  <body>
+    <div
+      id="div"
+      style="text-align: center; width: 100px; height: 100px; border: 2px solid"
+    ></div>
+    <button id="zoom">Zoom</button>
+    <script>
+      const div = document.getElementById("div");
+      clickCount = 0;
+      divWidth = 100;
+      divHeight = 100;
+      let setTimer;
+      document.getElementById("zoom").addEventListener("click", () => {
+        clickCount++;
+        if (clickCount === 1) {
+          setTimer = setTimeout(() => {
+            divWidth -= 20;
+            divHeight -= 20;
+            div.style.width = divWidth + "px";
+            div.style.height = divHeight + "px";
+            clickCount = 0;
+          }, 200);
+        } else if (clickCount === 2) {
+          clearTimeout(setTimer);
+          divWidth += 20;
+          divHeight += 20;
+          div.style.width = divWidth + "px";
+          div.style.height = divHeight + "px";
+          clickCount = 0;
+        }
+      });
+    </script>
+  </body>
+</html>
