@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
-from classes import Alban, Zereg, Tenhim, Mergejil
+from classes import Alban, Zereg, Tenhim, Mergejil, Bagsh
 
 app = Flask(__name__)
 app.secret_key = 'asas'
@@ -8,11 +8,65 @@ alban = Alban()
 zereg = Zereg()
 tenhim = Tenhim()
 mergejil = Mergejil()
+bagsh = Bagsh()
 
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+# Bagsh
+
+
+@app.route('/bagsh/edit/<int:id>', methods=['GET', 'POST'])
+def edit_bagsh(id):
+    if request.method == 'GET':
+        data = bagsh.getRecord(id)
+        tenhimData = tenhim.getRecords()
+        return render_template('bagsh/edit.html', bagsh=data, tenhim=tenhimData)
+    elif request.method == 'POST':
+        bcode = request.form['bcode']
+        bovog = request.form['bovog']
+        bner = request.form['bner']
+        gender = request.form['gender']
+        aorson = request.form['aorson']
+        tcode = request.form['tcode']
+        atcode = 0
+        ecode = 0
+        bagsh.edit(id=id, bcode=bcode, bovog=bovog, bner=bner,
+                   gender=gender, ajild_orson=aorson, tcode=tcode, atcode=atcode, ecode=ecode)
+        return redirect(url_for('list_bagsh'))
+
+
+@app.route('/bagsh/<int:id>')
+def delete_bagsh(id):
+    bagsh.delete(id)
+    return redirect(url_for('list_bagsh'))
+
+
+@app.route('/bagsh')
+def list_bagsh():
+    data = bagsh.getRecords()
+    return render_template('bagsh/list.html', data=data)
+
+
+@app.route('/bagsh/add', methods=['GET', 'POST'])
+def add_bagsh():
+    if request.method == 'GET':
+        data = tenhim.getRecords()
+        return render_template('bagsh/add.html', tenhim=data)
+    elif request.method == 'POST':
+        bcode = request.form['bcode']
+        bovog = request.form['bovog']
+        bner = request.form['bner']
+        gender = request.form['gender']
+        aorson = request.form['aorson']
+        tcode = request.form['tcode']
+        atcode = 0
+        ecode = 0
+        bagsh.add(bcode=bcode, bovog=bovog, bner=bner,
+                  gender=gender, ajild_orson=aorson, tcode=tcode, atcode=atcode, ecode=ecode)
+        return redirect(url_for('list_bagsh'))
 
 
 # Mergejil

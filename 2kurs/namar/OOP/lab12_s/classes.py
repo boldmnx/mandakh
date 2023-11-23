@@ -2,6 +2,85 @@ import sqlite3 as sql
 from flask import flash, Flask
 
 
+class Bagsh:
+
+    def getRecords(self):
+        with sql.connect('mu.db') as con:
+            con.row_factory = sql.Row
+            cur = con.cursor()
+            cur.execute(f'''SELECT *
+                            FROM bagsh b
+                                INNER JOIN tenhim t ON t.tid = b.tcode
+                        ''')
+            data = cur.fetchall()
+        return data
+
+    def getRecord(self, id):
+        with sql.connect('mu.db') as con:
+            con.row_factory = sql.Row
+            cur = con.cursor()
+            cur.execute(f'''SELECT *
+                            FROM bagsh b
+                                INNER JOIN tenhim t ON t.tid = b.tcode
+                            where id = {id}''')
+            data = cur.fetchone()
+        return data
+
+    def add(self, bcode, bovog, bner, gender, ajild_orson, tcode, atcode, ecode):
+        try:
+            with sql.connect('mu.db') as con:
+                cur = con.cursor()
+                cur.execute(f'''insert into bagsh
+                                values(
+                                        null,
+                                        "{bcode}",
+                                        "{bovog}",
+                                        "{bner}",
+                                        "{gender}",
+                                        "{ajild_orson}",
+                                        {atcode},
+                                        {ecode},
+                                        {tcode}
+                                    )''')
+                con.commit()
+            flash('Амжилттай нэмэгдлээ.', 'success')
+        except:
+            con.rollback()
+            flash(f'Алдаа гарлаа.', 'danger')
+
+    def edit(self, id, bcode, bovog, bner, gender, ajild_orson, atcode, ecode, tcode):
+        try:
+            with sql.connect('mu.db') as con:
+                cur = con.cursor()
+                cur.execute(F'''update bagsh
+                                set bcode = "{bcode}",
+                                    bovog = "{bovog}",
+                                    bner = "{bner}",
+                                    gender = "{gender}",
+                                    ajild_orson = "{ajild_orson}",
+                                    atcode = {atcode},
+                                    ecode = {ecode},
+                                    tcode = {tcode}
+                                WHERE id = {id}''')
+                con.commit()
+            flash('Амжилттай засварлалаа.', 'success')
+        except:
+            con.rollback()
+            flash('Засварлахад алдаа гарлаа.', 'danger')
+
+    def delete(self, id):
+        try:
+            with sql.connect('mu.db') as con:
+                cur = con.cursor()
+                cur.execute(F'''delete from bagsh
+                                where id = {id}''')
+                con.commit()
+            flash('Амжилттай устгалаа.', 'success')
+        except:
+            con.rollback()
+            flash('Устгахад алдаа гарлаа.', 'danger')
+
+
 class Mergejil:
     def getRecords(self):
         with sql.connect('mu.db') as con:
@@ -256,7 +335,7 @@ class Alban:
         try:
             with sql.connect('mu.db') as con:
                 cur = con.cursor()
-                cur.execute(f'DELETE FROM alban WHERE aid={id}')
+                cur.execute(f'''DELETE FROM alban WHERE aid={id}''')
                 con.commit()
             flash('amjilttai ustgalaa', 'success')
         except:

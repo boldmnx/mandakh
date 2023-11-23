@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>add bagsh</title>
+  </head>
+  <body>
+    {%extends 'layout.html'%} {%block content%}
+    <div class="row">
+      <div class="col-5">
+        <h1>Багш</h1>
+        <h3>Багш нэмэх</h3>
+        <hr />
+        <form method="post">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>
+                  <label>Багшийн код:</label>
+                </td>
+                <td>
+                  <input type="text" name="bcode"  />
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <label>Багшийн овог:</label>
+                </td>
+                <td>
+                  <input type="text" name="bovog" />
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <label>Багшийн нэр:</label>
+                </td>
+                <td>
+                  <input type="text" name="bner"  />
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <label>Хүйс:</label>
+                </td>
+                <td>
+                  <input type="radio" required name="gender" value="Эм" />
+                  <label>Эм</label><br />
+                  <input type="radio"  name="gender" value="Эр" />
+                  <label>Эр</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Ажилд орсон:</label>
+                </td>
+                <td>
+                  <input type="date" name="aorson"></input>
+                </td>
+              </tr>
+              <tr>
+                <td><label>Тэнхим</label></td>
+                <td>
+                  <select  name="tcode" required>
+                    <option value="">--- Сонгох ---</option>
+                    {%for i in tenhim%}
+                    <option value="{{i.tid}}">{{i.tname}}</option>
+                    {%endfor%}
+                </select></td>
+              </tr>
+            </tbody>
+          </table>
+          <input type="submit" value="Нэмэх">
+        </form><br>
+        <a href="{{url_for('list_bagsh')}}">Буцах</a>
+      </div>
+    </div>
+    {%endblock%}
+  </body>
+</html>
