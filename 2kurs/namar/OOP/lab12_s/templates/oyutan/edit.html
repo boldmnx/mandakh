@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>edit oyutan</title>
+  </head>
+  <body>
+    {%extends 'layout.html'%} {%block content%}
+    <div class="row">
+      <div class="col-5">
+        <h1>Оюутан</h1>
+        <h3>Оюутан засах</h3>
+        <hr />
+        <form method="post">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>
+                  <label>Оюутны код:</label>
+                </td>
+                <td>
+                  <input type="text"  name="scode" value="{{oyutan.scode}}"  />
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <label>Оюутны овог:</label>
+                </td>
+                <td>
+                  <input type="text" name="sovog" value="{{oyutan.sovog}}"/>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <label>Оюутны нэр:</label>
+                </td>
+                <td>
+                  <input type="text" name="sner" value="{{oyutan.sner}}" />
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <label>Хүйс:</label>
+                </td>
+                <td>
+                    {%if oyutan.gender=='Эр'%}
+                    <input type="radio"  name="gender"  checked value="Эр" />
+                    <label>Эр</label><br>
+                    <input type="radio"  name="gender"    value="Эм"/>
+                    <label>Эм</label>
+                    {%else%}
+                    <input type="radio"  name="gender"   value="Эр" />
+                    <label>Эр</label><br>
+                    <input type="radio"  name="gender"  checked  value="Эм"/>
+                    <label>Эм</label>
+                    {%endif%}
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Регистр:</label>
+                </td>
+                <td>
+                  <input type="text" name="register" value="{{oyutan.register}}"></input>
+                </td>
+              </tr>
+              
+              <tr>
+                <td>
+                  <label>Элссэн огноо:</label>
+                </td>
+                <td>
+                  <input type="date" name="elssen" value="{{oyutan.elssen}}"></input>
+                </td>
+              </tr>
+              <tr>
+                <td><label>Тэнхим</label></td>
+                <td>
+                    <select  name="tcode" required>
+                        {%for i in tenhim%}
+                        {%if i.tid==oyutan.tcode%}
+                        <option  value="{{i.tid}}" selected>{{i.tname}}</option>
+                        {%else%}
+                        <option value="{{i.tid}}">{{i.tname}}</option>
+                        {%endif%}
+                        {%endfor%}
+                    </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <input type="submit" value="Засах">
+        </form><br>
+        <a href="{{url_for('list_oyutan')}}">Буцах</a>
+      </div>
+    </div>
+    {%endblock%}
+  </body>
+</html>

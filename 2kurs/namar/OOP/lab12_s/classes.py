@@ -2,6 +2,87 @@ import sqlite3 as sql
 from flask import flash, Flask
 
 
+class Oyutan:
+
+    def getRecords(self):
+        with sql.connect('mu.db') as con:
+            con.row_factory = sql.Row
+            cur = con.cursor()
+            cur.execute(f'''SELECT *
+                            FROM oyutan b
+                                INNER JOIN tenhim t ON t.tid = b.tcode
+                        ''')
+            data = cur.fetchall()
+        return data
+
+    def getRecord(self, id):
+        with sql.connect('mu.db') as con:
+            con.row_factory = sql.Row
+            cur = con.cursor()
+            cur.execute(f'''SELECT *
+                            FROM oyutan b
+                                INNER JOIN tenhim t ON t.tid = b.tcode
+                            where id = {id}''')
+            data = cur.fetchone()
+        return data
+
+    def add(self, scode, sovog, sner, gender, elssen, register, tcode, mcode, simage):
+        try:
+            with sql.connect('mu.db') as con:
+                cur = con.cursor()
+                cur.execute(f'''insert into oyutan
+                                values(
+                                        null,
+                                        "{scode}",
+                                        "{sovog}",
+                                        "{sner}",
+                                        "{gender}",
+                                        "{elssen}",
+                                        "{register}",
+                                        { tcode },
+                                        { mcode },
+                                        "{simage}"
+                                    )''')
+                con.commit()
+            flash('Амжилттай нэмэгдлээ.', 'success')
+        except:
+            con.rollback()
+            flash(f'Алдаа гарлаа.', 'danger')
+
+    def edit(self, id, scode, sovog, sner, gender, elssen, tcode, mcode, simage, register):
+        try:
+            with sql.connect('mu.db') as con:
+                cur = con.cursor()
+                cur.execute(f'''update oyutan
+                                set scode = "{scode}",
+                                    sovog = "{sovog}",
+                                    sner = "{sner}",
+                                    gender = "{gender}",
+                                    elssen = "{elssen}",
+                                    register = "{register}",
+                                    tcode = {tcode},
+                                    mcode = {mcode},
+                                    simage = '{simage}'
+                                WHERE id = {id}''')
+                con.commit()
+            flash('Амжилттай засварлалаа.', 'success')
+        except sql as er:
+            con.rollback()
+            flash('Засварлахад алдаа гарлаа.'+er, 'danger')
+
+    def delete(self, id):
+        try:
+            with sql.connect('mu.db') as con:
+                cur = con.cursor()
+                cur.execute(F'''delete from oyutan
+                                where id = {id}''')
+                con.commit()
+            flash('Амжилттай устгалаа.', 'success')
+        except:
+            con.rollback()
+            flash('Устгахад алдаа гарлаа.', 'danger')
+
+
 class Bagsh:
 
     def getRecords(self):
@@ -52,7 +133,7 @@ class Bagsh:
         try:
             with sql.connect('mu.db') as con:
                 cur = con.cursor()
-                cur.execute(F'''update bagsh
+                cur.execute(f'''update bagsh
                                 set bcode = "{bcode}",
                                     bovog = "{bovog}",
                                     bner = "{bner}",
@@ -72,7 +153,7 @@ class Bagsh:
         try:
             with sql.connect('mu.db') as con:
                 cur = con.cursor()
-                cur.execute(F'''delete from bagsh
+                cur.execute(f'''delete from bagsh
                                 where id = {id}''')
                 con.commit()
             flash('Амжилттай устгалаа.', 'success')
@@ -188,7 +269,7 @@ class Tenhim:
                     flash('amjilttai nemegdleeij', 'success')
         except:
             con.rollback()
-            flash('ustgaj chdsangui', 'danger')
+            flash('nemj chdsangui', 'danger')
 
     def edit(self, id, name):
         try:

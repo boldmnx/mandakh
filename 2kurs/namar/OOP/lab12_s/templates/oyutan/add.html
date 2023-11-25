@@ -3,42 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>add bagsh</title>
+    <title>add oyutan</title>
   </head>
   <body>
     {%extends 'layout.html'%} {%block content%}
     <div class="row">
       <div class="col-5">
-        <h1>Багш</h1>
-        <h3>Багш нэмэх</h3>
+        <h1>Оюутан</h1>
+        <h3>Оюутан нэмэх</h3>
         <hr />
         <form method="post">
           <table class="table">
             <tbody>
               <tr>
                 <td>
-                  <label>Багшийн код:</label>
+                  <label>Оюутны код:</label>
                 </td>
                 <td>
-                  <input type="text" name="bcode"  />
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <label>Багшийн овог:</label>
-                </td>
-                <td>
-                  <input type="text" name="bovog" />
+                  <input type="text" name="scode"  />
                 </td>
               </tr>
 
               <tr>
                 <td>
-                  <label>Багшийн нэр:</label>
+                  <label>Оюутны овог:</label>
                 </td>
                 <td>
-                  <input type="text" name="bner"  />
+                  <input type="text" name="sovog" />
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <label>Оюутны нэр:</label>
+                </td>
+                <td>
+                  <input type="text" name="sner"  />
                 </td>
               </tr>
 
@@ -55,10 +55,18 @@
               </tr>
               <tr>
                 <td>
-                  <label>Ажилд орсон:</label>
+                  <label>Регистр:</label>
                 </td>
                 <td>
-                  <input type="date" name="aorson"></input>
+                  <input type="text" name="register"></input>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Элссэн огноо:</label>
+                </td>
+                <td>
+                  <input type="date" name="elssen"></input>
                 </td>
               </tr>
               <tr>
@@ -75,7 +83,7 @@
           </table>
           <input type="submit" value="Нэмэх">
         </form><br>
-        <a href="{{url_for('list_bagsh')}}">Буцах</a>
+        <a href="{{url_for('list_oyutan')}}">Буцах</a>
       </div>
     </div>
     {%endblock%}

@@ -3,39 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>list bagsh</title>
+    <title>list oyutan</title>
   </head>
   <body>
     {%extends 'layout.html'%} {%block content%}
-    <h1>Багш</h1>
-    <a href="{{url_for('add_bagsh')}}">Шинээр багш нэмэх</a>
-    <h3>Багш нарын жагсаалт</h3>
+    <h1>Оюутан</h1>
+    <a href="{{url_for('add_oyutan')}}">Шинээр оюутан нэмэх</a>
+    <h3>Оюутан нарын жагсаалт</h3>
     <table class="table">
       <thead class="thead-dark">
         <tr>
-          <th>Багшийн код</th>
-          <th>Багшийн овог нэр</th>
+          <th>Оюутны код</th>
+          <th>Оюутны овог нэр</th>
           <th>Хүйс</th>
-          <th>Ажилд орсон</th>
+          <th>Элсэн орсон</th>
           <th>Тэнхимийн харьяалал</th>
           <th>Үйлдэл</th>
         </tr>
       </thead>
       <tbody>
-        {%for i in data%}
+        {%for i in oyutan%}
         <tr>
-          <td>{{i.bcode}}</td>
-          <td>{{i.bovog}} {{i.bner}}</td>
+          <td>{{i.scode}}</td>
+          <td>{{i.sovog}} {{i.sner}}</td>
           <td>{{i.gender}}</td>
-          <td>{{i.ajild_orson}}</td>
+          <td>{{i.elssen}}</td>
           <td>{{i.tname}}</td>
           <td>
-            <a href="{{url_for('edit_bagsh',id=i.id)}}"
+            <a href="{{url_for('edit_oyutan',id=i.id)}}"
               ><i class="fa fa-edit"></i
             ></a>
             <a
               onclick="return confirm('ta itgeltei bnu')"
-              href="{{url_for('delete_bagsh',id=i.id)}}"
+              href="{{url_for('delete_oyutan',id=i.id)}}"
               ><i class="fa fa-trash"></i
             ></a>
           </td>

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
-from classes import Alban, Zereg, Tenhim, Mergejil, Bagsh
+from classes import Alban, Zereg, Tenhim, Mergejil, Bagsh, Oyutan
 
 app = Flask(__name__)
 app.secret_key = 'asas'
@@ -9,11 +9,68 @@ zereg = Zereg()
 tenhim = Tenhim()
 mergejil = Mergejil()
 bagsh = Bagsh()
+oyutan_ob = Oyutan()
 
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+# Oyutan
+
+
+@app.route('/oyutan/edit/<int:id>', methods=['GET', 'POST'])
+def edit_oyutan(id):
+    if request.method == 'GET':
+        data = oyutan_ob.getRecord(id)
+        tenhimData = tenhim.getRecords()
+        return render_template('oyutan/edit.html', oyutan=data, tenhim=tenhimData)
+    elif request.method == 'POST':
+        scode = request.form['scode']
+        sovog = request.form['sovog']
+        sner = request.form['sner']
+        gender = request.form['gender']
+        elssen = request.form['elssen']
+        register = request.form['register']
+        tcode = request.form['tcode']
+        simage = ''
+        mcode = 0
+        oyutan_ob.edit(id=id, scode=scode, sovog=sovog, sner=sner,
+                       gender=gender, elssen=elssen, register=register, tcode=tcode, mcode=mcode, simage=simage)
+        return redirect(url_for('list_oyutan'))
+
+
+@app.route('/oyutan')
+def list_oyutan():
+    data = oyutan_ob.getRecords()
+    return render_template('oyutan/list.html', oyutan=data)
+
+
+@app.route('/oyutan/add', methods=['GET', 'POST'])
+def add_oyutan():
+    if request.method == 'GET':
+        data = tenhim.getRecords()
+        return render_template('oyutan/add.html', tenhim=data)
+    elif request.method == 'POST':
+        scode = request.form['scode']
+        sovog = request.form['sovog']
+        sner = request.form['sner']
+        gender = request.form['gender']
+        register = request.form['register']
+        elssen = request.form['elssen']
+        tcode = request.form['tcode']
+        simage = ''
+        mcode = 0
+        oyutan_ob.add(scode=scode, sovog=sovog,         simage=simage,                  sner=sner,
+                      gender=gender, elssen=elssen, tcode=tcode, mcode=mcode, register=register)
+        return redirect(url_for('list_oyutan'))
+
+
+@app.route('/oyutan/<int:id>')
+def delete_oyutan(id):
+    oyutan_ob.delete(id)
+    return redirect(url_for('list_oyutan'))
 
 # Bagsh
 
