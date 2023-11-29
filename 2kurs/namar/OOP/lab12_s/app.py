@@ -36,9 +36,20 @@ def edit_oyutan(id):
         tcode = request.form['tcode']
         simage = ''
         mcode = 0
-        oyutan_ob.edit(id=id, scode=scode, sovog=sovog, sner=sner,
-                       gender=gender, elssen=elssen, register=register, tcode=tcode, mcode=mcode, simage=simage)
-        return redirect(url_for('list_oyutan'))
+        all_oyutan=oyutan_ob.getRecords()
+        scodeCheck=True
+        for i in all_oyutan:
+            if i['scode']==scode:
+                flash('oyutnii kod davhtsah yosgui','danger')
+                scodeCheck=False
+                break
+        if scodeCheck:
+            oyutan_ob.edit(id=id, scode=scode, sovog=sovog, sner=sner,
+                        gender=gender, elssen=elssen, register=register, tcode=tcode, mcode=mcode, simage=simage)
+            return redirect(url_for('list_oyutan'))
+        else:
+            return redirect(url_for('edit_oyutan',id=id))
+
 
 
 @app.route('/oyutan')
@@ -62,9 +73,19 @@ def add_oyutan():
         tcode = request.form['tcode']
         simage = ''
         mcode = 0
-        oyutan_ob.add(scode=scode, sovog=sovog,         simage=simage,                  sner=sner,
-                      gender=gender, elssen=elssen, tcode=tcode, mcode=mcode, register=register)
-        return redirect(url_for('list_oyutan'))
+        all_oyutan=oyutan_ob.getRecords()
+        scodeCheck=True
+        for i in all_oyutan:
+            if i['scode']==scode:
+                flash('oyutnii kod davhtsah yosgui','danger')
+                scodeCheck=False
+                break
+        if scodeCheck:
+            oyutan_ob.add(scode=scode, sovog=sovog,         simage=simage,              sner=sner,
+                    gender=gender, elssen=elssen, tcode=tcode, mcode=mcode, register=register)
+            return redirect(url_for('list_oyutan'))
+        else:
+            return redirect(url_for('add_oyutan'))
 
 
 @app.route('/oyutan/<int:id>')

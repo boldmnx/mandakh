@@ -66,7 +66,7 @@
                   <label>Регистр:</label>
                 </td>
                 <td>
-                  <input type="text" name="register" value="{{oyutan.register}}"></input>
+                  <input type="text" name="register"  value="{{oyutan.register}}" pattern="[A-Za-z]{2}\d{7}" title="enter LL0000000"></input>
                 </td>
               </tr>
               
@@ -99,6 +99,7 @@
         <a href="{{url_for('list_oyutan')}}">Буцах</a>
       </div>
     </div>
+    {%include 'alert.html'%}
     {%endblock%}
   </body>
 </html>

@@ -48,7 +48,7 @@ FROM worker w
     INNER JOIN department d ON d.depcode = w.depcode
     INNER JOIN profession p ON p.procode = w.procode;
 --9 NO task
---10
+--10 used in lab9
 SELECT o.id,
     f.name,
     o.hemjee

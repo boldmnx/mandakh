@@ -39,15 +39,16 @@ SELECT ognoo,
 from student
 ORDER BY ognoo;
 --8
-select s.stname,
+SELECT s.stname,
     bg.enterognoo,
     bg.retognoo,
     b.bookname,
-    l.lname "Номын санч"
-from student s
-    inner join bookgive bg on bg.stcode = s.stcode
-    inner join librarian l on bg.libcode = l.lcode
-    inner join book b on b.bookcode = bg.bcode
+    l.lname AS "Номын санч",
+    (bg.retognoo::date - bg.enterognoo::date) AS "зөрүү өдөр"
+FROM student s
+    INNER JOIN bookgive bg ON bg.stcode = s.stcode
+    INNER JOIN librarian l ON bg.libcode = l.lcode
+    INNER JOIN book b ON b.bookcode = bg.bcode
 where s.ognoo BETWEEN '10/1/2014' and '9/1/2015';
 --9
 SELECT m.mname "Мэргэжил",

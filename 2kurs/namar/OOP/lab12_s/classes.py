@@ -82,7 +82,6 @@ class Oyutan:
             con.rollback()
             flash('Устгахад алдаа гарлаа.', 'danger')
 
-
 class Bagsh:
 
     def getRecords(self):
