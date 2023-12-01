@@ -1,13 +1,17 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
 from classes import Alban, Zereg, Tenhim, Mergejil, Bagsh, Oyutan
-import os
 from werkzeug.utils import secure_filename
-from methods import allowed_file
-
+import os
 
 app = Flask(__name__)
-app.secret_key = 'secure'
+app.secret_key = 'asas'
 app.config['image_root'] = 'static/photos/students/'
+allowedExte = set(['png', 'jpg', 'jpeg'])
+
+
+def allow_file(filename):
+    return '.' in filename and filename.split('.')[1].lower() in allowedExte
+
 
 alban = Alban()
 zereg = Zereg()
@@ -24,50 +28,6 @@ def index():
 
 # Oyutan
 
-@app.route('/oyutan')
-def list_oyutan():
-    data = oyutan_ob.getRecords()
-    return render_template('oyutan/list.html', oyutan=data)
-
-
-@app.route('/oyutan/add', methods=['GET', 'POST'])
-def add_oyutan():
-    if request.method == 'GET':
-        data = tenhim.getRecords()
-        return render_template('oyutan/add.html', tenhim=data)
-    elif request.method == 'POST':
-        scode = request.form['scode']
-        sovog = request.form['sovog']
-        sner = request.form['sner']
-        gender = request.form['gender']
-        register = request.form['register']
-        elssen = request.form['elssen']
-        zurag = request.files['zurag']
-        tcode = request.form['tcode']
-        mcode = 0
-        all_oyutan = oyutan_ob.getRecords()
-        scodeCheck = True
-        for i in all_oyutan:
-            if i['scode'] == scode:
-                flash('oyutnii kod davhtsah yosgui', 'danger')
-                scodeCheck = False
-                break
-        if scodeCheck:
-            if zurag and allowed_file(zurag.filename):
-                image = secure_filename(zurag.filename)
-                oldImage = image.split('.')
-                oldImage[0] = scode
-                newImage = '.'.join(oldImage)
-                imagePath = os.path.join(app.config['image_root'], newImage)
-                zurag.save(imagePath)
-            else:
-                imagePath = ''
-            oyutan_ob.add(scode=scode, sovog=sovog,         simage=imagePath,              sner=sner,
-                          gender=gender, elssen=elssen, tcode=tcode, mcode=mcode, register=register)
-            return redirect(url_for('list_oyutan'))
-        else:
-            return redirect(url_for('add_oyutan'))
-
 
 @app.route('/oyutan/edit/<int:id>', methods=['GET', 'POST'])
 def edit_oyutan(id):
@@ -83,22 +43,66 @@ def edit_oyutan(id):
         elssen = request.form['elssen']
         register = request.form['register']
         tcode = request.form['tcode']
+        simage = ''
+        mcode = 0
+        all_oyutan = oyutan_ob.getRecords()
+        scodeCheck = True
+        for i in all_oyutan:
+            if i['scode'] == scode:
+                flash('oyutnii kod davhtsah yosgui', 'danger')
+                scodeCheck = False
+                break
+        if scodeCheck:
+            oyutan_ob.edit(id=id, scode=scode, sovog=sovog, sner=sner,
+                           gender=gender, elssen=elssen, register=register, tcode=tcode, mcode=mcode, simage=simage)
+            return redirect(url_for('list_oyutan'))
+        else:
+            return redirect(url_for('edit_oyutan', id=id))
+
+
+@app.route('/oyutan')
+def list_oyutan():
+    data = oyutan_ob.getRecords()
+    return render_template('oyutan/list.html', oyutan=data)
+
+
+@app.route('/oyutan/add', methods=['GET', 'POST'])
+def add_oyutan():
+    if request.method == 'GET':
+        data = tenhim.getRecords()
+        return render_template('oyutan/add.html', tenhim=data)
+    elif request.method == 'POST':
         zurag = request.files['zurag']
+        scode = request.form['scode']
+        sovog = request.form['sovog']
+        sner = request.form['sner']
+        gender = request.form['gender']
+        register = request.form['register']
+        elssen = request.form['elssen']
+        tcode = request.form['tcode']
         mcode = 0
 
-        if zurag:
-            image = secure_filename(zurag.filename)
-            oldImage = image.split('.')
-            oldImage[0] = scode
-            newImage = '.'.join(oldImage)
-            imagePath = os.path.join(app.config['image_root'], newImage)
-            zurag.save(imagePath)
-        else:
-            imagePath = ''
+        all_oyutan = oyutan_ob.getRecords()
+        scodeCheck = True
+        for i in all_oyutan:
+            if i['scode'] == scode:
+                flash('oyutnii kod davhtsah yosgui', 'danger')
+                scodeCheck = False
+                break
+        if scodeCheck:
+            if zurag and allow_file(zurag.filename):
+                filename = secure_filename(zurag.filename)
+                oldName = filename.split('.')
+                oldName[0] = scode
+                newName = '.'.join(oldName)
+                zuragPath = os.path.join(app.config['image_root'], newName)
+                zurag.save(zuragPath)
 
-        oyutan_ob.edit(id=id, scode=scode, sovog=sovog, sner=sner,
-                       gender=gender, elssen=elssen, register=register, tcode=tcode, mcode=mcode, simage=imagePath)
-        return redirect(url_for('list_oyutan'))
+            oyutan_ob.add(scode=scode, sovog=sovog,         simage=zuragPath,              sner=sner,
+                          gender=gender, elssen=elssen, tcode=tcode, mcode=mcode, register=register)
+            return redirect(url_for('list_oyutan'))
+        else:
+            return redirect(url_for('add_oyutan'))
 
 
 @app.route('/oyutan/<int:id>')

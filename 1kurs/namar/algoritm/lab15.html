@@ -7,7 +7,68 @@
   </head>
   <body>
     <script>
-      numbers = [65, 44, 12, 4, 15, 25, 36, 58];
+      function Loop(...args) {
+        this.args = args;
+        this.sum = 0;
+        this.multi = 1;
+        this.forin_sum = () => {
+          for (i in this.args) {
+            this.sum += this.args[i];
+          }
+          console.log(this.sum);
+        };
+        this.forof_sum = function () {
+          for (i of this.args) {
+            this.sum += i;
+          }
+          console.log(this.sum);
+        };
+        this.for_sum = function () {
+          for (let i = 0; i < this.args.length; i++) {
+            this.sum += this.args[i];
+          }
+          console.log(this.sum);
+        };
+        this.foreach_sum = () => {
+          this.args.forEach((e) => {
+            this.sum += e;
+          });
+          console.log(this.sum);
+        };
+
+        this.forin_multi = () => {
+          for (i in this.args) {
+            this.multi *= this.args[i];
+          }
+          console.log(this.multi);
+        };
+        this.forof_multi = function () {
+          for (i of this.args) {
+            this.multi *= i;
+          }
+          console.log(this.multi);
+        };
+        this.for_multi = function () {
+          for (let i = 0; i < this.args.length; i++) {
+            this.multi *= this.args[i];
+          }
+          console.log(this.multi);
+        };
+        this.foreach_multi = function () {
+          this.args.forEach((e) => {
+            this.multi *= e;
+          });
+          console.log(this.multi);
+        };
+      }
+      numbers = [1, 1, 1, 1, 1, 1, 2, 2];
+
+      loop = new Loop(...numbers);
+      // loop.forin();
+      // loop.forof();
+      // loop.for_sum();
+      // loop.foreach_sum();
+      // loop.foreach_multi();
     </script>
   </body>
 </html>

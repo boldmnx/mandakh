@@ -12,7 +12,7 @@
         <h1>Оюутан</h1>
         <h3>Оюутан засах</h3>
         <hr />
-        <form method="post" enctype="multipart/form-data">
+        <form method="post">
           <table class="table">
             <tbody>
               <tr>
@@ -61,22 +61,6 @@
 
                 </td>
               </tr>
-               <tr>
-                <td>
-                  <label>Зураг:</label>
-                </td>
-                <td>
-                  {%if oyutan.simage%}
-                  <img src="{{oyutan.simage}}" width="40px" height="40" id="profile-img-tag" >
-                  
-                  {%else%}
-                  <img src="{{url_for('static',filename='/photos/students/no.jpg')}}" width="40px" height="40" id="profile-img-tag">
-
-                  {%endif%}
-                  <input type="file" accept=".png, .jpg, .jpeg" name="zurag" id="profile-img"  />
-                </td>
-              </tr>
-
               <tr>
                 <td>
                   <label>Регистр:</label>
@@ -116,22 +100,6 @@
       </div>
     </div>
     {%include 'alert.html'%}
-       <script>
-      function readUrl(input){
-        if(input.files && input.files[0]){
-          var reader=new FileReader()
-          
-          reader.onload=function(e){
-            $('#profile-img-tag').attr('src',e.target.result)
-          }
-          reader.readAsDataURL(input.files[0])
-        }
-      }
-      $('#profile-img').change(function(){
-        readUrl(this)
-      })
-    </script>
-    
     {%endblock%}
   </body>
 </html>

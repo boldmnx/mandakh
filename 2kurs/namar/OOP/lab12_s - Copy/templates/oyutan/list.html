@@ -13,7 +13,6 @@
     <table class="table">
       <thead class="thead-dark">
         <tr>
-          <th>Зураг</th>
           <th>Оюутны код</th>
           <th>Оюутны овог нэр</th>
           <th>Хүйс</th>
@@ -25,19 +24,6 @@
       <tbody>
         {%for i in oyutan%}
         <tr>
-          {%if i.simage%}
-          <td>
-            <img src="{{i.simage}}" width="40" height="40" />
-          </td>
-          {%else%}
-          <td>
-            <img
-              src="{{url_for('static',filename='/photos/students/no.jpg')}}"
-              width="40"
-              height="40"
-            />
-          </td>
-          {%endif%}
           <td>{{i.scode}}</td>
           <td>{{i.sovog}} {{i.sner}}</td>
           <td>{{i.gender}}</td>

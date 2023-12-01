@@ -42,6 +42,15 @@
                 </td>
               </tr>
 
+
+              <tr>
+                <td>
+                  <label>Зураг:</label>
+                </td>
+                <td>
+                  <input type="file" name="zurag"  />
+                </td>
+              </tr>
               <tr>
                 <td>
                   <label>Хүйс:</label>
@@ -53,18 +62,6 @@
                   <label>Эм</label><br />
                 </td>
               </tr>
-              
-              <tr>
-                <td>
-                  <label>Зураг:</label>
-                </td>
-                <td>
-                  <img src="{{url_for('static', filename='/photos/students/no.jpg')}}" width="40px" height="40" id="profile-img-tag">
-                
-                  <input type="file" name="zurag" id="profile-img" accept=".jpg, .jpeg, .png"/>
-                </td>
-              </tr>
-
               <tr>
                 <td>
                   <label>Регистр:</label>
@@ -99,21 +96,6 @@
       </div>
     </div>
     {%include 'alert.html'%}
-        <script>
-      function readUrl(input){
-        if(input.files && input.files[0]){
-          var reader=new FileReader()
-          
-          reader.onload=function(e){
-            $('#profile-img-tag').attr('src',e.target.result)
-          }
-          reader.readAsDataURL(input.files[0])
-        }
-      }
-      $('#profile-img').change(function(){
-        readUrl(this)
-      })
-    </script>
     {%endblock%}
   </body>
 </html>
