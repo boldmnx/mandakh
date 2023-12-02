@@ -1,31 +1,79 @@
-<!DOCTYPE html>
+<!DOCTYPE >
 <html>
   <head>
-    <title>Орлого, зарлагын мэдээлэл</title>
+    <title>balance</title>
   </head>
   <body>
-    <form>
-      <label for="orlogo">Орлогын утга:</label>
-      <input type="number" id="orlogo" name="orlogo" /><br /><br />
-      <label for="zarlag">Зарлагын утга:</label>
-      <input type="number" id="zarlag" name="zarlag" /><br /><br />
-      <input type="button" value="Бүртгэх" onclick="displayValues()" />
-      <br /><br />
+    <form onsubmit="sent(event)">
+      <label>type:</label>
+      <select id="type" required>
+        <option value="">--- сонгох ---</option>
+        <option value="Orlogo">Орлого</option>
+        <option value="Zarlaga">Зарлага</option>
+      </select>
+
+      <br />
+
+      <label>cash:</label>
+      <input type="text" id="cash" />
+
+      <br />
+
+      <label>desc:</label>
+      <input type="text" id="desc" />
+
+      <br />
+
+      <input type="submit" value="sent" />
     </form>
-    <p id="result"></p>
+
+    <textarea readonly id="div"></textarea>
+
     <script>
-      class bodoh {}
-      function displayValues() {
-        var orlogo = document.getElementById("orlogo").value;
-        var zarlag = document.getElementById("zarlag").value;
-        var uldegdel = orlogo - zarlag;
-        document.getElementById("result").innerHTML =
-          "Орлого: " +
-          orlogo +
-          "<br> Зарлага: " +
-          zarlag +
-          "<br> Үлдэгдэл: " +
-          uldegdel;
+      class Bodoh {
+        static balance = 0;
+        constructor(cash, desc, type) {
+          this.cash = cash;
+          this.desc = desc;
+          this.date = new Date().toDateString();
+          this.type = type;
+        }
+      }
+      class Orlogo extends Bodoh {
+        constructor(cash, desc, type) {
+          super(cash, desc, type);
+          Bodoh.balance += cash;
+        }
+      }
+      const div = document.getElementById("div");
+      const bank = [];
+
+      function sent(event) {
+        event.preventDefault();
+        const type = document.getElementById("type").value;
+        const cash = document.getElementById("cash").value;
+        const desc = document.getElementById("desc").value;
+
+        bank.push(new Orlogo(parseInt(cash), desc, type));
+
+        displayValue();
+        document.getElementById("type").value = "";
+        document.getElementById("cash").value = "";
+        document.getElementById("desc").value = "";
+      }
+
+      function displayValue() {
+        const textHTML = [];
+        bank.forEach((e, i) => {
+          textHTML.unshift(`огноо: ${e.date}\n`);
+          textHTML.unshift(`үлдэгдэл: ${Bodoh.balance}\n`);
+          textHTML.unshift(`тайлбар:${e.desc}\n`);
+          textHTML.unshift(`төрөл: ${e.type}\n`);
+          textHTML.unshift(`дүн: ${e.cash}\n`);
+          textHTML.unshift(`Гүйлгээ ${i + 1}\n`);
+          textHTML.unshift(`---------\n`);
+        });
+        div.innerHTML = textHTML.join("");
       }
     </script>
   </body>
