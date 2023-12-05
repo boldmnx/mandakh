@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <canvas
+      id="myCanvas"
+      style="margin-left: 200px; border: 1px solid #000000"
+    ></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      canvas.width = 520;
+      canvas.height = 450;
+      function saadZurah(x, y, urgun, undur) {
+        ctx.beginPath();
+        ctx.rect(x, y, urgun, undur);
+        ctx.fillStyle = "green";
+        ctx.fill();
+        ctx.closePath();
+      }
+      function tsohiurZurah(x, y, urgun, undur) {
+        ctx.beginPath();
+        ctx.rect(x, y, urgun, undur);
+        ctx.fillStyle = "blue";
+        ctx.fill();
+        ctx.closePath();
+      }
+      function bombogorZurah(x, y, radius) {
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, 2 * 3.14);
+        ctx.fillStyle = "blue";
+        ctx.fill();
+        ctx.closePath();
+      }
+      function onooZurah(x, y, onoo) {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#000000";
+        ctx.fillText("Оноо: " + onoo, x, y);
+      }
+      function amiZurah(x, y, ami) {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#000000";
+        ctx.fillText("Оноо: " + ami, 420, 20);
+      }
+
+      for (let x = 30; x < 500; x += 80) {
+        for (let y = 30; y < 150; y += 40) {
+          saadZurah(x, y, 60, 20);
+        }
+      }
+
+      bombogorZurah(240, 390, 10);
+      tsohiurZurah(200, 400, 80, 10);
+      onooZurah(20, 20, 0);
+      amiZurah(420, 20, 3);
+
+      let tsohiurBairlalX = 200;
+      function tsohiurHudluh(x) {
+        tsohiurBairlalX += x;
+        tsohiurZurah(tsohiurBairlalX, 400, 80, 10);
+      }
+      // tsohiurHudluh(-100)
+
+      let bombogBairlalX = 240;
+      let bombogBairlalY = 390;
+      let chiglelX = 30;
+      let chiglelY = -30;
+
+      function bombogHodloh() {
+        if (bombogBairlalX + chiglelX > 500) chiglelX = -chiglelX;
+        if (bombogBairlalY + chiglelY > 400) chiglelY = -chiglelY;
+        if (bombogBairlalX + chiglelX < 0) chiglelX = -chiglelX;
+        if (bombogBairlalY + chiglelY < 0) chiglelY = -chiglelY;
+
+        bombogBairlalX += chiglelX;
+        bombogBairlalY += chiglelY;
+        bombogorZurah(bombogBairlalX, bombogBairlalY, 10);
+      }
+      for (let i = 0; i < 30; i++) {
+        bombogHodloh();
+      }
+    </script>
+  </body>
+</html>

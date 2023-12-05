@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Цаг агаар</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div>
+      <input type="text" id="weather" />
+      <button id="btn" onclick="getData()">Search</button>
+      <h3 id="result"></h3>
+    </div>
+  </body>
+  <script>
+    const API_KEY = "277a60c1225f93a52591707e0f7de1e8";
+    const btn = document.getElementById("btn");
+    const input = document.getElementById("weather");
+    const result = document.getElementById("result");
+
+    function getData() {
+      const cityName = input.value;
+      fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          const minTemp = (data.main.temp_min - 273.15).toFixed(2);
+          const maxTemp = (data.main.temp_max - 273.15).toFixed(2);
+          const weatherCode = data.weather[0].icon;
+
+          const iconUrl = `http://openweathermap.org/img/wn/${weatherCode}.png`;
+          result.innerHTML = `<img src="${iconUrl}">  Улсын  нэр: ${data.name} Хэм: ${minTemp} °C - ${maxTemp} °C`;
+        })
+        .catch((error) => {
+          console.error("Error", error);
+          result.innerText = "Error ";
+        });
+    }
+
+    input.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        getData();
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>lab14</title>
+  </head>
+  <body>
+    <input type="text" id="input1" />
+    <input type="text" id="input2" />
+    <input type="button" onclick="add()" id="add" value="нэмэх" />
+    <input type="button" onclick="sub()" id="sub" value="хасах" />
+    <p id="p">Хариу:</p>
+    <script>
+      // 2
+      function display(some) {
+        const p = document.getElementById("p");
+        p.innerHTML = some;
+      }
+
+      function add() {
+        const input1 = document.getElementById("input1").value;
+        const input2 = document.getElementById("input2").value;
+
+        display(`Хариу: ${parseInt(input1) + parseInt(input2)}`);
+        document.getElementById("input1").value = "";
+        document.getElementById("input2").value = "";
+      }
+
+      function sub() {
+        const input1 = document.getElementById("input1").value;
+        const input2 = document.getElementById("input2").value;
+        display(`Хариу: ${parseInt(input1) - parseInt(input2)}`);
+
+        document.getElementById("input1").value = "";
+        document.getElementById("input2").value = "";
+      }
+
+      let pro = new Promise(function (res, rej) {
+        if (add) {
+          res("amjilttai");
+        } else {
+          rej("aldaa");
+        }
+      });
+
+      pro.then(
+        function (value) {
+          console.log(value);
+        },
+        function (err) {
+          console.log(err);
+        }
+      );
+      //3 callback is arg method
+      //Function Sequence-daraall
+    </script>
+  </body>
+</html>

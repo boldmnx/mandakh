@@ -27,7 +27,7 @@
       <input type="submit" value="sent" />
     </form>
 
-    <textarea readonly id="div"></textarea>
+    <textarea style="width: 200px; height: 300px" readonly id="div"></textarea>
 
     <script>
       class Bodoh {
@@ -35,7 +35,7 @@
         constructor(cash, desc, type) {
           this.cash = cash;
           this.desc = desc;
-          this.date = new Date().toDateString();
+          this.date = new Date().toLocaleString();
           this.type = type;
         }
       }
@@ -43,6 +43,14 @@
         constructor(cash, desc, type) {
           super(cash, desc, type);
           Bodoh.balance += cash;
+          this.balance = Bodoh.balance;
+        }
+      }
+      class Zarlaga extends Bodoh {
+        constructor(cash, desc, type) {
+          super(cash, desc, type);
+          Bodoh.balance -= cash;
+          this.balance = Bodoh.balance;
         }
       }
       const div = document.getElementById("div");
@@ -54,7 +62,11 @@
         const cash = document.getElementById("cash").value;
         const desc = document.getElementById("desc").value;
 
-        bank.push(new Orlogo(parseInt(cash), desc, type));
+        if (type == "Zarlaga") {
+          bank.push(new Zarlaga(parseInt(cash), desc, type));
+        } else {
+          bank.push(new Orlogo(parseInt(cash), desc, type));
+        }
 
         displayValue();
         document.getElementById("type").value = "";
@@ -66,7 +78,7 @@
         const textHTML = [];
         bank.forEach((e, i) => {
           textHTML.unshift(`огноо: ${e.date}\n`);
-          textHTML.unshift(`үлдэгдэл: ${Bodoh.balance}\n`);
+          textHTML.unshift(`үлдэгдэл: ${e.balance}\n`);
           textHTML.unshift(`тайлбар:${e.desc}\n`);
           textHTML.unshift(`төрөл: ${e.type}\n`);
           textHTML.unshift(`дүн: ${e.cash}\n`);
@@ -74,6 +86,7 @@
           textHTML.unshift(`---------\n`);
         });
         div.innerHTML = textHTML.join("");
+        console.log(bank);
       }
     </script>
   </body>
