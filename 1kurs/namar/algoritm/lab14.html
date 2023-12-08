@@ -8,48 +8,68 @@
     <input type="text" id="input2" />
     <input type="button" onclick="add()" id="add" value="нэмэх" />
     <input type="button" onclick="sub()" id="sub" value="хасах" />
-    <p id="p">Хариу:</p>
+    <p id="p">Ялгавар:</p>
+    <p id="niilber"></p>
+    <ul id="ul"></ul>
+    <ul id="menu">
+      <li>Menu1</li>
+      <li>Menu3</li>
+      <li>Menu5</li>
+    </ul>
     <script>
-      // 2
-      function display(some) {
+      //1
+      niilber = 0;
+      async function sub() {
         const p = document.getElementById("p");
-        p.innerHTML = some;
+        pro = new Promise(function (res) {
+          const n = document.getElementById("niilber");
+          const input1 = document.getElementById("input1").value;
+          const input2 = document.getElementById("input2").value;
+
+          n.innerHTML = `Нийлбэр: ${niilber}`;
+          res(`Ялгавар: ${parseInt(input1) - parseInt(input2)}`);
+        });
+        p.innerHTML = await pro;
+        console.log(await pro);
       }
+      sub();
 
       function add() {
+        const n = document.getElementById("niilber");
+
         const input1 = document.getElementById("input1").value;
         const input2 = document.getElementById("input2").value;
 
-        display(`Хариу: ${parseInt(input1) + parseInt(input2)}`);
-        document.getElementById("input1").value = "";
-        document.getElementById("input2").value = "";
+        // niilber = parseInt(input1) + parseInt(input2);
+        n.innerHTML = parseInt(input1) + parseInt(input2);
       }
 
-      function sub() {
-        const input1 = document.getElementById("input1").value;
-        const input2 = document.getElementById("input2").value;
-        display(`Хариу: ${parseInt(input1) - parseInt(input2)}`);
-
-        document.getElementById("input1").value = "";
-        document.getElementById("input2").value = "";
+      setTimeout(meth, 4000);
+      function meth() {
+        arrHtml = [];
+        arrHtml.push(`
+        <li >Menu1</li>
+        <li >Menu3</li>
+        <li >Menu5</li>
+        <li >Menu2</li>
+        <li >Menu4</li>
+        `);
+        document.getElementById("menu").innerHTML = arrHtml;
       }
 
-      let pro = new Promise(function (res, rej) {
-        if (add) {
-          res("amjilttai");
-        } else {
-          rej("aldaa");
-        }
-      });
+      async function li() {
+        let mypromise = new Promise(function (res) {
+          arrHtml = [];
+          for (let i = 0; i < 5; i++) {
+            arrHtml.push(`<li>Menu${i + 1}</li>`);
+          }
+          res(arrHtml.join(""));
+        });
+        document.getElementById("ul").innerHTML = await mypromise;
+      }
 
-      pro.then(
-        function (value) {
-          console.log(value);
-        },
-        function (err) {
-          console.log(err);
-        }
-      );
+      // 2
+
       //3 callback is arg method
       //Function Sequence-daraall
     </script>

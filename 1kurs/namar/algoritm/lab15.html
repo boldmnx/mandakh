@@ -61,14 +61,12 @@
           console.log(this.multi);
         };
       }
-      numbers = [1, 1, 1, 1, 1, 1, 2, 2];
+      numbers = [1, 1, 5, 1, 6, 1, 2, 2];
+      arr = numbers.map((e) => e * 10);
+      console.log(numbers);
+      console.log(arr);
 
       loop = new Loop(...numbers);
-      // loop.forin();
-      // loop.forof();
-      // loop.for_sum();
-      // loop.foreach_sum();
-      // loop.foreach_multi();
     </script>
   </body>
 </html>

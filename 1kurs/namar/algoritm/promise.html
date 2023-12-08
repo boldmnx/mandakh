@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>promise</title>
+  </head>
+  <body>
+    <script>
+      function first() {
+        console.log("first function say: hi");
+        second();
+        console.log("first function say: bye");
+      }
+      second = function () {
+        setTimeout(() => console.log("second function: asnyc bn"), 1000);
+      };
+      first();
+    </script>
+  </body>
+</html>
