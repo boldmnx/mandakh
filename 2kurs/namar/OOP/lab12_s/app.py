@@ -93,7 +93,6 @@ def logout():
 
 @app.route('/hicheel')
 def list_hicheel(limit=10):
-
     with sql.connect('mu.db') as con:
         con.row_factory = sql.Row
         cur = con.cursor()
