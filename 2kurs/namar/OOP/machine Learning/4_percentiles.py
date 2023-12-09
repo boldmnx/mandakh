@@ -1,12 +1,8 @@
 import numpy
-import math
 
-ages = numpy.random.uniform(0, 100, 30).astype(int)
+ages = [5, 31, 43, 48, 50, 41, 7, 11, 15, 39,
+        80, 82, 32, 2, 8, 6, 25, 36, 27, 61, 31]
 
-# What is the age that 90% of the people are younger than?
-# 75 huviig n yamar nasniihan ezelj bn ve
+x = numpy.percentile(ages, 75)
 
-
-n = numpy.percentile(ages, 20)
-print(ages)
-print(n)
+print(x)

@@ -1,7 +1,10 @@
-import numpy
-import math
 
-arr1 = numpy.random.uniform(0, 9, 9).astype(int)
-stdArr1 = math.floor(numpy.std(arr1))
-print(arr1)
-print(f'standard devition: {stdArr1}')
+
+import numpy
+
+ages = [5, 31, 43, 48, 50, 41, 7, 11, 15, 39,
+        80, 82, 32, 2, 8, 6, 25, 36, 27, 61, 31]
+
+x = numpy.percentile(ages, 75)
+
+print(x)  # out: 43

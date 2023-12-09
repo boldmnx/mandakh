@@ -1,8 +1,8 @@
-from flask import Flask, render_template, url_for, request, redirect, flash, abort
+from flask import Flask, render_template, url_for, request, redirect, flash, session
 from classes import Alban, Zereg, Tenhim, Mergejil, Bagsh, Oyutan
 import os
 from werkzeug.utils import secure_filename
-from methods import allowed_file
+from methods import allowed_file, hash
 import sqlite3 as sql
 from flask_paginate import Pagination
 
@@ -24,7 +24,73 @@ def index():
     return render_template('index.html')
 
 
+# finnally auth
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if not session:
+        if request.method == 'POST':
+            username = request.form['username']
+            pwd = request.form['password']
+            with sql.connect('mu.db') as con:
+                cur = con.cursor()
+                cur.execute(
+                    f'select * from user where username ="{username}" and password="{hash(pwd)}"')
+                data = cur.fetchall()
+                if data:
+                    flash('Амжилттай нэвтэрлээ.', 'success')
+                    session['user'] = username
+                    session['role'] = data[0][3]
+                    return redirect(url_for('index'))
+                else:
+                    flash('nuuts ug esvel pass buruu bn dahin oroldnuu')
+                    return render_template('auth/login.html')
+        elif request.method == 'GET':
+            return render_template('/auth/login.html')
+    else:
+        return redirect(url_for('index'))
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if not session:
+        if request.method == 'GET':
+            return render_template('auth/signup.html')
+        elif request.method == 'POST':
+            username = request.form['username']
+            pwd = request.form['password']
+            rpwd = request.form['rpassword']
+            if pwd is rpwd:
+                with sql.connect('mu.db') as con:
+                    cur = con.cursor()
+                    cur.execute(
+                        f'select * from user where username="{username}"')
+                    data = cur.fetchone()
+                    if not data:
+                        cur.execute(
+                            f'insert into user set username ={username}, password={hash(pwd)}')
+                        con.commit
+                        flash('Та амжилттай бүртгэгдлээ.', 'success')
+                        return redirect(url_for('index'))
+                    else:
+                        flash('Та бүртгэлтэй байна.', 'warning')
+                        return render_template('auth/register.html')
+
+            else:
+                flash('not match pass fields', 'warning')
+                return render_template('auth/register.html')
+    else:
+        return redirect(url_for('index'))
+
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
 # Hicheel
+
+
 @app.route('/hicheel')
 def list_hicheel(limit=10):
 
@@ -121,7 +187,7 @@ def add_oyutan():
         scodeCheck = True
         for i in all_oyutan:
             if i['scode'] == scode:
-                flash('oyutnii kod davhtsah yosgui', 'danger')
+                flash('oyutnii kod davhtsah yosgui', 'warning')
                 scodeCheck = False
                 break
         if scodeCheck:

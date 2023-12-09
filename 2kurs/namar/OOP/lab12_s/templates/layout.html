@@ -20,6 +20,7 @@ libs/jquery/1.9.1/jquery.js"></script>
     <div class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="{{url_for('index')}}">Нүүр</a>
       <ul class="navbar-nav">
+        {%if session%} {%if session['role']==1%}
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('list_alban')}}">Албан тушаал</a>
         </li>
@@ -29,9 +30,9 @@ libs/jquery/1.9.1/jquery.js"></script>
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('list_tenhim')}}">Тэнхим</a>
         </li>
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="{{url_for('list_mergejil')}}">Мэргэжил</a>
-        </li> -->
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('list_bagsh')}}">Багш</a>
         </li>
@@ -41,6 +42,34 @@ libs/jquery/1.9.1/jquery.js"></script>
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('list_hicheel')}}">Хичээл </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('logout')}}">logout </a>
+        </li>
+        {%elif session['role']==2%}
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('list_bagsh')}}">Багш</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('list_hicheel')}}">Хичээл </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('logout')}}">logout </a>
+        </li>
+        {%elif session['role']==3%}
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('list_oyutan')}}">Оюутан</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('list_hicheel')}}">Хичээл </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('logout')}}">logout </a>
+        </li>
+        {%endif%} {%else%}
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('login')}}">login </a>
+        </li>
+        {%endif%}
       </ul>
     </div>
 

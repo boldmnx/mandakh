@@ -1,5 +1,6 @@
 
 from faker import Faker
+import hashlib
 import sqlite3 as sql
 
 allowExt = set(['png', 'jpg', 'jpeg'])
@@ -22,3 +23,13 @@ def addData():
 
 
 # addData()
+
+
+def hash(some):
+    hash256 = hashlib.sha256()
+    hash256.update(some.encode('utf-8'))
+    hashPass = hash256.hexdigest()
+    return hashPass
+
+
+# print(hash('1234'))

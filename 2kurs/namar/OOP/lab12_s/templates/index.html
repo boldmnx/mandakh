@@ -1,11 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-  </head>
-  <body>
     {%extends 'layout.html'%}
     {%block content%}
+    {%if session%}
+    <h3>Welcome <b>{{session['user']}}</b> </h3> 
+    {%endif%}
+       <p> You logged in as
+        {% if session['role'] == 1 %}
+        <strong>Сургалтын алба</strong>
+        {% elif session['role']==2%}
+        <strong>Багш</strong>
+        {% elif session['role']==3%}
+        <strong>Оюутан</strong>
+        {% else %}
+        <strong> Guest</strong>
+        {% endif %}
+    </p>
     <h1>Мандах Их Сургуулийн товч танилцуулга</h1>
     <p class="lead">
       Мандах Их сургууль 1992 онд байгуулагдсан. 3 салбар сургуультай. Үүнд:
@@ -23,11 +31,6 @@
         ОЛОН УЛСЫН ХЭМЖЭЭНД ХҮЛЭЭН ЗӨВШӨӨРӨГДСӨН СУРГАЛТ-СУДАЛГААНЫ ИХ СУРГУУЛЬ БОЛОХ.
       </p>
     </div>
-    <div class="col-md-4">
-      <h2>ЦАГ</h2>
-      {%include 'clock.html'%}
-    </div>>
   </div>
+      {%include 'alert.html'%}
   {%endblock%}
-  </body>
-</html>
