@@ -8,7 +8,9 @@
   <body>
     {%extends 'layout.html'%} {%block content%}
     <h1>Багш</h1>
+    {%if session['role']==1%}
     <a href="{{url_for('add_bagsh')}}">Шинээр багш нэмэх</a>
+    {%endif%}
     <h3>Багш нарын жагсаалт</h3>
     <table class="table">
       <thead class="thead-dark">
