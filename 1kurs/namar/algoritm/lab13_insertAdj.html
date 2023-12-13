@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #output {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="inputText" onkeydown="handleKeyPress(event)" />
+    <div style="border: solid" id="output"></div>
+
+    <div
+      id="div"
+      onclick="change_color()"
+      style="width: 100px; height: 100px; background-color: red"
+    ></div>
+
+    <script>
+      function change_color() {
+        const div = document.getElementById("div");
+        div.style.background = "blue";
+      }
+      function handleKeyPress(event) {
+        // key = event.which;
+
+        if (event.key === "Enter") {
+          var inputValue = document.getElementById("inputText").value;
+
+          out = document.getElementById("output");
+
+          out.insertAdjacentHTML("beforebegin", `<p>${inputValue}</p>`);
+          out.insertAdjacentHTML("afterbegin", `<span>${inputValue}</span>`);
+          out.insertAdjacentHTML("beforeend", `<span>${inputValue}</span>`);
+          out.insertAdjacentHTML("afterend", `<p>${inputValue}</p>`);
+
+          document.getElementById("inputText").value = "";
+        }
+      }
+    </script>
+  </body>
+</html>
