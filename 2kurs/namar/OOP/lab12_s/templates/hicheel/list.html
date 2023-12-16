@@ -12,8 +12,8 @@
     <tr>
       <th>#</th>
       <th>Нэр 
-       <a href="{{url_for('order',any='h.hcode',sort='asc')}}" style="color: white;"><i class="fa fa-sort-alpha-asc"></i></a>
-       <a href="{{url_for('order',any='h.hcode',sort='desc')}}" style="color: white;"><i class="fa fa-sort-alpha-desc"></i></a>
+       <a href="{{url_for('list_hicheel',any='h.hcode',sort='asc')}}" style="color: white;"><i class="fa fa-sort-alpha-asc"></i></a>
+       <a href="{{url_for('list_hicheel',any='h.hcode',sort='desc')}}" style="color: white;"><i class="fa fa-sort-alpha-desc"></i></a>
       </th>
       <th>Кредит</td>
       <th>Өмнөх холбоо</th>
@@ -32,6 +32,7 @@
     {%endfor%}
   </tbody>
 </table>  
+{{pn.links}}
 {%else%}
 <p>Medeell alga</p>
 {%endif%}

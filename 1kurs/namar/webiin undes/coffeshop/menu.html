@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Caffe Seven</title>
+<meta charset="UTF-8">
+<meta name="viewport" width=devicewidth initial-scale=1.0 shrink-to-fit=no>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="1.css">
+<link rel="stylesheet" href="2.css">
+<link rel="stylesheet" href="3.css">
+
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("cafe.webp");
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top" >
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s1" >
+        <a href="#" class="w3-button w3-block w3-black" disabled > Caffe Seven</a>
+      </div>
+    <div class="w3-col s2">
+      <a href="index.html" class="w3-button w3-block w3-black" >Hүүр хуудас</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="about.html" class="w3-button w3-block w3-black">Бидний тухай</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="menu.html" class="w3-button w3-block w3-black">Цэс</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="contact.html" class="w3-button w3-block w3-black">Холбоо барих</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="login.html" class="w3-button w3-block w3-black">Нэвтрэх</a>
+    </div>
+    <div class="w3-col s1">
+        <a href="contact.html" class="w3-button w3-block w3-black"><i class="fa fa-search" style="font-size:21px"></i></a>
+      </div>
+  </div>
+</div>
+<div class="w3-sand w3-grayscale w3-large">
+
+<!-- Menu Container -->
+<div class="w3-container" id="menu">
+  <div class="w3-content" style="max-width:700px">
+ 
+    <h5 class="w3-center w3-padding-48" style="margin-top: 50px;"><span class="w3-tag w3-wide">Манай цэс</span></h5>
+  
+    <div class="w3-row w3-center w3-card w3-padding">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
+        <div class="w3-col s6 tablink">Идэх зүйлс</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+        <div class="w3-col s6 tablink">Уух зүйлс</div>
+      </a>
+    </div>
+
+    <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Bread Basket</h5>
+      <p class="w3-text-grey">Шинэхэн шарсан жимсний талх, маффины нэр төрөл 5500</p><br>
+    
+      <h5>Honey Almond Granola with Fruits</h5>
+      <p class="w3-text-grey">Байгалийн зөгийн бал шарсан овъёос, үзэм, бүйлс, үр тариа 7000</p><br>
+    
+      <h5>Belgian Waffle</h5>
+      <p class="w3-text-grey">Соёолж гурилтай ванилийн амттай ороомог 4750</p><br>
+    
+      <h5>Scrambled eggs</h5>
+      <p class="w3-text-grey">Шарсан өндөг, шарж улаан чинжүү, сармис, ногоон сонгинотой 7050</p><br>
+    
+      <h5>Blueberry Pancakes</h5>
+      <p class="w3-text-grey">Сироп, цөцгийн тос, олон жимстэй 8500</p>
+    </div>
+
+    <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Coffee</h5>
+      <p class="w3-text-grey">Ердийн кофе 2500</p><br>
+    
+      <h5>Chocolato</h5>
+      <p class="w3-text-grey">Сүүтэй шоколадтай эспрессо 4500</p><br>
+    
+      <h5>Corretto</h5>
+      <p class="w3-text-grey">Виски, кофе 5000</p><br>
+    
+      <h5>Iced tea</h5>
+      <p class="w3-text-grey">Халуун цайнаас бусад 1300</p><br>
+    
+      <h5>Soda</h5>
+      <p class="w3-text-grey">Кола, Спрайт, Фанта гэх мэт. 2500</p>
+    </div>  
+    <img src="coke.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
+  </div>
+</div>
+</div>
+
+
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>

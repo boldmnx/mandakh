@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Caffe Seven</title>
+<meta charset="UTF-8">
+<meta name="viewport" width=devicewidth initial-scale=1.0 shrink-to-fit=no>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="1.css">
+<link rel="stylesheet" href="2.css">
+<link rel="stylesheet" href="3.css">
+
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("cafe.webp");
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top" >
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s1" >
+        <a href="#" class="w3-button w3-block w3-black" disabled > Caffe Seven</a>
+      </div>
+    <div class="w3-col s2">
+      <a href="index.html" class="w3-button w3-block w3-black" >Hүүр хуудас</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="about.html" class="w3-button w3-block w3-black">Бидний тухай</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="menu.html" class="w3-button w3-block w3-black">Цэс</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="contact.html" class="w3-button w3-block w3-black">Холбоо барих</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="login.html" class="w3-button w3-block w3-black">Нэвтрэх</a>
+    </div>
+    <div class="w3-col s1">
+        <a href="contact.html" class="w3-button w3-block w3-black"><i class="fa fa-search" style="font-size:21px"></i></a>
+      </div>
+  </div>
+</div>
+
+<div class="w3-sand w3-grayscale w3-large">
+
+<div class="w3-container" id="where" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48" style="margin-top: 50px;"><span class="w3-tag w3-wide">БИДНИЙГ ХААНААС ОЛОХ ВЭ?</span></h5>
+    <p>Бидний хаягаар хайж олоорой.</p>
+    <img src="map.webp" class="w3-image" style="width:100%">
+    <p><span class="w3-tag">Хэе!</span> Бид том, жижиг аль ч арга хэмжээнд зориулж иж бүрэн хэмжээний катерингийг санал болгож байна. Бид таны хэрэгцээг ойлгож байгаа бөгөөд бид хамгийн том шалгуурыг хангахын тулд хоолыг хангах болно.</p>
+    <p><strong>Нөөц</strong> өнөөдрийн онцгой зүйлийг асуу эсвэл зүгээр л бидэнд мессеж илгээнэ үү:</p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Нэр" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="Хэр их хүн" required name="People"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Огноо" required name="date" value="2020-11-16T20:00"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Зурвас" required name="Message"></p>
+      <p><button class="w3-button w3-black" type="submit">ЗУРВАС ИЛГЭЭХ</button></p>
+    </form>
+  </div>
+</div>
+
+<!-- End page content -->
+</div>
+
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+
+</script>
+
+</body>
+</html>

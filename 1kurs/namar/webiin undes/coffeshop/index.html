@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Caffe Seven</title>
+<meta charset="UTF-8">
+<meta name="viewport" width=devicewidth initial-scale=1.0 shrink-to-fit=no>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="1.css">
+<link rel="stylesheet" href="2.css">
+<link rel="stylesheet" href="3.css">
+<link rel="stylesheet" href="1.js">
+<link rel="icon" href="cafe.png" type="image">
+<style>
+  
+body, html {
+  height: 100%;
+    font-family: 'Poppins' sans-serif;
+  /* font-family: "Inconsolata", sans-serif; */
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("cafe.jpeg");
+  opacity: 0.9;
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top" >
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s1" >
+        <a href="#" class="w3-button w3-block w3-black" disabled> <img src="sign.png" alt=""></a>
+      </div>
+    <div class="w3-col s2">
+      <a href="index.html" class="w3-button w3-block w3-black" >Hүүр хуудас</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="about.html" class="w3-button w3-block w3-black">Бидний тухай</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="menu.html" class="w3-button w3-block w3-black">Цэс</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="contact.html" class="w3-button w3-block w3-black">Холбоо барих</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="login.html" class="w3-button w3-block w3-black">Нэвтрэх</a>
+    </div>
+    <div class="w3-col s1">
+        <a href="contact.html" class="w3-button w3-block w3-black"><i class="fa fa-search" style="font-size:21px"></i></a>
+      </div>
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag">цагийн хуваарь 06:00-14:00</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white" style="font-size:70px;text-shadow: 2px 1px black;"> Caffe Seven<br>өглөөний кафе</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white">Аюушын тойрог,7811</span>
+  </div>
+</header>
+
+<div class="w3-sand w3-grayscale w3-large">
+
+
+<section class="section1">
+  <h3 class="section1-pretitle pretitle">Мэдээллүүд</h3>
+  <h2 class="section1-title title">Кофены төрлүүд</h2>
+  <div class="container">
+    <ul class="section1-list">
+      <li class="section1-list-item">
+        <img
+          src="assets/img/section1/icon1.svg"
+          alt=""
+          class="section1-list-item-icon"
+        />
+        <div class="section1-list-item-info">
+          <p class="section1-list-item-info-title">Espresso.</p>
+          <p class="section1-list-item-info-desc">
+            Эспрессо бол бараан хүрэн болтол нь шарсан анхилуун үнэртэй үрийг тусгай эспрессо машинд өндөр даралтаар найруулж гаргасан хүчтэй хар кофе юм.
+          <button>
+            <a href="delgerengui.html"> дэлгэрэнгүй... </a>
+          </button>
+          </p>
+          
+        </div>
+      </li>
+      <li class="section1-list-item">
+        <img
+          src="assets/img/section1/icon2.svg"
+          alt=""
+          class="section1-list-item-icon"
+        />
+        <div class="section1-list-item-info">
+          <p class="section1-list-item-info-title">Cappuccino.</p>
+          <p class="section1-list-item-info-desc">
+            Жинхэнэ каппучино бол тэнцүү хэмжээний эспрессо, хөөрүүлсэн сүү, сүүний хөөснөөс бүрддэг. 
+            <button>
+              <a href="delgerengui.html"> дэлгэрэнгүй... </a>
+            </button>
+          </p>
+        </div>
+      </li>
+      <li class="section1-list-item">
+        <img
+          src="assets/img/section1/icon3.svg"
+          alt=""
+          class="section1-list-item-icon"
+        />
+        <div class="section1-list-item-info">
+          <p class="section1-list-item-info-title">Caf Mocha .</p>
+          <p class="section1-list-item-info-desc">
+            Энэ бол каппучино эсвэл каффе латте дээр шоколадны сироп, нунтаг зэргийг нэмж гаргасан хувилбар.
+            <button>
+              <a href="delgerengui.html"> дэлгэрэнгүй... </a>
+            </button>
+          </p>
+        </div>
+      </li>
+      <li class="section1-list-item">
+        <img
+          src="assets/img/section1/icon4.svg"
+          alt=""
+          class="section1-list-item-icon"
+        />
+        <div class="section1-list-item-info">
+          <p class="section1-list-item-info-title">Caffe Latte</p>
+          <p class="section1-list-item-info-desc">
+            Энэ бол нэг татах (single shot) хэмжээний эспрессо дээр гурав дахин их хэмжээтэй хөөрүүлсэн сүү нэмсэн хувилбар.
+            <button>
+              <a href="delgerengui.html"> дэлгэрэнгүй... </a>
+            </button>
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="section2">
+  <h3 class="section2-pretitle pretitle">
+    Дуртай төрлөө сонго</h3>
+  <h2 class="section2-title title">Та худалдан авалтаа хийнэ үү?</h2>
+  <div class="section2-slider">
+    <span
+      class="section2-slider-gradientstart section2-slider-gradient bg"
+    ></span>
+    <span
+      class="section2-slider-gradientend section2-slider-gradient bg"
+    ></span>
+    <div class="wrapper">
+      <span class="section2-slider-arrows">
+        <img
+          src="1..jpg"
+          alt=""
+          style="transform: rotate(180deg) !important"
+          class="section2-slider-arrows-left section2-slider-arrows-item"
+        />
+        <img
+          src="1..jpg"
+          alt=""
+          class="section2-slider-arrows-right section2-slider-arrows-item"
+        />
+      </span>
+      <div class="section2-slider-canvas">
+        <ul class="section2-slider-canvas-list">
+          <li class="section2-slider-canvas-list-item shadow">
+            <img
+              src="1..jpg"
+              alt=""
+              class="section2-slider-canvas-list-item-img"
+            />
+            <div class="section2-slider-canvas-list-item-info">
+              <div class="container">
+                <p
+                  class="section2-slider-canvas-list-item-info-price price"
+                >
+                6000₮
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-name product-name"
+                >
+                  REVO Morning
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-desc product-desc"
+                >
+                  Bitter, sweet aftertaste, floral scent.
+                </p>
+                <div class="section2-slider-canvas-list-item-info-buttons">
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-buy button button-accent"
+                  >
+                  Худалдаж авах
+                  </button>
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-details button" a href="delgerengui.html" >
+                    <a href="delgerengui.html">  Дэлгэрэнгүй </a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="section2-slider-canvas-list-item shadow">
+            <img
+              src="1..jpg"
+              alt=""
+              class="section2-slider-canvas-list-item-img"
+            />
+            <div class="section2-slider-canvas-list-item-info">
+              <div class="container">
+                <p
+                  class="section2-slider-canvas-list-item-info-price price"
+                >
+                6000₮
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-name product-name"
+                >
+                  REVO Morning
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-desc product-desc"
+                >
+                  Bitter, sweet aftertaste, floral scent.
+                </p>
+                <div class="section2-slider-canvas-list-item-info-buttons">
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-buy button button-accent"
+                  >
+                  Худалдаж авах
+                  </button>
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-details button"
+                  >
+                  <a href="delgerengui.html">  Дэлгэрэнгүй </a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="section2-slider-canvas-list-item shadow">
+            <img
+              src="1..jpg"
+              alt=""
+              class="section2-slider-canvas-list-item-img"
+            />
+            <div class="section2-slider-canvas-list-item-info">
+              <div class="container">
+                <p
+                  class="section2-slider-canvas-list-item-info-price price"
+                >
+                6000₮
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-name product-name"
+                >
+                  REVO Morning
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-desc product-desc"
+                >
+                  Bitter, sweet aftertaste, floral scent.
+                </p>
+                <div class="section2-slider-canvas-list-item-info-buttons">
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-buy button button-accent"
+                  >
+                  Худалдаж авах
+                  </button>
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-details button"
+                  >
+                  <a href="delgerengui.html">  Дэлгэрэнгүй </a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="section2-slider-canvas-list-item shadow">
+            <img
+              src="1..jpg"
+              alt=""
+              class="section2-slider-canvas-list-item-img"
+            />
+            <div class="section2-slider-canvas-list-item-info">
+              <div class="container">
+                <p
+                  class="section2-slider-canvas-list-item-info-price price"
+                >
+                6000₮
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-name product-name"
+                >
+                  REVO Morning
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-desc product-desc"
+                >
+                  Bitter, sweet aftertaste, floral scent.
+                </p>
+                <div class="section2-slider-canvas-list-item-info-buttons">
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-buy button button-accent"
+                  >
+                  Худалдаж авах
+                  </button>
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-details button"
+                  >
+                  <a href="delgerengui.html">  Дэлгэрэнгүй </a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="section2-slider-canvas-list-item shadow">
+            <img
+              src="1..jpg"
+              alt=""
+              class="section2-slider-canvas-list-item-img"
+            />
+            <div class="section2-slider-canvas-list-item-info">
+              <div class="container">
+                <p
+                  class="section2-slider-canvas-list-item-info-price price"
+                >
+                6000₮
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-name product-name"
+                >
+                  REVO Morning
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-desc product-desc"
+                >
+                  Bitter, sweet aftertaste, floral scent.
+                </p>
+                <div class="section2-slider-canvas-list-item-info-buttons">
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-buy button button-accent"
+                  >
+                  Худалдаж авах
+                  </button>
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-details button"
+                  >
+                  <a href="delgerengui.html">  Дэлгэрэнгүй </a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="section2-slider-canvas-list-item shadow">
+            <img
+              src="1..jpg"
+              alt=""
+              class="section2-slider-canvas-list-item-img"
+            />
+            <div class="section2-slider-canvas-list-item-info">
+              <div class="container">
+                <p
+                  class="section2-slider-canvas-list-item-info-price price"
+                >
+                6000₮
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-name product-name"
+                >
+                  REVO Morning
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-desc product-desc"
+                >
+                  Bitter, sweet aftertaste, floral scent.
+                </p>
+                <div class="section2-slider-canvas-list-item-info-buttons">
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-buy button button-accent"
+                  >
+                  Худалдаж авах
+                  </button>
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-details button"
+                  >
+                  <a href="delgerengui.html">  Дэлгэрэнгүй </a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="section2-slider-canvas-list-item shadow">
+            <img
+              src="1..jpg"
+              alt=""
+              class="section2-slider-canvas-list-item-img"
+            />
+            <div class="section2-slider-canvas-list-item-info">
+              <div class="container">
+                <p
+                  class="section2-slider-canvas-list-item-info-price price"
+                >
+                6000₮
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-name product-name"
+                >
+                  REVO Morning
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-desc product-desc"
+                >
+                  Bitter, sweet aftertaste, floral scent.
+                </p>
+                <div class="section2-slider-canvas-list-item-info-buttons">
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-buy button button-accent"
+                  >
+                  Худалдаж авах
+                  </button>
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-details button"
+                  >
+                  <a href="delgerengui.html">  Дэлгэрэнгүй </a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="section2-slider-canvas-list-item shadow">
+            <img
+              src="1..jpg"
+              alt=""
+              class="section2-slider-canvas-list-item-img"
+            />
+            <div class="section2-slider-canvas-list-item-info">
+              <div class="container">
+                <p
+                  class="section2-slider-canvas-list-item-info-price price"
+                >
+                6000₮
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-name product-name"
+                >
+                  REVO Morning
+                </p>
+                <p
+                  class="section2-slider-canvas-list-item-info-desc product-desc"
+                >
+                  Bitter, sweet aftertaste, floral scent.
+                </p>
+                <div class="section2-slider-canvas-list-item-info-buttons">
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-buy button button-accent"
+                  >
+                  Худалдаж авах
+                  </button>
+                  <button
+                    class="section2-slider-canvas-list-item-info-buttons-details button"
+                  >
+                  <a href="delgerengui.html">  Дэлгэрэнгүй </a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section4">
+  <h3 class="section4-pretitle pretitle">Дуртай төрлөө сонго</h3>
+  <h2 class="section4-title title">Кофе багц</h2>
+  <div class="container">
+    <ul class="section4-list">
+      <li class="section4-list-item shadow">
+        <img
+          src="assets/img/section4/combo1.png"
+          alt=""
+          class="section4-list-item-img"
+        />
+        <div class="section4-list-item-info">
+          <div class="container">
+            <div class="wrapper">
+              <p class="section4-list-item-info-price price">5500₮</p>
+              <p class="section4-list-item-info-price price sale-price">
+                6000₮
+              </p>
+            </div>
+            <p class="section4-list-item-info-name product-name">
+              Combo Revo Honey
+            </p>
+            <p class="section4-list-item-info-desc product-desc">
+              Honey - the name "Revo Honey" comes from the method of
+              processing arabica grains...
+            </p>
+            <div class="section4-list-item-info-buttons">
+              <button
+                class="section4-list-item-info-buttons-buy button button-accent"
+              >
+                Худалдаж авах
+              </button>
+              <button
+                class="section4-list-item-info-buttons-details button"
+              >
+              <a href="delgerengui.html">  Дэлгэрэнгүй </a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="section4-list-item shadow">
+        <img
+          src="assets/img/section4/combo2.png"
+          alt=""
+          class="section4-list-item-img"
+        />
+        <div class="section4-list-item-info">
+          <div class="container">
+            <div class="wrapper">
+              <p class="section4-list-item-info-price price">5500₮</p>
+              <p class="section4-list-item-info-price price sale-price">
+                6000₮
+              </p>
+            </div>
+            <p class="section4-list-item-info-name product-name">
+              Combo Revo Honey
+            </p>
+            <p class="section4-list-item-info-desc product-desc">
+              Honey - the name "Revo Honey" comes from the method of
+              processing arabica grains...
+            </p>
+            <div class="section4-list-item-info-buttons">
+              <button
+                class="section4-list-item-info-buttons-buy button button-accent"
+              >
+                Худалдаж авах
+              </button>
+              <button
+                class="section4-list-item-info-buttons-details button"
+              >
+              <a href="delgerengui.html">  Дэлгэрэнгүй </a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="section4-list-item shadow">
+        <img
+          src="assets/img/section4/combo3.png"
+          alt=""
+          class="section4-list-item-img"
+        />
+        <div class="section4-list-item-info">
+          <div class="container">
+            <div class="wrapper">
+              <p class="section4-list-item-info-price price">5500₮</p>
+              <p class="section4-list-item-info-price price sale-price">
+                6000₮
+              </p>
+            </div>
+            <p class="section4-list-item-info-name product-name">
+              Combo Revo Honey
+            </p>
+            <p class="section4-list-item-info-desc product-desc">
+              Honey - the name "Revo Honey" comes from the method of
+              processing arabica grains...
+            </p>
+            <div class="section4-list-item-info-buttons">
+              <button
+                class="section4-list-item-info-buttons-buy button button-accent"
+              >
+                Худалдаж авах
+              </button>
+              <button class="section4-list-item-info-buttons-details button" >
+                <a href="delgerengui.html">  Дэлгэрэнгүй </a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<footer><p class="footer-sign">© Caffe Seven - 2022</p></footer>
+<script src="/assets/js/header-nav-hover.js"></script>
+<script src="/assets/js/cart.js"></script>
+<script src="/assets/js/section2-slider.js"></script>
+<script src="/assets/js/section3-giftsets-choose.js"></script>
+
+
+
+
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>

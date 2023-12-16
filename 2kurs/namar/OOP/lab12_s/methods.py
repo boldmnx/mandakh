@@ -3,6 +3,7 @@ from faker import Faker
 import hashlib
 import sqlite3 as sql
 
+
 allowExt = set(['png', 'jpg', 'jpeg'])
 
 

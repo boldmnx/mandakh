@@ -91,71 +91,78 @@ def logout():
 # Hicheel
 
 
-@app.route('/hicheel')
-def list_hicheel(limit=10):
+# @app.route('/hicheel/<any>/<sort>', methods=['GET', 'POST'])
+@app.route('/hicheel', methods=['GET', 'POST'])
+def list_hicheel():
+    # limit is count
+    limit = 10
     with sql.connect('mu.db') as con:
         con.row_factory = sql.Row
         cur = con.cursor()
-        cur.execute(f'''select t.name "tname", *,
-                o.name "oname"
-                from hicheel h
-                INNER JOIN turul t on t.id = h.turul_id
-                INNER JOIN oholboo o ON o.id = h.oholboo_id''')
+        cur.execute(f'''select 
+                                t.name "tname",
+                                *, o.name "oname"
+                            from
+                                hicheel h
+                                INNER JOIN turul t on t.id = h.turul_id
+                                INNER JOIN oholboo o ON o.id = h.oholboo_id''')
         niithicheeluud = cur.fetchall()
+
+    if request.method == 'GET':
 
         page = int(request.args.get('page', 1))
         start = (page-1)*limit
-
         pn = Pagination(page=page, per_page=limit, total=len(
             niithicheeluud))
 
-        cur.execute(f'''select t.name "tname", *,
-                o.name "oname"
-                from hicheel h
-                INNER JOIN turul t on t.id = h.turul_id
-                INNER JOIN oholboo o ON o.id = h.oholboo_id limit {start}, {limit}''')
+        any = request.args.get('any')
+        sort = request.args.get('sort')
+        if any:
+            cur.execute(f'''select 
+                                        t.name "tname", 
+                                        *,
+                                        o.name "oname"
+                                    from 
+                                        hicheel h
+                                        INNER JOIN turul t on t.id = h.turul_id
+                                        INNER JOIN oholboo o ON o.id = h.oholboo_id 
+                                    order by {any} {sort}
+                                    limit {start}, {limit} ''')
+        else:
+            cur.execute(f'''select 
+                                        t.name "tname",
+                                        *,
+                                        o.name "oname"
+                                    from
+                                        hicheel h
+                                        INNER JOIN turul t on t.id = h.turul_id
+                                        INNER JOIN oholboo o ON o.id = h.oholboo_id 
+                                    limit {start}, {limit}''')
         hicheel = cur.fetchall()
+        return render_template('/hicheel/list.html', hicheel=hicheel, pn=pn)
 
-    return render_template('/hicheel/list.html', hicheel=hicheel, pn=pn)
-
-# search
-
-
-@app.route('/hicheel', methods=['POST'])
-def search():
-    if request.method == 'POST':
+    elif request.method == 'POST':
         name = request.form['name']
-        with sql.connect('mu.db') as con:
-            con.row_factory = sql.Row
-            cur = con.cursor()
-            cur.execute(f'''select t.name "tname",
+
+        page = int(request.args.get('page', 1))
+        start = (page-1)*limit
+        pn = Pagination(page=page, per_page=limit, total=len(
+            niithicheeluud))
+
+        cur.execute(f'''select 
+                            t.name "tname",
                             *,
                             o.name "oname"
-                        from hicheel h
-                        INNER JOIN turul t on t.id = h.turul_id
-                        INNER JOIN oholboo o ON o.id = h.oholboo_id
-                        where hcode COLLATE NOCASE LIKE "%{name}%" or tname COLLATE NOCASE like
-                          "%{name}%"   ''')
-            hicheel = cur.fetchall()
-            return render_template('/hicheel/list.html', hicheel=hicheel)
-
-
-# order
-
-
-@app.route('/hicheel/<any>/<sort>')
-def order(any, sort):
-    if any and sort:
-        with sql.connect('mu.db') as con:
-            con.row_factory = sql.Row
-            cur = con.cursor()
-            cur.execute(f'''select t.name  "tname", *,
-                o.name "oname"
-                from hicheel h
-                INNER JOIN turul t on t.id = h.turul_id
-                INNER JOIN oholboo o ON o.id = h.oholboo_id order by {any} {sort} ''')
+                        from
+                            hicheel h
+                            INNER JOIN turul t on t.id = h.turul_id
+                            INNER JOIN oholboo o ON o.id = h.oholboo_id
+                        where 
+                            hcode COLLATE NOCASE LIKE "%{name}%" 
+                            or tname COLLATE NOCASE like  "%{name}%" 
+                            ''')
         hicheel = cur.fetchall()
-        return render_template('/hicheel/list.html', hicheel=hicheel)
+        return render_template('/hicheel/list.html', hicheel=hicheel, pn=pn)
 
 
 # Oyutan

@@ -1,5 +1,0 @@
-1. module ashiglan asuudlig shiideh, mon ur dung uridchilan harah bolmjtoi funtion hiih
-2. mashin learning three valuestai 1. mean,2.median,3. mode
- mean is dundaj utga (99+86+87+88+111+86+103+87+94+78+77+85+86) / 13 = 89.77
- median is dundiin utga
- mode is niitleg utga (numpy ashiglaa)
