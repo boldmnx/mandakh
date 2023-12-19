@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, ini
+    tial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div onkeydown="enter(event)" tabindex="0">
+      <h1 id="h1">Hello world</h1>
+    </div>
+
+    <script>
+      function enter(event) {
+        if (event.key === "b") {
+          document.getElementById("h1").style.color = "blue";
+        } else if (event.key == "g") {
+          document.getElementById("h1").style.color = "green";
+        }
+      }
+    </script>
+  </body>
+</html>

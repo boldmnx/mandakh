@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <a href="{{url_for('add')}}">Add</a>
+    <table border="">
+      <tr>
+        <td>#</td>
+        <td>name</td>
+        <td>email</td>
+        <td></td>
+      </tr>
+      {%for i in users%}
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>
+          <a href="{{url_for('edit',id=i.id)}}">edit</a>
+          <a
+            onclick="return confirm('are you sure delete?')"
+            href="{{url_for('delete',id=i.id)}}"
+            >delete</a
+          >
+        </td>
+      </tr>
+      {%endfor%}
+    </table>
+  </body>
+</html>
