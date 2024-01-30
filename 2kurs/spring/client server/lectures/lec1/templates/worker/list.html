@@ -25,7 +25,7 @@
     <td>{{i.wname}}</td>
     <td>{{i.bname}}</td>
     <td>
-      <a href="#">edit</a>
+      <a href="{{url_for('update_worker', id=i.wid)}}">edit</a>
       <a
         onclick="return confirm('Are you sure?')"
         href="{{url_for('delete_worker',wid=i.wid)}}"

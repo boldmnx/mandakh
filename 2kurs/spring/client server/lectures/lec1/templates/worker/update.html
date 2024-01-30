@@ -1,0 +1,15 @@
+<form method="post">
+  <label>Нэр: </label>
+  <input type="text" name="wname" value="{{data.wname}}" />
+  <br />
+  <br />
+  <label>Салбар: </label>
+  <select name="bid">
+    <option value="{{data.bid}}" selected>{{data.bname}}</option>
+    {%for i in branches%}
+    <option value="{{i.bid}}">{{i.bname}}</option>
+    {%endfor%}
+  </select>
+  <input type="submit" value="change" />
+</form>
+<a href="/worker">back</a>
