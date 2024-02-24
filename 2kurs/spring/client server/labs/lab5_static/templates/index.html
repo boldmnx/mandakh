@@ -1,14 +1,258 @@
+{%load static%}
 <!DOCTYPE html>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+AUTHOR : Vijayan PP
+PROJECT :NIM
+VERSION : 1.1
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
 <html>
-  <head></head>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>The Nim- Responsive Landing Page</title>
+
+    <!-- [ FONT-AWESOME ICON ] 
+        =========================================================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'library/font-awesome-4.3.0/css/font-awesome.min.css' %} "
+    />
+
+    <!-- [ PLUGIN STYLESHEET ]
+        =========================================================================================================================-->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{%static 'images/icon.png' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'css/animate.css' %} "
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'css/owl.carousel.css' %} "
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'css/owl.theme.css' %} "
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'css/magnific-popup.css' %} "
+    />
+    <!-- [ Boot STYLESHEET ]
+        =========================================================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'library/bootstrap/css/bootstrap-theme.min.css' %} "
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'library/bootstrap/css/bootstrap.css' %} "
+    />
+    <!-- [ DEFAULT STYLESHEET ] 
+        =========================================================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'css/style.css' %} "
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'css/responsive.css' %} "
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{%static 'css/color/rose.css' %} "
+    />
+  </head>
   <body>
-    <h3>Hello this is home page</h3>
-    <ol>
-      <li><a href="{%url 'zurag'%}">zurag</a></li>
-      <li><a href="{%url 'bichleg'%}">bichleg</a></li>
-      <li>
-        <a href="{%url 'menu'%}">css</a>
-      </li>
-    </ol>
+    <!-- [ LOADERs ]-->
+    <div class="preloader">
+      <div class="loader theme_background_color">
+        <span></span>
+      </div>
+    </div>
+
+    <!-- [WRAPPER ]-->
+    <div class="wrapper">
+      <!-- Navigation-->
+      <nav class="nim-menu navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{%url 'home'%}"
+              >N<span class="themecolor">i</span>M</a
+            >
+          </div>
+
+          <div
+            class="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a href="{%url 'home'%}#home" class="page-scroll">Home</a>
+              </li>
+              <li>
+                <a href="{%url 'about'%}#one" class="page-scroll">About</a>
+              </li>
+              <li>
+                <a href="{%url 'our_works'%}#two" class="page-scroll"
+                  >Our Works</a
+                >
+              </li>
+              <li>
+                <a href="{%url 'services'%}#seven" class="page-scroll"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a href="{%url 'contact'%}#eight" class="page-scroll"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- [/MAIN-HEADING]-->
+      <section class="main-heading" id="home">
+        <div class="overlay">
+          <div class="container">
+            <div class="row">
+              <div class="main-heading-content col-md-12 col-sm-12 text-center">
+                <h1 class="main-heading-title">
+                  We are<span
+                    class="main-element themecolor"
+                    data-elements="Web Developers,Creative,Ambitious"
+                  ></span>
+                </h1>
+                <p class="main-heading-text">
+                  Et harum quidem rerum facilis est et expedita distinctio. Nam
+                  libero tempore,<br />cum soluta nobis est eligendi optio
+                  cumque nihil impedit quo facilis
+                </p>
+                <div class="btn-bar">
+                  <a href="#" class="btn btn-custom theme_background_color"
+                    >Ge Started</a
+                  >
+                  <a href="#" class="btn btn-custom-outline">Contact Us</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- [ABOUT US]-->
+      {%block about %} {% endblock %}
+
+      <!-- [RECENT-WORKS]-->
+      {%block our_works%}{%endblock%}
+
+      <!-- [/SERVICES]-->
+      {%block services %} {% endblock %}
+
+      <!-- [CONTACT] -->
+      {%block contact %} {% endblock %}
+
+      <!-- [FOOTER]      -->
+      <footer class="site-footer section-spacing text-center" id="eight">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <p class="footer-links">
+                <a href="#">Terms of Use</a> <a href="#">Privacy Policy</a>
+              </p>
+            </div>
+            <div class="col-md-4">
+              <small>&copy; 2015 Nim. All rights reserved.</small>
+            </div>
+            <div class="col-md-4">
+              <!--social-->
+
+              <ul class="social">
+                <li>
+                  <a href="https://twitter.com/" target="_blank"
+                    ><i class="fa fa-twitter"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/" target="_blank"
+                    ><i class="fa fa-facebook"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/" target="_blank"
+                    ><i class="fa fa-youtube-play"></i
+                  ></a>
+                </li>
+              </ul>
+
+              <!--social end-->
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- [ DEFAULT SCRIPT ] -->
+    <script src="{%static 'library/modernizr.custom.97074.js' %} "></script>
+    <script src="{%static 'library/jquery-1.11.3.min.js' %} "></script>
+    <script src="{%static 'library/bootstrap/js/bootstrap.js' %} "></script>
+    <script
+      type="text/javascript"
+      src="{%static 'js/jquery.easing.1.3.js' %} "
+    ></script>
+    <!-- [ PLUGIN SCRIPT ] -->
+    <script src="{%static 'library/vegas/vegas.min.js' %} "></script>
+    <script src="{%static 'js/plugins.js' %} "></script>
+    <!-- [ TYPING SCRIPT ] -->
+    <script src="{%static 'js/typed.js' %} "></script>
+    <!-- [ COUNT SCRIPT ] -->
+    <script src="{%static 'js/fappear.js' %} "></script>
+    <script src="{%static 'js/jquery.countTo.js' %} "></script>
+    <!-- [ SLIDER SCRIPT ] -->
+    <script src="{%static 'js/owl.carousel.js' %} "></script>
+    <script
+      src="{%static 'js/jquery.magnific-popup.min.js' %} "
+      type="text/javascript"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{%static 'js/SmoothScroll.js' %} "
+    ></script>
+
+    <!-- [ COMMON SCRIPT ] -->
+    <script src="{%static 'js/common.js' %} "></script>
   </body>
 </html>

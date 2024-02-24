@@ -1,5 +1,5 @@
 """
-URL configuration for lab5_static project.
+URL configuration for lab3 project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -16,13 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import index, our_works, about, services, contact
-
+from .views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='home'),
-    path('about', about, name='about'),
-    path('our_works', our_works, name='our_works'),
-    path('services', services, name='services'),
-    path('contact', contact, name='contact'),
+    path('helpApp/', include('helpApp.urls'))
 ]

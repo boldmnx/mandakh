@@ -99,7 +99,7 @@ def list_hicheel():
     with sql.connect('mu.db') as con:
         con.row_factory = sql.Row
         cur = con.cursor()
-        cur.execute(f'''select 
+        cur.execute(f'''select
                                 t.name "tname",
                                 *, o.name "oname"
                             from
@@ -118,25 +118,25 @@ def list_hicheel():
         any = request.args.get('any')
         sort = request.args.get('sort')
         if any:
-            cur.execute(f'''select 
-                                        t.name "tname", 
-                                        *,
-                                        o.name "oname"
-                                    from 
-                                        hicheel h
-                                        INNER JOIN turul t on t.id = h.turul_id
-                                        INNER JOIN oholboo o ON o.id = h.oholboo_id 
-                                    order by {any} {sort}
-                                    limit {start}, {limit} ''')
-        else:
-            cur.execute(f'''select 
+            cur.execute(f'''select
                                         t.name "tname",
                                         *,
                                         o.name "oname"
                                     from
                                         hicheel h
                                         INNER JOIN turul t on t.id = h.turul_id
-                                        INNER JOIN oholboo o ON o.id = h.oholboo_id 
+                                        INNER JOIN oholboo o ON o.id = h.oholboo_id
+                                    order by {any} {sort}
+                                    limit {start}, {limit} ''')
+        else:
+            cur.execute(f'''select
+                                        t.name "tname",
+                                        *,
+                                        o.name "oname"
+                                    from
+                                        hicheel h
+                                        INNER JOIN turul t on t.id = h.turul_id
+                                        INNER JOIN oholboo o ON o.id = h.oholboo_id
                                     limit {start}, {limit}''')
         hicheel = cur.fetchall()
         return render_template('/hicheel/list.html', hicheel=hicheel, pn=pn)
@@ -149,7 +149,7 @@ def list_hicheel():
         pn = Pagination(page=page, per_page=limit, total=len(
             niithicheeluud))
 
-        cur.execute(f'''select 
+        cur.execute(f'''select
                             t.name "tname",
                             *,
                             o.name "oname"
@@ -157,9 +157,9 @@ def list_hicheel():
                             hicheel h
                             INNER JOIN turul t on t.id = h.turul_id
                             INNER JOIN oholboo o ON o.id = h.oholboo_id
-                        where 
-                            hcode COLLATE NOCASE LIKE "%{name}%" 
-                            or tname COLLATE NOCASE like  "%{name}%" 
+                        where
+                            hcode COLLATE NOCASE LIKE "%{name}%"
+                            or tname COLLATE NOCASE like  "%{name}%"
                             ''')
         hicheel = cur.fetchall()
         return render_template('/hicheel/list.html', hicheel=hicheel, pn=pn)
