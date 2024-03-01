@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>branch</title>
+  </head>
+  <body>
+    <div style="margin: 0 auto; width: 80%">
+      <h3>Branch</h3>
+      {%if branches%} {{branches}}
+      <table border="">
+        <tr>
+          <th>#</th>
+          <th>Нэр</th>
+        </tr>
+        {%for id,name in branches%}
+        <tr>
+          <td>{{id}}</td>
+          <td>{{name}}</td>
+        </tr>
+        {%endfor%}
+      </table>
+      {%else%}
+      <p>Мэдээлэл алга</p>
+      {%endif%}
+      <a href="{%url 'home'%}">back</a>
+    </div>
+  </body>
+</html>
