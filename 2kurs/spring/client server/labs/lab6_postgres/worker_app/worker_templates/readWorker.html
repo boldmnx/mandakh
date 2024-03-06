@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>readWorker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h3>This is worker list</h3>
+
+      {%if workers%}
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Нэр</th>
+            <th>Салбар</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for wid,wname,bname in workers%}
+          <tr>
+            <td>{{wid}}</td>
+            <td>{{wname}}</td>
+            <td>{{bname}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+
+      {%else%}
+      <p>no info of worker</p>
+      {%endif%} <a href="{%url 'home'%}">back</a>
+    </div>
+  </body>
+</html>

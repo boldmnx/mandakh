@@ -1,7 +1,11 @@
+
+
+
 from anytree import Node, RenderTree
 
 root = Node("Чимэдмаа")
 # хүүхдүүд
+
 ganbaa = Node("Ганбаатар", parent=root)
 danidaa = Node("Дарьхижав", parent=root)
 jigmed = Node("Жигмэд", parent=root)

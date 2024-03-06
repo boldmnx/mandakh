@@ -1,5 +1,5 @@
 """
-URL configuration for lab6_postgres project.
+URL configuration for lab7_model project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -15,12 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from lab6_postgres import views
+from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='home'),
-    path('branch_app/', include('branch_app.urls')),
-    path('worker_app/', include('worker_app.urls'))
 ]

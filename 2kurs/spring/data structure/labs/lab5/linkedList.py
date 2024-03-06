@@ -15,26 +15,20 @@ class LinkedList:
         self.head = newNode
 
     def add_middle(self, e, index):
-        newNode = Node(e)
-
         if self.head is None:
-            self.head = newNode
+            self.head = self.add_begin(e)
 
         current = self.head
-        prev = self.head
-        count = 0
-
-        while current.address is not None:
-            while index == 0:
-                print('Index зөв оруулна уу!')
-                index = int(input('indexe oruul'))
-            count += 1
-            if count == index:
-                newNode.address = current.address
-                prev.address = newNode
-                return
-            prev = current.address
+        count = 1
+        while count < index-1 and current:
             current = current.address
+            count += 1
+
+        if current is None:
+            print('index buruu bna')
+            return
+        newNode = Node(e)
+        newNode.address = current.address
         current.address = newNode
 
     def add_end(self, e):
@@ -105,17 +99,17 @@ class LinkedList:
         return False
 
 
-# node = LinkedList()
-# node.add_end(1)
-# node.add_end(2)
-# node.add_end(3)
-# node.add_end(4)
+node = LinkedList()
+node.add_end(1)
+node.add_end(2)
+node.add_end(3)
+node.add_end(4)
 # # node.add_end(3)
 # # node.read()
 # # print(node.count())
 # # node.search(2)
 # # node.delete_begin()
 # # node.read()
-# # node.delete_middle(2)
-# # node.add_middle(5, 2)
-# node.read()
+# node.delete_middle(2)
+node.add_middle(5, 6)
+node.read()
