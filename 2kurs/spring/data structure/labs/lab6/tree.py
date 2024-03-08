@@ -1,51 +1,49 @@
 
 
+class Node:
+    def __init__(self, root, parent=None):
+        self.root = root
+        self.children = []
+        self.parent = parent
+        pass
+
+
 class Tree:
     def __init__(self):
         self.head = None
 
-        self.parent = None
-        self.child = None
-
-    def add_child(self, child,  parent):
-        if self.head.parent == parent:
-            self.head.parent = parent
-            self.head.child = child
-
-        # while current is not None:
-        #     if current.root == parent:
-        #         current.child = newNode
-        #     current = current.child
-        return self.head.child
-
-    def add_root(self, root):
-        baseRoot = Node(root)
+    def add_child(self, child, parent=None):
+        newChild = Node(child, parent)
         if self.head is None:
-            self.head = baseRoot
-            return baseRoot.root
+            self.head = newChild
+            return self.head
+        newChild.parent.children += [newChild]
+        return newChild
 
-    def display(self):
-        pass
+    def display(self, root, e=0):
+        if root:
+            if e == 0:
+                print(f'{root.root}')
+            else:
+                print(f' {"  "*e }|-- {root.root}')
+
+            for i in root.children:
+                self.display(i, e+1)
 
 
-class Node:
-    def __init__(self, root):
-        self.root = root
-        self.address = None
+# recursion function
+tree = Tree()
+chimedmaa = tree.add_child('Чимэдмаа')
+jigmed = tree.add_child('Жигмэд', parent=chimedmaa)
+todol = tree.add_child('Тодол', parent=chimedmaa)
+delger = tree.add_child('Дэлгэр', parent=chimedmaa)
 
+bold = tree.add_child('Болд-Эрдэнэ', parent=jigmed)
+galaa = tree.add_child('Галбадрах', parent=jigmed)
 
-t = Tree()
-davka = t.add_root('davka')
-d_ohin = t.add_child('davkagin ohin', parent=davka)
-ohin = t.add_child('davkagin ohiniinii ohin', parent=d_ohin)
+bolorjin = tree.add_child('Болоржин', parent=todol)
+ariunjin = tree.add_child('Ариунжин', parent=todol)
 
-# temeet = Tree()
-# # Chimedmaa
-# temeet.add_child('Ганбаатар')
-# temeet.add_child('Дарьхижав')
-# temeet.add_child('Жигмэд')
-# temeet.add_child('Тодгэрэл')
-# temeet.add_child('Дэлгэрцэцэг')
-# print(f'{temeet.root} хүүхдүүд:')
-# for child in temeet.children:
-#     print(child, end='\n->')
+uyaral = tree.add_child('Уярал', parent=bold)
+
+tree.display(chimedmaa)
