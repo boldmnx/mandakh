@@ -4,7 +4,9 @@ import psycopg2 as sql
 
 
 def read_worker(request):
-    with sql.connect(database='lab6', user='postgres', password='1000', host='localhost', port=5432) as con:
+    with sql.connect(database='lab6', user='postgres', 
+                     password='1000', 
+                     host='localhost', port=5432) as con:
         cur = con.cursor()
         cur.execute(f'''SELECT wid, wname, sname FROM workers  w
                         INNER JOIN salbar  b ON b.sid=w.bid''')

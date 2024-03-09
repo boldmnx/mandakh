@@ -1,4 +1,7 @@
-ners = ['az', 'ab',  'baw', 'bat','Jat', 'Bold', 'dondog', 'anugo', 'Aanaa']
+from faker import Faker
+
+
+# ners = ['az', 'ab',  'baw', 'bat','Jat', 'Bold', 'dondog', 'anugo', 'Aanaa']
 
 
 def swap(args):
@@ -27,5 +30,15 @@ def swap(args):
     return args
 
 
+
+
+f = Faker()
+
+ners=[]
+for _ in range(5):
+    ners.append(f.name())
+
 print(f'origional: {ners}')
 print(f'swaped: {swap(ners)}')
+
+
