@@ -30,7 +30,7 @@ boh = Node('Бөх', parent=luuya)
 uyaral = Node('Уярал', parent=bold)
 
 
-uyaral = Node('Бахийн хүүхэд', parent=boh)
+uhuuhed = Node('Уяралын хүүхэд', parent=uyaral)
 
 
 for pre, fill, node in RenderTree(root):

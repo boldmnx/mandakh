@@ -16,7 +16,7 @@ class Branch(models.Model):
 
 class Worker(models.Model):
     wid = models.AutoField(primary_key=True)
-    wname = models.CharField(max_length=100),
+    w_name=models.AutoField(),
     bid = models.ForeignKey(Branch, on_delete=models.CASCADE)
 
     def __str__(self):

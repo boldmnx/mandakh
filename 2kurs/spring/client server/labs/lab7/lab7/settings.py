@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'lab7.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'lab6',
+        'NAME': 'lab7',
         'USER': 'postgres',
         'PASSWORD': '1000',
         'HOST': 'localhost',

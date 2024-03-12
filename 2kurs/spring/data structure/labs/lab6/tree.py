@@ -5,7 +5,6 @@ class Node:
         self.root = root
         self.children = []
         self.parent = parent
-        pass
 
 
 class Tree:
@@ -45,5 +44,6 @@ bolorjin = tree.add_child('Болоржин', parent=todol)
 ariunjin = tree.add_child('Ариунжин', parent=todol)
 
 uyaral = tree.add_child('Уярал', parent=bold)
+uhuuhed = tree.add_child('Уяралын хүүхэд', parent=uyaral)
 
 tree.display(chimedmaa)

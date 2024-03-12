@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>readBranch</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container col-6">
+      <h3>Branch list</h3>
+      <form method="post" action="{%url 'create'%}">
+        {%csrf_token%}
+        <input type="text" name="bname" placeholder="type branch name" />
+        <input type="submit" value="add branch" />
+      </form>
+      {% if branches%}
+      <table class="table">
+        <tr>
+          <th>#</th>
+          <th>Нэр</th>
+          <th></th>
+          <th></th>
+        </tr>
+        {%for bid,bname in branches%}
+        <tr>
+          <td>{{bid}}</td>
+          <td>{{bname}}</td>
+          <td><a href="{%url 'update' id=bid%}">edit</a></td>
+          <td><a href="{%url 'detail' id=bid%}">detail</a></td>
+          <td>
+            <a
+              href=" {%url 'delete' id=bid%}"
+              onclick='return confirm("are you sureee!!!")'
+              >remove</a
+            >
+          </td>
+        </tr>
+        {%endfor%}
+      </table>
+      {% else %}
+      <p>Nobranch</p>
+      {%endif%}
+
+      <a href="{%url 'home'%}">back</a>
+    </div>
+  </body>
+</html>

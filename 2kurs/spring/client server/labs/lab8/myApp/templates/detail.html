@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>detail</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container col-6">
+      <h3>detail branch</h3>
+      <table class="table">
+        <tr>
+          <th>Код:</th>
+          <td>{{branch.0}}</td>
+        </tr>
+        <tr>
+          <th>Нэр:</th>
+          <td>{{branch.1}}</td>
+        </tr>
+      </table>
+      <a href="{%url 'readBranch'%}">back</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>readBranch</title>
+  </head>
+  <body>
+    <h3>Branch list</h3>
+    {% if branches%}
+    <table border="1px">
+      <tr>
+        <th>#</th>
+        <th>Нэр</th>
+      </tr>
+      {%for bid,bname in branches%}
+      <tr>
+        <td>{{bid}}</td>
+        <td>{{bname}}</td>
+      </tr>
+      {%endfor%}
+    </table>
+    {% else %}
+    <p>Nobranch</p>
+    {%endif%}
+    <a href="{%url 'home'%}">back</a>
+  </body>
+</html>
+ 
