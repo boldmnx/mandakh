@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>detail worker</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container col-6">
+      <h3>Detail of worker</h3>
+      <table class="table">
+        <tr>
+          <th>#</th>
+          <td>{{worker.2}}</td>
+        </tr>
+        <tr>
+          <th>Нэр</th>
+          <td>{{worker.0}}</td>
+        </tr>
+        <tr>
+          <th>Салбар</th>
+          <td>{{worker.1}}</td>
+        </tr>
+      </table>
+      <a href="{%url 'read'%}">back</a>
+    </div>
+  </body>
+</html>
