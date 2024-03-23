@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h3>Read branches page</h3>
+    {%if branches %}
+    <table border="">
+      <tr>
+        <th>#</th>
+        <th>Нэр</th>
+      </tr>
+      {%for id, name in branches%}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{name}}</td>
+      </tr>
+      {%endfor%}
+    </table>
+    {%else%}
+    <p>no branches</p>
+    {%endif%}
+  </body>
+</html>
