@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="jumbotron">
+      <p>Hello <b>{{signup.last.fname}}</b>! Welcome to my page</p>
+    </div>
+    <div class="container">
+      {%if signup%}
+      <p>Бүртгэлтэй хэрэглэгчид:</p>
+      <ul>
+        {%for i in signup%}
+        <li>{{i.lname.0}}. {{i.fname}}</li>
+        {%endfor%}
+      </ul>
+      {%else%}
+      <p>Бүртгэлтэй хэрэглэгч алга</p>
+      {%endif%}
+      <p><a href="{%url 'signup'%}">logout</a></p>
+    </div>
+  </body>
+</html>
