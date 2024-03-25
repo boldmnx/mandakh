@@ -3,6 +3,9 @@ zochid = ['bat', 'dulam', 'badam']
 vehicle = ['lexus 570', 'lexus 470', 'land 300',
            'land 200', 'prius 30', 'prius 20', 'aqua']
 
+collection = ['Шар мөрөн', 'Туул', 'Хөвсгөл далай',
+              'Байгал нуур', 'Python', 'Javascript', 'Токио', 'Англи хэл', 'Тэнгэр уул', 'Америк']
+
 travels = ['Швицар', 'Тэнгэрийн хаалга', 'Африк', 'Токио', 'Колумб']
 # pop with index, remove with utgaar
 
@@ -83,7 +86,95 @@ def t9(args):
 
 
 def t10(args):
-    pass
+    while True:
+        try:
+            res = int(input('''
+                1. Жагсаалтыг харах
+                2. Уртын шалгах
+                3. Сүүлд нь элемент нэмэх
+                4. Хүссэн газраа элемент нэмэх
+                5. Сүүлээс нь элемент устгах 
+                6. Хүссэн элементээ устгах
+                7. Сортлох
+                8. Урвуу болгох 
+                9. Гарах
+                '''))
+
+            if res is 1:
+                print(args)
+                res = int(input('''
+                0. Үргэлжүүлэх 
+                9. Гарах
+                '''))
+            elif res is 2:
+                print(f'Урт нь {len(args)} байна.')
+                res = int(input('''
+                0. Үргэлжүүлэх 
+                9. Гарах
+                '''))
+            elif res is 3:
+                e = input('Та нэмэх элементээ оруулна уу: ')
+                args.append(e)
+                res = int(input(f'''
+                Таны элемент сүүлд нь амжилттай нэмэгдлээ.
+                {args}
+                0. Үргэлжүүлэх
+                9. Гарах
+                '''))
+            elif res is 4:
+                e = input('Та нэмэх элементээ оруулна уу: ')
+                i = int(input('Та нэмэх индексээ оруулна уу: '))
+                args.insert(i, e)
+                res = int(input(f'''
+                Таны хүссэн газар элемент нь амжилттай нэмэгдлээ.
+                {args}
+                0. Үргэлжүүлэх
+                9. Гарах
+                '''))
+            elif res is 5:
+                res = int(input(f'''
+                "{args.pop()}" амжилттай устгагдлаа.
+                {args}
+                0. Үргэлжүүлэх
+                9. Гарах
+                '''))
+            elif res is 6:
+                e = input(f'''
+                    {args}
+                    Устгах элемтийн нэрээ оруулна уу: 
+                    ''')
+                if e in args:
+                    args.remove(e)
+                    res = int(input(f'''
+                    Амжилттай устгагдлаа.
+                    {args}
+                    0. Үргэлжүүлэх
+                    9. Гарах
+                    '''))
+                else:
+                    res = int(input(f'''
+                    Устгаж чадсангүй буруу утга оруулсан байна!!!
+                    0. Үргэлжүүлэх
+                    9. Гарах
+                    '''))
+            elif res is 7:
+                res = int(input(f'''
+                {sorted(args)}
+                0. Үргэлжүүлэх
+                9. Гарах
+                '''))
+            elif res is 8:
+                args.reverse()
+                res = int(input(f'''
+                {args}
+                0. Үргэлжүүлэх
+                9. Гарах
+                '''))
+            if res is 9:
+                return False
+        except:
+            print('Та буруу утга оруулсан байна')
+
 
 
 def t11(args):
