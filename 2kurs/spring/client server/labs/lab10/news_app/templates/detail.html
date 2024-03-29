@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>detail</title>
+  </head>
+  <body>
+    <h3>Detail of news</h3>
+    <hr />
+    {%if newsId%}
+    <table>
+      <tr>
+        <th>Нэр</th>
+        <td>{{newsId.nname}}</td>
+      </tr>
+      <tr>
+        <th>Мэдээ</th>
+        <td>{{newsId.npara}}</td>
+      </tr>
+
+      <tr>
+        <th>Нийтэлсэн огноо</th>
+        <td>{{newsId.nognoo}}</td>
+      </tr>
+
+      <tr>
+        <th>Ангилал</th>
+        <td>{{newsId.cat.cname}}</td>
+      </tr>
+    </table>
+    {%else%}
+    <p>Мэдээлэл алга</p>
+    {%endif%}
+    <a href="{%url 'rNews'%}">back</a>
+  </body>
+</html>

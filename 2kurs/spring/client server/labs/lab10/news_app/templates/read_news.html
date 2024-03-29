@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>readNews</title>
+  </head>
+  <body>
+    <h3>News Form</h3>
+    <hr />
+    <form method="post" action="">
+      {%csrf_token%}
+      <table>
+        {{nForm.as_table}}
+      </table>
+      <br />
+      <input type="submit" value="мэдээ нэмэх" />
+    </form>
+    <h3>News List</h3>
+    <hr />
+    {%if news%}
+    <table border="" id="myTable">
+      <tr>
+        <th>#</th>
+        <th>Нэр</th>
+        <th>Огноо</th>
+        <th>Ангилал</th>
+        <th></th>
+      </tr>
+      {%for i in news%}
+      <tr>
+        <td></td>
+        <td>{{i.nname}}</td>
+        <td>{{ i.nognoo }}</td>
+        <td>{{i.cat.cname}}</td>
+        <td>
+          <a href="{%url 'gNews' i.id%}">detail</a>
+          <a href="{%url 'uNews' i.id%}">edit</a>
+          <a
+            href="{%url 'dNews' i.id%}"
+            onclick="return confirm('Та устгахдаа итгэлтэй байн уу')"
+            >remove</a
+          >
+        </td>
+      </tr>
+      {%endfor%}
+    </table>
+    {%else%}
+    <p>Мэдээлэл алга</p>
+    {%endif%}
+  </body>
+  <script>
+    function changeID() {
+      table = document.getElementById("myTable");
+      rows = table.getElementsByTagName("tr");
+
+      newId = 1;
+      for (let i = 1; i < rows.length; i++) {
+        cells = rows[i].getElementsByTagName("td");
+        cells[0].textContent = newId;
+        newId++;
+      }
+    }
+
+    changeID();
+  </script>
+</html>

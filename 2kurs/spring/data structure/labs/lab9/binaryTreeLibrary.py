@@ -15,6 +15,8 @@ root = Node(10)
 root.left = Node(5)
 root.right = Node(20)
 root.left.left = Node(3)
+root.left.left = Node(9)
+root.left.left = Node(99)
 root.left.right = Node(7)
 root.right.left = Node(15)
 root.right.right = Node(25)
@@ -26,3 +28,4 @@ else:
     print(f"илэрц олдсонгүй.")
 
 print(root)
+

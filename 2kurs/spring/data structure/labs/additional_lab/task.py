@@ -10,22 +10,20 @@ travels = ['Швицар', 'Тэнгэрийн хаалга', 'Африк', 'Т�
 # pop with index, remove with utgaar
 
 
-def t1(args):
-    for friend in args:
-        print(friend)
+# def t1(args):
+#     for friend in args:
+#         print(friend)
 
-
-def t2(args):
-    print(f'Сайн байн уу {args[0]} найзаа')
-
+# def t2(args):
+#     print(f'Сайн байн уу {args[0]} найзаа')
 
 def t3(args):
     print(f"Би {args[0].title()}-тай болмоор байна")
 
-
 def t4(args):
     for i in args:
         print(f'Эрхэм хүндэт {i} таныг оройн зоогонд урьж байна.')
+
 
 
 def t5(args):
@@ -176,6 +174,7 @@ def t10(args):
             print('Та буруу утга оруулсан байна')
 
 
+t10(travels)
 
 def t11(args):
     # len shalgah esvel -1
