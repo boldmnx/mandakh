@@ -19,7 +19,7 @@ class MaxHeap:
         return (i-1)//2
 
     def has_parent(self, i):
-        return self.get_parent(i) > 0
+        return self.get_parent(i) >= 0
 
     def swap(self, i, j):
         self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
@@ -29,7 +29,7 @@ class MaxHeap:
         self.heap_up(len(self.heap)-1)
 
     def heap_up(self, i):
-        while (self.has_parent(i) and self.heap[i] > self.heap[self.get_parent(i)]):
+        while (self.has_parent(i) and self.heap[i] >= self.heap[self.get_parent(i)]):
             self.swap(i, self.get_parent(i))
             i = self.get_parent(i)
 
@@ -42,7 +42,7 @@ class MaxHeap:
 
 max_heap = MaxHeap()
 
-array = [45, 99, 63, 27, 29, 57, 42, 35, 12, 98]
+array = [45, 99, 63, 27, 29, 57, 42, 35, 12, 98,99]
 
 for i in array:
     max_heap.insert(i)
@@ -50,6 +50,6 @@ for i in array:
 print("Одоогийн heap")
 max_heap.print_heap()
 
-max_heap.insert(50)
-print("50 утга нэмэгдсэний дараа")
-max_heap.print_heap()
+# max_heap.insert(50)
+# print("50 утга нэмэгдсэний дараа")
+# max_heap.print_heap()

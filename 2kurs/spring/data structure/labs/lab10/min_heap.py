@@ -11,7 +11,7 @@ class MinHeap:
         return (i-1)//2
 
     def has_root(self, i):
-        return self.get_root(i) > 0
+        return self.get_root(i) >= 0
 
     def swap(self, i, j):
         self.lst[i], self.lst[j] = self.lst[j], self.lst[i]
