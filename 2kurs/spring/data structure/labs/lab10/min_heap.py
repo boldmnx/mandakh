@@ -1,3 +1,4 @@
+
 class MinHeap:
     def __init__(self):
         self.lst = []
@@ -5,9 +6,6 @@ class MinHeap:
     def insert(self, e):
         self.lst.append(e)
         self.heap_down(len(self.lst)-1)
-
-    def print_min(self):
-        print(self.lst)
 
     def get_root(self, i):
         return (i-1)//2
@@ -23,30 +21,29 @@ class MinHeap:
             self.swap(i, self.get_root(i))
             i = self.get_root(i)
 
+    def print_Tree(self, i=0, level=0, prefix='Root: '):
+        if i < len(self.lst):
+            print(' ' * (level * 4) + prefix + str(self.lst[i]))
+            self.print_Tree(2 * i + 1, level + 1, 'L-- ')
+            self.print_Tree(2 * i + 2, level + 1, 'R-- ')
 
-toonud = [45, 99, 63, 27, 29, 57, 42, 35, 12, 98, 12]
+    def print_List(self):
+        print(self.lst)
+
+
+toonud = [45, 99, 63, 27, 29,  57, 42, 35, 12, 98, 12]
 
 minHeap = MinHeap()
 
 for i in toonud:
     minHeap.insert(i)
 
-minHeap.print_min()
-minHeap.insert(12)
-print('12 nemew')
-minHeap.print_min()
 
-'''
-|45
-    R|42
-        R|57
-        L|63
-    L|12
-        R|29
-            L|98
-        L|27
-            R|35
-            L|99
+print("Одоогийн heap")
+minHeap.print_List()
+minHeap.print_Tree()
 
-
-'''
+minHeap.insert(11)
+print("11 утга нэмэгдсэний дараа")
+minHeap.print_List()
+minHeap.print_Tree()

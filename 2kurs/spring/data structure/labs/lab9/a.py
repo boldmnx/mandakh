@@ -72,3 +72,5 @@ print("Search for key 6:", db.search(6))  # Not present
 
 db.delete(3)
 print("After deleting key 3, search for key 3:", db.search(3))  # None
+
+db._get_min_value(6)

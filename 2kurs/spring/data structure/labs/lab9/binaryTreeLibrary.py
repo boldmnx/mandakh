@@ -28,4 +28,3 @@ else:
     print(f"илэрц олдсонгүй.")
 
 print(root)
-

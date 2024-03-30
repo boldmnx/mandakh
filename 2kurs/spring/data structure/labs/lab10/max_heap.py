@@ -1,12 +1,16 @@
-# heap бол tree юм. Дотроо 2 төрөлтэй min, max
-# Task management
+''' 1. what is heap: 
+heap бол tree юм. Дотроо 2 төрөлтэй min, max
+    2. what use:
+Task management
+
+    3. coding
+zuun 2*i+1,
+baruun 2*i+2
+parent  = (i-1)//2
+complete zuun mochir duursen baih yostoi
+full tree 2mochir 2ula duursen bh yostoi'''
 
 
-# zuun 2*i+1,
-#  baruun 2*i+2
-# parent  = (i-1)//2
-# complete zuun mochir duursen baih yostoi
-# full tree 2mochir 2ula duursen bh yostoi
 class MaxHeap:
     def __init__(self):
         self.heap = []
@@ -14,27 +18,11 @@ class MaxHeap:
     def get_parent(self, i):
         return (i-1)//2
 
-    def get_leftChild(self, i):
-        return 2*i+1
-
-    def get_rightChild(self, i):
-        return 2*i+2
-
     def has_parent(self, i):
         return self.get_parent(i) > 0
 
-    def has_leftChild(self, i):
-        return self.get_leftChild(i) < len(self.heap)
-
-    def has_rightChild(self, i):
-        return self.get_rightChild(i) < len(self.heap)
-
     def swap(self, i, j):
         self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
-
-
-    def print_heap(self):
-        print(self.heap)
 
     def insert(self, key):
         self.heap.append(key)
@@ -44,6 +32,13 @@ class MaxHeap:
         while (self.has_parent(i) and self.heap[i] > self.heap[self.get_parent(i)]):
             self.swap(i, self.get_parent(i))
             i = self.get_parent(i)
+
+    def print_heap(self, i=0, level=0, prefix='Root: '):
+        if i < len(self.heap):
+            print(' ' * (level * 4) + prefix + str(self.heap[i]))
+            self.print_heap(2 * i + 1, level + 1, 'L-- ')
+            self.print_heap(2 * i + 2, level + 1, 'R-- ')
+
 
 max_heap = MaxHeap()
 

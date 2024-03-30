@@ -28,22 +28,11 @@ class Node:
         else:
             print('Илэрц олдлоо: ' + str(self.data))
 
-
-    def printBTree(self, node, level=1, con=True):
-        if node.left is not None:
-            node.printBTree(node.left, level+1, True)
-        if level == 1:
-            print('|--'*level, node.data)
-        else:
-            print('\n\n\n\n\n'*(level-1))
-            if con:
-                print(f'''\n\n\n/
-                       {node.data}''')
-            else:
-                print(f'''\n\n\n\\\ 
-                      {node.data}''')
-        if node.right is not None:
-            node.printBTree(node.right, level+1, False)
+    def printBTree(self, node, level=0, prefix='Root: '):
+        if node:
+            print(' '*(level*4) + prefix + str(node.data))
+            self.printBTree(node.left, level+1, 'L-- ')
+            self.printBTree(node.right, level+1, 'R-- ')
 
 
 btree = Node(50)
@@ -58,6 +47,14 @@ btree.insert(85)
 btree.insert(52)
 btree.insert(70)
 
+btree.insert(100)
+btree.insert(200)
+btree.insert(111)
+btree.insert(222)
+btree.insert(33)
+btree.insert(44)
+btree.insert(11)
 
-# btree.find(86)
+
 btree.printBTree(btree)
+btree.find(85)
