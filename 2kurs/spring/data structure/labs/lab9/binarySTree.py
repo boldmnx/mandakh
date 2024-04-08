@@ -54,6 +54,7 @@ btree.insert(222)
 btree.insert(33)
 btree.insert(44)
 btree.insert(11)
+btree.insert(99)
 
 
 btree.printBTree(btree)

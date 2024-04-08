@@ -57,6 +57,10 @@ task.insert(1, 'task3')
 print('Одоогийн таскуудын эрэмбэ')
 task.print_task()
 print(task.extract_min())
-# print(task.extract_min())
+print(task.extract_min())
 print('Хамгийн чухал таскын авсны дараах эрэмбэ')
+
+task.insert(1, 'task3')
+
+print(task.extract_min())
 task.print_task()

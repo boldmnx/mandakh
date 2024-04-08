@@ -1,108 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Layout</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <script src="http://ajax.googleapis.com/ajax/
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layout</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="http://ajax.googleapis.com/ajax/
 libs/jquery/1.9.1/jquery.js"></script>
-  </head>
-  <body>
-    <!-- header begin -->
-    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="{{url_for('index')}}">Нүүр</a>
-      <ul class="navbar-nav">
-        {%if session%} {%if session['role']==1%}
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('list_alban')}}">Албан тушаал</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('list_zereg')}}">Эрдмийн зэрэг</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('list_tenhim')}}">Тэнхим</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('list_mergejil')}}">Мэргэжил</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('list_bagsh')}}">Багш</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('list_oyutan')}}">Оюутан</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('list_hicheel')}}">Хичээл </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('logout')}}">logout </a>
-        </li>
-        {%elif session['role']==2%}
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('list_bagsh')}}">Багш</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('list_hicheel')}}">Хичээл </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('logout')}}">logout </a>
-        </li>
-        {%elif session['role']==3%}
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('list_oyutan')}}">Оюутан</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('list_hicheel')}}">Хичээл </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('logout')}}">logout </a>
-        </li>
-        {%endif%} {%else%}
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('login')}}">login </a>
-        </li>
-        {%endif%}
-      </ul>
-    </div>
+</head>
 
-    <!-- header end  -->
+<body>
+  <!-- header begin -->
+  <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{url_for('index')}}">Нүүр</a>
+    <ul class="navbar-nav">
+      {%if session%} {%if session['role']==1%}
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('list_alban')}}">Албан тушаал</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('list_zereg')}}">Эрдмийн зэрэг</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('list_tenhim')}}">Тэнхим</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('list_mergejil')}}">Мэргэжил</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('list_bagsh')}}">Багш</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('list_oyutan')}}">Оюутан</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('list_hicheel')}}">Хичээл </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('logout')}}">logout </a>
+      </li>
+      {%elif session['role']==2%}
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('list_bagsh')}}">Багш</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('list_hicheel')}}">Хичээл </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('logout')}}">logout </a>
+      </li>
+      {%elif session['role']==3%}
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('list_oyutan')}}">Оюутан</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('list_hicheel')}}">Хичээл </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('logout')}}">logout </a>
+      </li>
+      {%endif%} {%else%}
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('login')}}">login </a>
+      </li>
+      {%endif%}
+    </ul>
+  </div>
 
-    <!-- content begin  -->
-    <div class="jumbotron">
-      <div class="container">{%block content %} {% endblock %}</div>
-    </div>
-    <!-- content end  -->
+  <!-- header end  -->
 
-    <!-- footer   -->
-    <div class="bg-dark text-light py-4">
-      <div class="container text-center">
-        <small>Copyright &copy; 2023 </small
-        ><a
-          href="https://www.x.com/bolderdenej"
-          target="_blank"
-          class="fa fa-twitter"
-        ></a>
-        <a href="#" class="fa fa-youtube"></a>
-        <a
-          href="https://www.facebook.com/temeett"
-          target="_blank"
-          class="fa fa-facebook"
-        ></a>
-        <a
-          href="https://www.instagram.com/jboldoo"
-          target="_blank"
-          class="fa fa-instagram"
-        ></a>
-      </div>
+  <!-- content begin  -->
+  <div class="jumbotron">
+    <div class="container">{%block content %} {% endblock %}</div>
+  </div>
+  <!-- content end  -->
+
+  <!-- footer   -->
+  <div class="bg-dark text-light py-4">
+    <div class="container text-center">
+      <small>Copyright &copy; 2023 </small><a href="https://www.x.com/bolderdenej" target="_blank"
+        class="fa fa-twitter"></a>
+      <a href="#" class="fa fa-youtube"></a>
+      <a href="https://www.facebook.com/bolderdenemn" target="_blank" class="fa fa-facebook"></a>
+      <a href="https://www.instagram.com/bolderdenemn" target="_blank" class="fa fa-instagram"></a>
     </div>
-    <!-- footer end  -->
-  </body>
+  </div>
+  <!-- footer end  -->
+</body>
+
 </html>

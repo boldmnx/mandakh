@@ -1,0 +1,10 @@
+{%extends '../base.html'%}
+{%block content%}
+<div>
+    <h3>{{blog.bname}}</h3>
+    <p>{{blog.bcontent}}</p>
+    <span>{{blog.bdate}}</span>
+</div>
+<hr>
+<a href="{%url 'blog:readBlog' blog.btorol.id%}">back</a>
+{%endblock%}
