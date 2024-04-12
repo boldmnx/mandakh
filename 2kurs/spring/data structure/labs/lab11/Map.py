@@ -35,7 +35,7 @@ class Map:
         return print(d)
 
     def __items__(self):
-        print(self.dic)
+        print(self.dic.items)
 
     def __keys__(self):
         for i in self.dic:
@@ -62,25 +62,30 @@ class Map:
 
 
 map = Map()
+print(map.__len__())
 map.__setitem__('k', 2)
 map.__setitem__('b', 4)
 map.__setitem__('u', 2)
 map.__setitem__('v', 8)
 map.__setitem__('k', 9)
-
-
-
-print(map.__getitem__('b'))
-print(map.__getitem__('x'))
-map.__get__('f')
-map.__get__('f',5)
-map.__get__('k',5)
-print(map.__len__())
-map.__delitem__('v')
-print(map.__pop__('k'))
-map.__keys__()
-map.__values__()
 map.__items__()
+
+print(map.dic.items())
+
+
+# print(map.__getitem__('b'))
+# print(map.__getitem__('x'))
+# map.__get__('f')
+# map.__get__('f',5)
+# map.__get__('k',5)
+# print(map.__len__())
+# map.__delitem__('v')
+# map.__items__()
+
+# print(map.__pop__('k'))
+# map.__keys__()
+# map.__values__()
+# map.__items__()
 print(map.__setdefault__("b", 1))
 print(map.__setdefault__("a", 1))
 
