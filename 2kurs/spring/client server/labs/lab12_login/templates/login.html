@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<div class="jumbotron">
+
+    <h1>Нэвтрэнэ үү.</h1>
+    <form action="{% url 'user_login' %}" method="POST">
+        {% csrf_token %}
+        <label for="username">Хэрэглэгчийн нэр:</label>
+        <input type="text" name="username" placeholder="Нэр оруулна уу">
+        <label for="password">Нууц үг:</label>
+        <input type="password" name="password">
+        <input type="submit" name="" value="Нэвтрэх">
+    </form>
+</div>
+{% endblock %}

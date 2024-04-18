@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Online Shop</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-static-top">
+        <a class="navbar-brand" href="{% url 'home' %}">Нүүр</a>
+        <ul class="nav navbar-nav">
+            <li><a class="navbar-link" href="{% url 'home' %}">Админ</a></li>
+            <li><a class="navbar-link" href="{% url 'register'%}">Бүртгүүлэх</a></li>
+            {% if user.is_authenticated %}
+            <li><a class="navbar-link" href="{% url 'home'
+%}">Гарах</a></li>
+            {% else %}
+            <li><a class="navbar-link" href="{% url 'user_login' %}">Нэвтрэх</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="container">
+        {% block body_block %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block body_block %}
+<div class="jumbotron">
+    {%if pairs%}
+    <h3>Хэрэглэгчид</h3>
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Нэр</th>
+            <th>Мэйл</th>
+            <th>Зураг</th>
+            <th>Сайт</th>
+            <th> </th>
+        </tr>
+        {%for u, p in pairs %}
+        <tr>
+            <td>{{u.id}}</td>
+            <td>{{u.username}}</td>
+            <td>{{u.email}}</td>
+            <td>{{p.user_img}}</td>
+            <td>{{p.user_site}}</td>
+            <td>
+                <a href="{%url 'edit' u.id%}">edit</a>
+                <a onclick="return confirm('Та итгэлтэй байн уу?')" href="{%url 'delete' u.id%}">remove</a>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+    {%else%}
+    <h3>Хэрэглэгч олдсонгүй</h3>
+    {%endif%}
+</div>
+{% endblock %}

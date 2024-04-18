@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+{%block body_block%}
+<div class="jumbotron">
+    {% if user.is_authenticated %}
+    <h3>Сайн байн уу <b>({{user.username}})</b></h3>
+    <br>
+    <img src="{{profile.user_img}}" width="200" alt="useriin zurag">
+    {%else%}
+    <h3>Сайн байнуу (зочин)</h3>
+    {%endif%}
+
+</div>
+{%endblock%}

@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{%block body_block%}
+<div class="jumbotron">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ userform.as_table }}
+            {{ proform.as_table }}
+        </table>
+        <input type="submit" value="edit">
+    </form>
+    <br>
+    <a href="{%url 'logeduser'%}">back</a>
+</div>
+{%endblock%}
