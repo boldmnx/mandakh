@@ -1,3 +1,6 @@
+
+# edge type gadnaas oruuldah bish songoltoor orj irdeg baih
+# node dotoroo 1 bol movie 2 bol person gd nuhtsul shalgad propertynuuded n utga onooh. Tegheer movie person gdeg class hereggui bolno
 class Graph:
     def __init__(self):
         self.nodes = {}
@@ -11,7 +14,7 @@ class Graph:
 
 
 class Edge:
-    def __init__(self, source, target, edge_type=None, role=None):
+    def __init__(self, source, target, edge_type, role=None):
         self.type = edge_type
         self.source = source
         self.target = target
@@ -71,15 +74,17 @@ if __name__ == "__main__":
     graph.add_node(tim)
     graph.add_node(frank)
     #edges
-    edge1 = Edge(tim, shawshank, edge_type="Actor")
+    edge1 = Edge(tim, shawshank, edge_type="Actor",role=['Red'])
     edge2 = Edge(frank, shawshank, edge_type="Director")
     edge3 = Edge(leonardo, inception, edge_type="Actor")
     edge4 = Edge(nolan, inception, edge_type="Director")
+    edge5 = Edge(tim, frank, edge_type="friend")
 
     graph.add_edge(edge1)
     graph.add_edge(edge2)
     graph.add_edge(edge3)
     graph.add_edge(edge4)
+    graph.add_edge(edge5)
 
     print("Graph Nodes:")
     for node in graph.nodes.values():
