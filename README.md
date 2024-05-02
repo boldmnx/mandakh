@@ -2,13 +2,14 @@
 
 #find /path/to/base_directory -type f -name "\*.extention" -exec rm {} \;
 
-https://www.pexels.com/
-monkeytyping.com
-https://www.000webhost.com/
-www.codeconvert.ai
-programiz
-playcode.io
-spellcheck.gov.mn
+-https://www.pexels.com/
+-monkeytyping.com
+-https://www.000webhost.com/
+-www.codeconvert.ai
+-programiz
+-playcode.io
+-spellcheck.gov.mn
+-speelcheck
 
 to do
 
