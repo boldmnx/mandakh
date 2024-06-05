@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{%block body_block%}
+<div class="jumbotron">
+    <h3>Doctors</h3>
+    {%if doctors%}
+    <ol>
+        {%for i in doctors%}
+        <li>{{i.name}}</li>
+        {%endfor%}
+    </ol>
+    {%else%}
+    <p>no info</p>
+    {%endif%}
+</div>
+{%endblock%}

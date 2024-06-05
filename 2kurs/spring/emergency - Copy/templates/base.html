@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Emergency app</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-static-top">
+        <a class="navbar-brand" href="{%url 'home'%}">Нүүр</a>
+        <ul class="nav navbar-nav">
+            <li><a class="navbar-link" href="{%url 'doctor'%}">Эмч</a></li>
+            <li><a class="navbar-link" href="{%url 'customer'%}">Үйлчлүүлэгч</a></li>
+            <li><a class="navbar-link" href="{%url 'room'%}">Эмчийн өрөө</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        {% block body_block %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

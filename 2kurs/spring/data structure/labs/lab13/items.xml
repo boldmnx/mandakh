@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 	<items>
-		<item name="Apple" price="1.50"/>
-		<item name="Banana" price="0.75"/>
-		<item name="Orange" price="1.00"/>
+		<item ner="Apple" une="1.50"/>
+		<item ner="Banana" une="0.75"/>
+		<item ner="Orange" une="1.00"/>
 	</items>

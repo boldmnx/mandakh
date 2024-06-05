@@ -36,8 +36,8 @@ def create_xml(file_path):
 
     for item_data in items:
         item = doc.createElement("item")
-        item.setAttribute("name", item_data["name"])
-        item.setAttribute("price", item_data["price"])
+        item.setAttribute("ner", item_data["name"])
+        item.setAttribute("une", item_data["price"])
         root.appendChild(item)
 
     # Write to file

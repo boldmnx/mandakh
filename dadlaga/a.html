@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Div Content</title>
+    <style>
+        #a1{
+            border: 2px solid green;
+        }
+        #a {
+            display: flex;
+        }
+        #a2{
+            border: 2px solid green;
+            width: 30%;
+        }
+        #a3{
+            width: 70%;
+            border: 2px solid green;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="a1">
+            1
+        </div>
+        <div id="a">
+            <div  id="a2">2</div>
+            <div id="a3">3</div>
+        </div>
+        <button id="changeContentA">A</button>
+        <button id="changeContentButton">B</button>
+    </div>
+
+
+    <script>
+        document.getElementById('changeContentButton').addEventListener('click', function () {
+            const contentDiv = document.getElementById('a');
+            contentDiv.innerHTML = `
+            <div id="a2" style="width: 70%;">3</div>
+            <div id="a3" style="width: 30%;">2</div>
+    `;
+        });
+        document.getElementById('changeContentA').addEventListener('click', function () {
+            const contentDiv = document.getElementById('a');
+            contentDiv.innerHTML = `
+            <div id="a2">2</div>
+            <div id="a3">3</div>
+    `;
+        });
+    </script>
+
+</body>
+
+</html>

@@ -4,7 +4,7 @@ data = {
     "name": "John",
     "age": 30,
     "city": "New York",
-    "array": [
+    "frriends": [
         {"name": "John", "age": 30, "city": "New York"},
         {"name": "Alice", "age": 25, "city": "Los Angeles"},
         {"name": "Bob", "age": 35, "city": "Chicago"},
@@ -22,4 +22,4 @@ with open('data.json', 'r') as json_file:
     loaded_json_string = json_file.read()
     # json to python 
     loaded_data = json.loads(loaded_json_string)
-    print("Loaded data:", loaded_data)
+    print("Loaded data:", type(loaded_data))

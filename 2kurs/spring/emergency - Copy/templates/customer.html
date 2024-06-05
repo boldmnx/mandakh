@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+{%block body_block%}
+<div class="jumbotron">
+    <form method="post">
+        {%csrf_token%}
+        {{cform}}<br>
+        <button type="submit" class="btn btn-primary">нэмэх</button>
+    </form>
+    <h3>Customers</h3>
+    {%if customers%}
+    <ol>
+        {%for i in customers%}
+        <li>{{i.name}}</li>
+        {%endfor%}
+    </ol>
+    {%else%}
+    <p>no info</p>
+    {%endif%}
+</div>
+{%endblock%}

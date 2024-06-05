@@ -29,10 +29,9 @@ omno bga ugugdul deer undesleed ireeduid shiidver gargah bolomjiig olgodg.
 
 deep learning --> machine learning --> Artifial intelligence
 
-    supervisor
+    supervisor (hynalttai)
 - classification (0,1) gemt hereg uildeh magdlal undur
-- regression (predict)
-
+- regression (predict) 1buyu heden huvsagchin hoorondiin hamarliig shugamaar haruulah
     unsuperviser
 
     machine learnign usage
@@ -45,9 +44,6 @@ deep learning --> machine learning --> Artifial intelligence
 
     neural network
 input(nohoinii zurag) --> weigth(how pixel) --> output
-
-    Linear regress
-- 1buyu heden huvsagchin hoorondiin hamarliig shugamaar haruulah
 
 
 matplot-visualation

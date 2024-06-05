@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Div Content</title>
+</head>
+<body>
+
+<div id="content">
+    <p>This is the initial content of the div.</p>
+</div>
+
+<button id="changeContentButton">Change Content</button>
+
+<script >
+    document.getElementById('changeContentButton').addEventListener('click', function() {
+    const contentDiv = document.getElementById('~');
+    contentDiv.innerHTML = `
+        <h2>New Content</h2>
+        <p>This is the new content of the div after button is pressed.</p>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    `;
+});
+
+</script>
+
+</body>
+</html>
