@@ -1,0 +1,103 @@
+{
+  "t_personal_details": {
+    "pid": "int",
+    "t_team": [
+      {
+        "tid": "int",
+        "tname": "charvarying"
+      }
+    ],
+    "firstname": "charvarying (50)",
+    "lastname": "charvarying(100)",
+    "headline": "charvarying(500)",
+    "address": "charvarying(200)",
+    "phone": "charvarying(100)",
+    "email": "charvarying(100)",
+    "linkedin": "charvarying(100)",
+    "github": "charvarying(100)",
+    "facebook": "charvarying(100)",
+    "city": "charvarying(100)"
+  },
+
+  "summary": "Experienced software engineer with over 5 years of experience in full stack development, specializing in Python, JavaScript, and cloud technologies. Proven track record of building scalable applications and leading cross-functional teams.",
+
+  "t_education": [
+    {
+      "eid": "int",
+      "pid": "int",
+      "degree": "charvarying(200)",
+      "institution": "charvarying(200)",
+      "location": "charvarying(200)",
+      "start_year": "int",
+      "graduation_year": "int",
+      "description": "charvarying(500)"
+    }
+  ],
+
+  "t_experience": [
+    {
+      "job_title": "charvarying(500)",
+      "company": "charvarying(500)",
+      "location": "charvarying(500)",
+      "start_date": "2021-06",
+      "end_date": "Present",
+      "t_responsibilities": {
+        "rid": "int",
+        "eid": "int",
+        "res": "charvarying(500)"
+      }
+    }
+  ],
+
+  "t_skills": [
+    {
+      "sid": "int",
+      "pid": "int",
+      "skill": "charvarying(500)",
+      "t_proficiency": [
+        {
+          "proid": "int",
+          "proname": "charvarying(500)"
+        }
+      ]
+    }
+  ],
+
+  "certifications": [
+    {
+      "name": "charvarying(500)",
+      "institution": "charvarying(500)",
+      "year": 2020
+    },
+    {
+      "name": "Certified Kubernetes Administrator",
+      "institution": "Cloud Native Computing Foundation",
+      "year": 2019
+    }
+  ],
+
+  "projects": [
+    {
+      "name": "E-commerce Platform",
+      "description": "Developed a full-stack e-commerce platform using React, Node.js, and MongoDB. Implemented features such as product listings, shopping cart, and payment processing.",
+      "url": "https://github.com/johndoe/ecommerce-platform"
+    },
+    {
+      "name": "Chat Application",
+      "description": "Built a real-time chat application using Django Channels and WebSockets. Integrated with a PostgreSQL database for persistent storage.",
+      "url": "https://github.com/johndoe/chat-application"
+    }
+  ],
+
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Native"
+    },
+    {
+      "language": "Spanish",
+      "proficiency": "Intermediate"
+    }
+  ],
+  "hobbies": ["Hiking", "Photography", "Traveling"]
+}

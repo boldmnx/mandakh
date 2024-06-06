@@ -3,3 +3,17 @@ request n time
 request action time bval tesponse action time butsana gsen ug
 data: [{}] is size 1
 
+
+mathjax
+
+
+SELECT * FROM mttest.t_asuult
+WHERE 
+    onn= 2020 and
+    hicheelkod = 1 and
+    huvilbar = 'A' 
+ORDER BY random() LIMIT 3
+
+
+
+

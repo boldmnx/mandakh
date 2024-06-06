@@ -1,5 +1,8 @@
 
+import json
+import datetime
 from pathlib import Path
+import psycopg2
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -63,13 +66,23 @@ WSGI_APPLICATION = 'timework.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'qrlesson',
+        'USER': 'userlesson',
+        'PASSWORD': '123',
+        'HOST': '192.168.0.15',  # or '59.153.86.254' if you want to use the external IP
+        'PORT': '5938',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -111,3 +124,37 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+def sendResponse(resultCode, data, action='no action'):
+    response = {}
+    response['resultCode'] = resultCode
+    response['resultMessages'] = resultMessages[resultCode]
+    response['data'] = data
+    response['size'] = len(data)
+    response['action'] = action
+    response['regdate'] = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    return json.dumps(response, indent=4, sort_keys=True, default=str)
+
+
+resultMessages = {
+    200: 'Success',
+    404: 'Not found',
+}
+
+
+def connectionDB():
+    con = psycopg2.connect(
+        host='192.168.0.15',
+        # host='59.153.86.254',
+        dbname='qrlesson',
+        user='userlesson',
+        password='123',
+        port='5938',
+        options="-c search_path=dbo,mttest",
+    )
+    return con
+
+
+def disconnectDB(con):
+    con.close()
