@@ -51,6 +51,108 @@ def get_personal_details(request):
 # get_personal_details
 
 
+def education(request):
+    con = connectDB()
+    cur = con.cursor()
+    query = f'''SELECT eduid, degid, "institution ", location, s_year, d_year, description, bid
+        FROM whois.t_education;'''
+    cur.execute(query)
+    columns = cur.description
+    jsons = json.loads(request.body)
+    action = jsons['action']
+    respRow = [{columns[index][0]: column
+                for index, column in enumerate(value)} for value in cur.fetchall()]
+    cur.close()
+    disconnectDB(con)
+    return sendResponse(200, respRow, action)
+# education
+
+
+def experience(request):
+    con = connectDB()
+    cur = con.cursor()
+    query = f'''SELECT expid, pid, jobid, company, location, start_date, end_date, respons
+        FROM whois.t_experience;'''
+    cur.execute(query)
+    columns = cur.description
+    jsons = json.loads(request.body)
+    action = jsons['action']
+    respRow = [{columns[index][0]: column
+                for index, column in enumerate(value)} for value in cur.fetchall()]
+    cur.close()
+    disconnectDB(con)
+    return sendResponse(200, respRow, action)
+# experience
+
+
+def skills(request):
+    con = connectDB()
+    cur = con.cursor()
+    query = f'''SELECT skid, profid, skill, pid
+        FROM whois.t_skills;'''
+    cur.execute(query)
+    columns = cur.description
+    jsons = json.loads(request.body)
+    action = jsons['action']
+    respRow = [{columns[index][0]: column
+                for index, column in enumerate(value)} for value in cur.fetchall()]
+    cur.close()
+    disconnectDB(con)
+    return sendResponse(200, respRow, action)
+# skills
+
+
+def certifications(request):
+    con = connectDB()
+    cur = con.cursor()
+    query = f'''SELECT cerid, pid, name, institution, year
+        FROM whois.t_certifications;'''
+    cur.execute(query)
+    columns = cur.description
+    jsons = json.loads(request.body)
+    action = jsons['action']
+    respRow = [{columns[index][0]: column
+                for index, column in enumerate(value)} for value in cur.fetchall()]
+    cur.close()
+    disconnectDB(con)
+    return sendResponse(200, respRow, action)
+# certifications
+
+
+def projects(request):
+    con = connectDB()
+    cur = con.cursor()
+    query = f'''SELECT projid, pid, project_name, description, url
+        FROM whois.t_projects;'''
+    cur.execute(query)
+    columns = cur.description
+    jsons = json.loads(request.body)
+    action = jsons['action']
+    respRow = [{columns[index][0]: column
+                for index, column in enumerate(value)} for value in cur.fetchall()]
+    cur.close()
+    disconnectDB(con)
+    return sendResponse(200, respRow, action)
+# projects
+
+
+def languages(request):
+    con = connectDB()
+    cur = con.cursor()
+    query = f'''SELECT lanid, pid, language, lprofid
+        FROM whois.t_languages;'''
+    cur.execute(query)
+    columns = cur.description
+    jsons = json.loads(request.body)
+    action = jsons['action']
+    respRow = [{columns[index][0]: column
+                for index, column in enumerate(value)} for value in cur.fetchall()]
+    cur.close()
+    disconnectDB(con)
+    return sendResponse(200, respRow, action)
+# languages
+
+
 @csrf_exempt
 def home(request):
     if request.method == "POST":
@@ -69,11 +171,30 @@ def home(request):
             elif action == "get_personal_details":
                 result = get_personal_details(request)
                 return JsonResponse(json.loads(result))
+            elif action == 'education':
+                res = education(request)
+                return JsonResponse(json.loads(res))
+            elif action == 'experience':
+                res = experience(request)
+                return JsonResponse(json.loads(res))
+            elif action == 'skills':
+                res = skills(request)
+                return JsonResponse(json.loads(res))
+            elif action == 'certifications':
+                res = certifications(request)
+                return JsonResponse(json.loads(res))
+            elif action == 'projects':
+                res = projects(request)
+                return JsonResponse(json.loads(res))
+            elif action == 'languages':
+                res = languages(request)
+                return JsonResponse(json.loads(res))
             else:
                 action = "action not found"
                 data = []
                 result = sendResponse(404, data, action)
                 return JsonResponse(json.loads(result))
+
         else:
             action = "no action"
             data = []
