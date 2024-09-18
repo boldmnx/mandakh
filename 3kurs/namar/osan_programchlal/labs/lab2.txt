@@ -1,0 +1,54 @@
+
+1. match (m:Movie) WHERE m.released >= 2003 return m.title, m.released
+---------------------------
+2. MATCH (m:Movie)<-[:DIRECTED]-(p:Person)
+WHERE 2006=m.released
+RETURN m.title as `Кино нэр` ,m.released as `Нээлт хийсэн он`, p.name as Найруулагч
+-----------------------------------
+3.MATCH (p:Person)
+OPTIONAL MATCH (p)-[r:DIRECTED]->(m:Movie)
+RETURN DISTINCT p.name, type(r)
+--------------------------------
+4.MATCH (m:Movie)<-[:ACTED_IN]-(p:Person)
+WHERE m.title ='The Matrix'
+WITH  m.title as movieName, COUNT(p.name) as actorCount
+RETURN movieName,actorCount
+-------------------------------------------
+5.MATCH (m:Movie{title:'The Matrix'})<-[:DIRECTED]-(p:Person)
+WITH m.title as movieName, COUNT(p.name) as directorCount
+RETURN movieName,directorCount
+----------------------------
+6.MATCH (m:Movie)<-[w:WROTE]-(p:Person)
+WHERE m.title="Speed Racer"
+WITH COUNT(w) as writer,m.title as mname
+RETURN mname,writer
+----------------------------
+7.MATCH (m:Movie)<-[r]-(p:Person)
+WHERE p.name='Tom Hanks'
+RETURN m.title
+-----------------------------
+8.MATCH(m:Movie)-[r]-(p:Person) 
+WHERE p.name='Tom Hanks'
+WITH p.name as Жүжигчин, type(r) as   Холбоо,m.title as Кино
+RETURN Жүжигчин, Холбоо, Кино
+-----------------------
+9.MATCH (m:Movie)<-[:ACTED_IN]-(p:Person)
+WHERE p.name="Tom Hanks"
+RETURN m.title
+10.
+MATCH (p:Person)-[a:ACTED_IN]->(m:Movie)
+WITH p.name as name, COUNT(a) as too
+RETURN  name, too 
+ORDER BY too DESC
+
+
+
+humuus nairuulsan kinoud
+
+
+
+1. neo
+2. math
+3. op match
+4. where
+5. count

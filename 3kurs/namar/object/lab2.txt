@@ -1,0 +1,12 @@
+SELECT 
+	n.name as "Мэдээний гарчиг",
+	u.ufullname as "Оруулсан ажилтан"	,
+	n.regdate as "Он",
+	n.content as "Агуулга",
+	u.uname as "Сэтгэгдэл бичсэн хүн"	,
+	c.comment as "Сэтгэгдэл", 
+	c.regdate as "Сэтгэгдэл цаг" 
+FROM public.t_news n
+INNER JOIN t_user u ON u.uid=n.uid
+INNER JOIN t_comment c ON c.nid=n.nid
+

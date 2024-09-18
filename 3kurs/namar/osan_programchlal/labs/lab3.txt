@@ -1,0 +1,85 @@
+1. 
+MATCH(m:Movie)<-[r]-(p:Person {name:'Tom Hanks'})
+WITH m.title as `Киноны нэр`,
+    CASE type(r)
+        WHEN 'ACTED_IN' THEN 'Жүжигчин'
+        WHEN 'DIRECTED' THEN 'Найруулагч'
+        WHEN 'PRODUCED' THEN 'Продюсер'
+        WHEN 'WROTE' THEN 'Зохиолч'
+        WHEN 'FOLLOWS' THEN 'Дагагч'
+        WHEN 'REVIEWED' THEN 'Сэтгэгдэл'
+        ELSE 'Холбоос алга'
+    END as `Гүйцэтгэсэн үүрэг`
+RETURN `Киноны нэр`, `Гүйцэтгэсэн үүрэг`
+----------------------------------------------------------
+2.
+MATCH(p:Person)
+WITH p
+ORDER BY p.born DESC, p.name DESC
+SKIP 8
+RETURN COLLECT(p.name +'-'+ p.born+'\n') AS HEY
+-----------------------------------------------------------
+3.
+MATCH(p:Person)
+RETURN SUBSTRING(p.name,0,1)+'.'+ LAST(SPLIT(p.name,' ')) as Hey
+-----------------------------------------------------------
+4.
+MATCH(p:Person)-[r]-(p1:Person)
+RETURN p.name,p1.name,type(r)
+------------------------------------------------------------
+5.
+MATCH (n) RETURN n
+MATCH ()-[r]->() RETURN r
+MATCH (m:Movie) RETURN m.title
+MATCH (m:Movie)-[r]-(a:Person) RETURN m, r, a
+MATCH (m:Movie) RETURN m.`Release Date` AS releaseDate
+MATCH (m:Movie) RETURN m.title AS movieTitle
+5.7
+MATCH (p:Person)
+OPTIONAL MATCH (p)-[r:DIRECTED]->(m:Movie)
+RETURN DISTINCT p.name, type(r)
+5.8
+MATCH (n:Person)
+RETURN n.name, toUpper(n.name) AS upperCaseName, n.born +5 AS futureAge
+
+MATCH (n:Person)
+RETURN DISTINCT n.born
+ORDER BY n.born
+
+
+------------------------------------------------------------
+6.
+MATCH (n:Person)
+RETURN n
+ORDER BY id(n),n.born, n.name
+6.4
+MATCH (n:Person)
+RETURN n
+ORDER BY n.born * 2
+6.6
+MATCH (n:Person)
+RETURN n.born
+ORDER BY CASE WHEN n.born IS null THEN 1 ELSE 0 END, n.born 
+6.7
+MATCH (n:Person)
+WITH n
+ORDER BY n.born
+RETURN n.born
+------------------------------------------------------------
+7.
+MATCH (m:Movie)-[r:REVIEWED]-(p:Person)
+WITH AVG(r.rating) AS avg_rating, SUM(r.rating) AS total_ratings
+MATCH(m)<-[r:REVIEWED]-(p)
+RETURN 
+  MIN(m.released) AS earliest_release,
+  MAX(m.released) AS latest_release,
+  total_ratings,
+  avg_rating,
+  COUNT(m) AS total_movies    
+----------------------------------------------------------------
+8.
+MATCH (p:Person)
+WHERE p.name CONTAINS 'Tom'
+RETURN p.name AS person_name
+
+ 

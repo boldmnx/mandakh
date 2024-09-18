@@ -1,0 +1,10 @@
+1.
+CREATE(newNode:Movie) return newNode
+
+2.
+
+CREATE(personNode:Person) return personNode
+
+3.
+
+

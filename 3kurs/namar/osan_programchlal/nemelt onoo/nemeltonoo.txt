@@ -1,0 +1,86 @@
+1. SELECT  m.mtitle as "Киноны нэр", m.mreleased as "Он" FROM t_movie m
+WHERE m.mreleased>=2003 
+------------------
+2. 
+
+SELECT  
+	m.mtitle as "Киноны нэр", 
+	m.mreleased as "Нээлт хийсэн он",
+	ARRAY_AGG(p.pname)  as "Найруулагч"
+FROM t_person_movie pm
+INNER JOIN t_person as p ON p.pid=pm.pid
+INNER JOIN t_movie as m ON m.mid=pm.mid
+INNER JOIN t_relationship as r ON r.rid=pm.rid
+WHERE r.rname='DIRECTED' and m.mreleased=2006
+GROUP BY m.mtitle, m.mreleased
+------------------------------------
+4. SELECT
+	m.mtitle AS "Кино",
+	COUNT(p.pname) AS "Жүжигчдийн тоо"
+FROM t_movie m
+INNER JOIN t_person_movie pm ON pm.mid=m.mid
+INNER JOIN t_person p ON p.pid=pm.pid
+INNER JOIN t_relationship r ON r.rid=pm.rid
+WHERE m.mtitle='The Matrix' and r.rname='ACTED_IN' 
+GROUP BY m.mtitle
+
+-------------------------
+5. SELECT
+	m.mtitle AS "Кино",
+	COUNT(p.pname) AS "Найруулагчийн тоо"
+FROM t_movie m
+INNER JOIN t_person_movie pm ON pm.mid=m.mid
+INNER JOIN t_person p ON p.pid=pm.pid
+INNER JOIN t_relationship r ON r.rid=pm.rid
+WHERE m.mtitle='The Matrix' and r.rname='DIRECTED' 
+GROUP BY m.mtitle
+-----------------------
+6. SELECT
+	m.mtitle AS "Кино",
+	COUNT(p.pname) AS "Зохиолчийн тоо",
+	ARRAY_AGG(p.pname) AS "Зохиолчийн нэрс"
+FROM t_movie m
+INNER JOIN t_person_movie pm ON pm.mid=m.mid
+INNER JOIN t_person p ON p.pid=pm.pid
+INNER JOIN t_relationship r ON r.rid=pm.rid
+WHERE m.mtitle='Speed Racer' and r.rname='WROTE' 
+GROUP BY m.mtitle
+
+----------------
+7. SELECT
+	m.mtitle AS "Тоомтой холбоотой кинонууд"
+FROM t_person_movie pm
+INNER JOIN t_movie m ON m.mid=pm.mid
+INNER JOIN t_person p ON p.pid=pm.pid
+WHERE p.pname='Tom Hanks'
+----------------
+8.SELECT
+	m.mtitle AS "Тоомтой холбоотой кинонууд"
+	,r.rname AS "Холбоо хамаарал"
+FROM t_person_movie pm
+INNER JOIN t_movie m ON m.mid=pm.mid
+INNER JOIN t_person p ON p.pid=pm.pid
+INNER JOIN t_relationship r ON r.rid=pm.rid
+WHERE p.pname='Tom Hanks'
+---------------------------
+9.SELECT
+	m.mtitle AS "Кино"
+	,r.rname AS "Холбоо хамаарал"
+FROM t_person_movie pm
+INNER JOIN t_movie m ON m.mid=pm.mid
+INNER JOIN t_person p ON p.pid=pm.pid
+INNER JOIN t_relationship r ON r.rid=pm.rid
+WHERE p.pname='Tom Hanks' and r.rname='ACTED_IN'
+-----------------
+10. SELECT
+	p.pname AS "Жүжигчин"
+	,COUNT(pm.pid) AS "Тоглосон киноны тоо"
+FROM t_person_movie pm
+INNER JOIN t_movie m ON m.mid=pm.mid
+INNER JOIN t_person p ON p.pid=pm.pid
+INNER JOIN t_relationship r ON r.rid=pm.rid
+WHERE r.rname='ACTED_IN'
+GROUP BY "Жүжигчин"
+ORDER BY "Тоглосон киноны тоо" DESC
+
+

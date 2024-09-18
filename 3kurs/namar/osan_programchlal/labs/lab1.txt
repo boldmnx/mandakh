@@ -1,0 +1,4 @@
+1. match(e) return e
+2. Match(p:Person) return p
+2. Call db.schema.visualization()
+----------------------------------
