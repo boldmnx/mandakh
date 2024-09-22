@@ -1,10 +1,48 @@
-1.
-CREATE(newNode:Movie) return newNode
+//1
+MATCH(e) RETURN e
+//2
+CREATE (p:Person{name:"Micheal"}),
+    (p1: Person{name:"Robert"}),
+    (p2:Person{name:"Christoper"}),
+    (p3:Person{name:"Thomas"})
+RETURN p,p1,p2,p3a
 
-2.
+//3
+MATCH (n)
+RETURN n
+ORDER BY id(n) DESC
+LIMIT 1;
 
-CREATE(personNode:Person) return personNode
+//4
+CREATE (m:Movie:Mongolian_Movie {title: "37р точка", year: 2020, director: "Тамир"})
+RETURN m;
 
-3.
+//5
+MATCH (m:Mongolian_Movie)
+RETURN m;
 
+//6
+MATCH(p:Person{name:"Christoper"}),
+    (m:Movie{title:"Back to the future"})
+CREATE(p)-[:ACTED_IN]->(m)
+RETURN p,m
 
+//7
+MATCH(p:Person{name:"Micheal"}),
+    (p2:Person{name:"Thomas"}),
+    (m:Movie{title:"Back to the future"})
+CREATE(p)-[:ACTED_IN{roles:["Marty","MeFly"]}]->(m)<-[:ACTED_IN{roles:["Mad dog","Tannen"]}]-(p2)
+RETURN p,m,p2
+
+//8
+MATCH(p:Person{name:"Robert"}),
+    (m:Movie{title:"Back to the future"})
+CREATE (p)-[:DIRECTED]->(m)
+RETURN p,m
+
+//9
+match (p:Person)-[]->(m:Movie{title:"Back to the Future"})
+return p, m
+
+//10
+CALL db.propertyKeys();

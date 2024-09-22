@@ -1,68 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>lab4</title>
-  </head>
 
-  <body>
-    <p id="demo"></p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lab4</title>
+</head>
 
-    <script>
-      //task4
-      // let x = 'admina'
-      // let sum = 0
-      // for (i of x)
-      //     if (i == 'a')
-      //         sum += 1
-      // document.getElementById('demo').innerHTML = sum
+<body>
+  <p id="demo"></p>
 
-      //task3
-      // let name = prompt('Та нэрээ оруулна уу!: ')
-      // let pass = prompt('Та нууц үгээ оруулна уу!: ')
-      // let mess
-      // if (name == 'admin' && pass == 'mandakh')
-      //     mess = `сайн байна уу? <b>${name}</b> тавтай морил`
-      // else
-      //     mess = 'нууц үг эсвэл нэр буруу байна'
-      // document.getElementById('demo').innerHTML = mess
+  <script>
+    //task1
+    // view = ''
+    // day = parseInt(prompt('1-7 hoorond too oruulna uu'))
+    // switch (day) {
+    //   case 1:
+    //     view = 'Monday'
+    //     break
+    //   case 2:
+    //     view = 'Tuesday'
+    //     break
+    //   case 3:
+    //     view = 'Wednesday'
+    //     break
+    //   case 4:
+    //     view = 'Thursday'
+    //     break
+    //   case 5:
+    //     view = 'Friday'
+    //     break
+    //   case 6:
+    //     view = 'Saturday'
+    //     break
+    //   case 7:
+    //     view = 'Sunday'
+    //     break
+    //   default:
+    //     view = '1-7 hoorond too oruulna uu'
+    // }
+    // document.getElementById('demo').innerHTML = view
 
-      // //task2
-      // let a = parseInt(prompt("1dahi toog oruulna uu!: "))
-      // let b = parseInt(prompt("2dahi toog oruulna uu!: "))
-      // let c = parseInt(prompt("3dahi toog oruulna uu!: "))
+    //task2
+    // too = parseInt(prompt('too oruul'))
+    // arr = []
+    // while (too > 0) {
+    //   arr.push(too % 10)
+    //   too = Math.floor(too / 10)
+    // }
+    // maxx = arr.reduce((m, v) => (m > v ? m : v))
+    // minn = arr.reduce((m, v) => (m < v ? m : v))
+    // avg = arr.reduce((m, v) => m += v) / arr.length
+    // document.getElementById('demo').innerHTML = `max: ${maxx} <br> min:  ${minn} <br> avg: ${avg}`
 
-      // let lot = a
-      // if (b > a && b > c) lot = b
-      // if (c > b && c > a) lot = c
-      // if (isNaN(c) || isNaN(a) || isNaN(b)) lot = 'Тоо оруулалдаа'
 
-      // let lit = a
-      // if (b < a && b < c) lit = b
-      // if (c < b && c < a) lit = c
-      // if (isNaN(c) || isNaN(a) || isNaN(b)) lit = 'Тоо оруулалдаа'
-      // // debugger
-      // let mid = a
-      // if (b < lot && b > lit) mid = b
-      // if (c < lot && c > lit) mid = c
-      // if (isNaN(c) || isNaN(a) || isNaN(b)) mid = 'Тоо оруулалдаа'
+    //task4
+    // let useg = prompt('a useg orson ug bichnuu')
+    // arrUser = useg.split('')
+    // c = arrUser.filter(v => v == 'a').length
+    // document.getElementById('demo').innerHTML = c
+    
+    // let x = 'admina'
+    // let sum = 0
+    // for (i of x)
+    //     if (i == 'a')
+    //         sum += 1
+    // document.getElementById('demo').innerHTML = sum
 
-      // document.getElementById('demo').innerHTML = `Их тоо: ${lot}<br>Бага тоо: ${lit}<br>Дундах тоо: ${mid}`
+    //task3
+    // let name = prompt('Та нэрээ оруулна уу!: ')
+    // let pass = prompt('Та нууц үгээ оруулна уу!: ')
+    // let mess
+    // if (name == 'admin' && pass == 'mandakh')
+    //     mess = `сайн байна уу? <b>${name}</b> тавтай морил`
+    // else
+    //     mess = 'нууц үг эсвэл нэр буруу байна'
+    // document.getElementById('demo').innerHTML = mess
 
-      //task1
-      // let too = parseInt(prompt('1-7 хүртэлх тоо оруулна уу'))
-      // let a
-      // if (too == 1) a = 'Davaa'
-      // else if (too == 2) a = 'Mygmar'
-      // else if (too == 3) a = 'lhagva'
-      // else if (too == 4) a = 'Purev'
-      // else if (too == 5) a = 'baasan'
-      // else if (too == 6) a = 'byamba'
-      // else if (too == 7) a = 'Nyam'
-      // else if (isNaN(too)) a = "too oruul"
-      // else a = 'buruu too oruulsan bna'
-      // document.getElementById('demo').innerHTML = a
-    </script>
-  </body>
+    // // //task2
+    // let a = parseInt(prompt("1dahi toog oruulna uu!: "))
+    // let b = parseInt(prompt("2dahi toog oruulna uu!: "))
+    // let c = parseInt(prompt("3dahi toog oruulna uu!: "))
+
+
+
+
+    // let lot = a
+    // if (b > a && b > c) lot = b
+    // if (c > b && c > a) lot = c
+    // if (isNaN(c) || isNaN(a) || isNaN(b)) lot = 'Тоо оруулалдаа'
+
+    // let lit = a
+    // if (b < a && b < c) lit = b
+    // if (c < b && c < a) lit = c
+    // if (isNaN(c) || isNaN(a) || isNaN(b)) lit = 'Тоо оруулалдаа'
+    // // debugger
+    // let mid = a
+    // if (b < lot && b > lit) mid = b
+    // if (c < lot && c > lit) mid = c
+    // if (isNaN(c) || isNaN(a) || isNaN(b)) mid = 'Тоо оруулалдаа'
+
+    // document.getElementById('demo').innerHTML = `Их тоо: ${lot}<br>Бага тоо: ${lit}<br>Дундах тоо: ${mid}`
+
+    //task1
+    // let too = parseInt(prompt('1-7 хүртэлх тоо оруулна уу'))
+    // let a
+    // if (too == 1) a = 'Davaa'
+    // else if (too == 2) a = 'Mygmar'
+    // else if (too == 3) a = 'lhagva'
+    // else if (too == 4) a = 'Purev'
+    // else if (too == 5) a = 'baasan'
+    // else if (too == 6) a = 'byamba'
+    // else if (too == 7) a = 'Nyam'
+    // else if (isNaN(too)) a = "too oruul"
+    // else a = 'buruu too oruulsan bna'
+    // document.getElementById('demo').innerHTML = a
+  </script>
+</body>
+
 </html>

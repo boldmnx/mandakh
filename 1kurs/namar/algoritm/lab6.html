@@ -1,58 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>lab6</title>
-  </head>
 
-  <body>
-    <script>
-      //Банкны систем
-      balance = 0;
-      pass = prompt("Сайн байнуу та пассаа орууулна уу!");
-      while (pass != "123") {
-        pass = prompt("Пасс буруу байна дахин орууулна уу! ");
-      }
-      while (true) {
-        s = parseInt(
-          prompt(`Та тоог сонго: 
-        1.Орлого 
-        2.Зарлага 
-        3.дансны үлдэгдэл  
-        4.гарах`)
-        );
-        while (isNaN(s) || parseInt(s) > 4) {
-          s = parseInt(
-            prompt(`Та хоосон эсвэл буруу тоо оруулсан бна дахин сонго: 
-            1.Орлого 
-            2.Зарлага 
-            3.дансны үлдэгдэл  
-            4.гарах`)
-          );
-        }
-        if (s == 1) {
-          orlogo = parseInt(prompt(`Мөнгөн дүнгээ оруулна уу: `));
-          alert(
-            `Таны дансанд ${orlogo}₮ нэмэгдлэж үлд: ${(balance += orlogo)}₮`
-          );
-        } else if (s == 2) {
-          zarlaga = parseInt(prompt(`Мөнгөн дүнгээ оруулна уу: `));
-          if (zarlaga + 100 < balance) {
-            alert(
-              `Таны данснаас ${zarlaga}₮ болон гүйлгээний шимтгэл 100₮ хасагдаж үлд: ${(balance -=
-                zarlaga + 100)}₮`
-            );
-          } else {
-            alert("Таны дансны үлдэгдэл хүрэлцэхгүй бна");
-          }
-        } else if (s == 3) {
-          alert(`Таны дансны үлдэгдэл: ${balance}₮`);
-        } else if (s == 4) {
-          alert("Та аппаас гарлаа.");
-          break;
-        }
-      }
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lab6</title>
+</head>
+
+<body>
+  <script>
+    //task 1
+    p = prompt('nuuts uge oruulna uu')
+    while (p != '123') {
+      p = prompt('nuuts ug buruu bna dahin oruulna uu')
+    }
+    alert('success')
+
+    // 4
+    // //Банкны систем
+    // balance = 0;
+    // pass = prompt("Сайн байнуу та пассаа орууулна уу!");
+    // while (pass != "123") {
+    //   pass = prompt("Пасс буруу байна дахин орууулна уу! ");
+    // }
+    // while (true) {
+    //   s = parseInt(
+    //     prompt(`Та тоог сонго:
+    //   1.Орлого
+    //   2.Зарлага
+    //   3.дансны үлдэгдэл
+    //   4.гарах`)
+    //   );
+    //   while (isNaN(s) || parseInt(s) > 4) {
+    //     s = parseInt(
+    //       prompt(`Та хоосон эсвэл буруу тоо оруулсан бна дахин сонго:
+    //       1.Орлого
+    //       2.Зарлага
+    //       3.дансны үлдэгдэл
+    //       4.гарах`)
+    //     );
+    //   }
+    //   if (s == 1) {
+    //     orlogo = parseInt(prompt(`Мөнгөн дүнгээ оруулна уу: `));
+    //     alert(
+    //       `Таны дансанд ${orlogo}₮ нэмэгдлэж үлд: ${(balance += orlogo)}₮`
+    //     );
+    //   } else if (s == 2) {
+    //     zarlaga = parseInt(prompt(`Мөнгөн дүнгээ оруулна уу: `));
+    //     if (zarlaga + 100 < balance) {
+    //       alert(
+    //         `Таны данснаас ${zarlaga}₮ болон гүйлгээний шимтгэл 100₮ хасагдаж үлд: ${(balance -=
+    //           zarlaga + 100)}₮`
+    //       );
+    //     } else {
+    //       alert("Таны дансны үлдэгдэл хүрэлцэхгүй бна");
+    //     }
+    //   } else if (s == 3) {
+    //     alert(`Таны дансны үлдэгдэл: ${balance}₮`);
+    //   } else if (s == 4) {
+    //     alert("Та аппаас гарлаа.");
+    //     break;
+    //   }
+    // }
+  </script>
+</body>
+
 </html>

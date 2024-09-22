@@ -1,86 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>lab8</title>
-  </head>
-  <body>
-    <script>
-      function module(too) {
-        mod = 0;
-        if (too < 0) mod = -too;
-        else mod = too;
-        return alert("Module: " + mod);
-      }
-      let modu = function (too) {
-        mod = 0;
-        if (too < 0) mod = -too;
-        else mod = too;
-        return alert("Module: " + mod);
-      };
-      arr = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
-      // v = arr.slice(3, 6);
-      // console.log(v);
-      // arr.splice(0, 7);
-      //   arr.splice(4);
-      //   alert(arr);
-      function removeA(arg) {
-        res = "";
-        for (i in arg) {
-          if (arg[i] == "a") {
-            continue;
-          } else {
-            res += arg[i];
-          }
-        }
-        return alert(res);
-      }
 
-      // module(prompt());
-      // modu(prompt());
-      // alert(arr.slice(7, 11));
-      // removeA(prompt());
-      sw = [];
-      is = [];
-      let addClass = function (arg) {
-        angi = parseInt(
-          prompt(
-            `Та ангиа сонгон уу: (зөвхөн харгалзах тоо оруулаарай):
-           1.програм хангамж 
-           2. Мэдээлийн систес`
-          )
-        );
-        if (angi == 1) {
-          sw.push(arg);
-          alert(`програм хангамж:  
-                ${sw}`);
-        } else if (angi == 2) {
-          is.push(arg);
-          alert(`Мэдээлийн систес:  
-                ${is}`);
-        } else {
-          alert("Zubhun hargalzah toog oruulna uu!");
-        }
-        next = prompt("tsaash urgeljluulehuu (yes / no)");
-        if (next == "yes") {
-          addClass(prompt("neree oruulnuu"));
-        }
-      };
-      addClass(prompt("neree oruulnuu"));
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lab8</title>
+</head>
+
+<body>
+  <script>
+
+    function moduleFn(too) {
+      if (too < 0) {
+        console.log(-too)
+      } else {
+        console.log(too)
+      }
+    }
+
+    // let modu = function (too) {
+    //   mod = 0;
+    //   if (too < 0) mod = -too;
+    //   else mod = too;
+    //   return alert("Module: " + mod);
+    // };
+    // arr = [
+    //   "Jan",
+    //   "Feb",
+    //   "Mar",
+    //   "Apr",
+    //   "May", cn
+    //   "Jun",
+    //   "Jul",
+    //   "Aug",
+    //   "Sep",
+    //   "Oct",
+    //   "Nov",
+    //   "Dec",
+    // ];
+    // // v = arr.slice(3, 6);
+    // // console.log(v);
+    // // arr.splice(0, 7);
+    // //   arr.splice(4);
+    // //   alert(arr);
+    // function removeA(arg) {
+    //   res = "";
+    //   for (i in arg) {
+    //     if (arg[i] == "a") {
+    //       continue;
+    //     } else {
+    //       res += arg[i];
+    //     }
+    //   }
+    //   return alert(res);
+    // }
+
+    // // module(prompt());
+    // moduleFn(prompt());
+    // // alert(arr.slice(7, 11));
+    // // removeA(prompt());
+    
+    sw = [];
+    is = [];
+    let addClass = function (arg) {
+      angi = parseInt(
+        prompt(
+          `Та ангиа сонгон уу: (зөвхөн харгалзах тоо оруулаарай):
+         1.програм хангамж
+         2. Мэдээлийн систес`
+        )
+      );
+      if (angi == 1) {
+        sw.push(arg);
+        alert(`програм хангамж:
+              ${sw}`);
+      } else if (angi == 2) {
+        is.push(arg);
+        alert(`Мэдээлийн систес:
+              ${is}`);
+      } else {
+        alert("Zubhun hargalzah toog oruulna uu!");
+      }
+      next = prompt("tsaash urgeljluulehuu (yes / no)");
+      if (next == "yes") {
+        addClass(prompt("neree oruulnuu"));
+      }
+    };
+    addClass(prompt("neree oruulnuu"));
+  </script>
+</body>
+
 </html>
