@@ -1,0 +1,40 @@
+1.
+a.
+echo "Appending this line" >> file.txt
+b. 
+echo ffil1 > f1.txt
+c.
+chmod 611 f1.txt
+chmod u+rw,g+x,o+x 
+d.
+chmod 774 f2.txt
+e.
+chmod 655 f3.txt .....
+-----------------------------------
+2.
+find .* -name 'f6*' -exec chmod 711 {} \
+--------------------------------
+3.
+sudo groupadd devs
+touch file1.txt file2.txt file3.txt
+sudo chown :devs file1.txt file2.txt file3.txt
+ls -l file1.txt file2.txt file3.txt
+--------------------------------
+4.
+sudo useradd -m newuser
+sudo passwd newuser
+-----------------------------------
+groupin userig shalgah:
+getent group <name>
+---------------------
+Uusegen groupd hereglegch nemeh:
+sudo useradd -G newgroup newuser
+user uusgeed nemeh bol:
+sudo useradd -m -G newgroup newuseree
+
+
+
+--------------
+chmod +x mydir
+
+

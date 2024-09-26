@@ -84,3 +84,24 @@ GROUP BY "Жүжигчин"
 ORDER BY "Тоглосон киноны тоо" DESC
 
 
+-----------------------
+
+
+SELECT p1.pname,
+	r.rname,
+	p2.pname
+	
+FROM public.t_person_to_person pp
+inner join t_person p1 on p1.pid=pp.p1id
+inner join t_person p2 on p2.pid=pp.p2id
+inner join t_relationship r on r.rid=pp.rid
+------------
+
+
+SELECT m.mtitle,
+	CONCAT(c.cname, ' (', p.pname, ')') AS comment_details
+FROM public.t_comment c
+inner join t_person p on p.pid=c.pid
+inner join t_movie m on m.mid=c.mid
+
+

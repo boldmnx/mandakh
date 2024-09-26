@@ -1,0 +1,54 @@
+1.
+create constraint `student unique`
+    for (s:Student)
+    require s.oyutnii_code is unique
+---------
+2.
+create constraint `person unique`
+    for (s:Person)
+    require s.reg_number is unique
+-------------
+3.
+create constraint `person unique 'tom hanks'`
+    for (p:Person)
+    require p.name is unique
+create (p:Person{name:'Tom Hanks'}) return p.name
+-------------
+4.
+create (p:Person{name:'',born:''}) return p
+
+MATCH (p:Person)
+WHERE p.born is null
+delete  p;
+
+create constraint `born not null`
+    for (p:Person)
+    require p.born is not null
+----------------
+5.
+CREATE
+(:Person {name: 'Sean Penn'})
+------
+6.
+create constraint `not null roles`
+for ()-[r:ACTED_IN]-()
+require r.roles is not null
+----------------
+7.
+create constraint `keys usage`
+    for (m:Movie)
+    require m.title is node key
+----------
+8.
+show constraint
+
+
+
+
+
+
+
+
+
+
+
