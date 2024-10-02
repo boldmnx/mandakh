@@ -1,0 +1,99 @@
+Даалгатар 1
+1.
+match(n{name:'Andy'}) 
+set n.born=2001
+return n
+2.
+match(n{name:'Andy'}) 
+set n.born=2002
+return n
+3.
+match(n{name:'Andy'}) 
+set n.born=null
+return n
+4.
+match(n{name:'Andy'})-[r]-(m{title:'The Matrix'})
+set r=properties(m)
+return n,m
+5.
+match(n{name:'Andy'})
+set n={name:'Paper',gender:'female'}
+return n
+6.
+match(n{name:'Andy'})
+set n={}
+return n
+7.
+match(n)
+where id(n)=184
+set n+={name:'Andy',gender:'male',born:1999}
+return n
+8.
+match(n{name:'Andy'})
+set n.name='peter',n.born=1222
+return n
+9.
+match(n{name:'peter'})
+set n.name=$name
+return n
+10.
+match(n{name:'Alex'})
+set n=$props
+return n
+11.
+match(n{name:'Aloe'})
+set n:NewLabel
+return n
+12.
+match(n{name:'Aloe'})
+set n:NewLabel:SubLabel
+return n
+
+
+----------
+call apoc.refactor.setType(r,'COOK')
+yield input,output
+return n,m
+
+Даалгавар 2
+1. 
+match(m:Movie)
+where m.released>=2000 
+set m:NewMovie 
+with m 
+match(m2:Movie)
+where m2.released<=1999 
+set m:OldMovie
+2.
+match (m3:NewMovie)
+match (m4:OldMovie)
+return m3,m4
+3.
+match(p:Person)
+where p.name in ['Aaron', 'Tom','Andy','Anthony','Bill']
+set p.gender='male'
+4.
+match(p:Person)
+where p.name in ['Angela', 'Annabella','Audrey','Christina']
+set p.gender='female'
+5.
+MATCH (p:Person)-[r]-(m:Movie)
+WHERE p.gender = 'female' OR p.gender = 'male'
+RETURN p, m
+6.
+match(m:Movie{title:'Forest Gump',released:1994})
+set m.tagline='life is like a box of chocolates you never know what you\'re gonna get',
+m.lengthInMuntes=142
+
+
+
+
+
+
+
+
+
+
+---
+remove label /properties uldene/
+delete label /nproperties ustana/

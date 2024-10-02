@@ -1,0 +1,44 @@
+1. Хэрэглэгч үүсгэх:
+a. Хэрэглэгчийг өөрийн нэрээр үүсгэх:
+| sudo useradd -m bold 
+* -m: Home folder хэрэглэгчийн нэрээр /home/bold байршилд үүснэ.
+b. Үүссэн хэрэглэгчид нууц үг оноох: 
+| sudo passwd bold
+c. 
+| sudo groupadd lab6
+d. 
+| sudo usermod -aG lab6 bold # Энэ комманд нь "bold" хэрэглэгчийг "lab6" группд нэмнэ.
+| sudo gpasswd -d bold lab6 
+e.
+| groups bold
+f. 
+| su - bold
+| touch file1.txt file2.txt file3.txt
+g.
+|  find /home/bold -type f
+h. 
+| sudo groupdel lab6
+| sudo userdel -r bold 
+| ps -u bold (current processing)
+| sudo pkill -u bol (stop process)
+2.
+a. 
+| sudo adduser --system sysuser
+* Энгийн хэрэглэгч: Үндсэн хэрэглэгчид буюу системд нэвтрэх боломжтой, 
+  график интерфэйс эсвэл терминалаар ажилладаг хэрэглэгчид. Тэдний UID нь 1000-аас дээш байдаг.
+* Системийн хэрэглэгч: Системийн процессуудыг гүйцэтгэх зориулалттай хэрэглэгчид. 
+  Тэдгээр нь голчлон фон (background) дээр ажилладаг системийн үйлчилгээний хэрэглэгчид бөгөөд тэдний UID нь 0-999 байдаг.
+b. 
+* --system: Системийн хэрэглэгч үүсгэнэ.
+* --home DIR: Хэрэглэгчийн home directory-г өөрөөр зааж өгнө.
+* --no-create-home: Home directory үүсгэхгүй байх.
+* --shell SHELL: Хэрэглэгчийн shell-ийг зааж өгнө.
+* --ingroup GROUP: Хэрэглэгчийг тодорхой группт хамааруулна.
+3.
+c. 
+* adduser: илүү автомат команд. interactive ажиллагаатай бөгөөд автоматаар нууц үг, home directory зэрэгийг асуудаг.
+* useradd: илүү техникийн команд. Тухайн хэрэглэгчийг үүсгэх үед нэмэлт тохиргоог зааж өгдөг
+d. 
+| sudo adduser --system sysuser
+| getent passwd
+| sudo userdel -r sysuser

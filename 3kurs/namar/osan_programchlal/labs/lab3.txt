@@ -35,9 +35,8 @@ MATCH (m:Movie)-[r]-(a:Person) RETURN m, r, a
 MATCH (m:Movie) RETURN m.`Release Date` AS releaseDate
 MATCH (m:Movie) RETURN m.title AS movieTitle
 5.7
-MATCH (p:Person)
-OPTIONAL MATCH (p)-[r:DIRECTED]->(m:Movie)
-RETURN DISTINCT p.name, type(r)
+MATCH (p)
+return p.born
 5.8
 MATCH (n:Person)
 RETURN n.name, toUpper(n.name) AS upperCaseName, n.born +5 AS futureAge
@@ -54,8 +53,8 @@ RETURN n
 ORDER BY id(n),n.born, n.name
 6.4
 MATCH (n:Person)
-RETURN n
-ORDER BY n.born * 2
+RETURN 2024-n.born
+ORDER BY n.born 
 6.6
 MATCH (n:Person)
 RETURN n.born
