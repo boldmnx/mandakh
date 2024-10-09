@@ -63,7 +63,7 @@ set m:NewMovie
 with m 
 match(m2:Movie)
 where m2.released<=1999 
-set m:OldMovie
+set m2:OldMovie
 2.
 match (m3:NewMovie)
 match (m4:OldMovie)

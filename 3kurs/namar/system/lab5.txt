@@ -18,7 +18,7 @@ g.
 |  find /home/bold -type f
 h. 
 | sudo groupdel lab6
-| sudo userdel -r bold 
+| sudo userdel -rf bold 
 | ps -u bold (current processing)
 | sudo pkill -u bol (stop process)
 2.
