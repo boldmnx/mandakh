@@ -1,0 +1,40 @@
+
+
+
+-------------------------------------
+Даалгавар 1
+a.
+b.
+c.
+| rar a archive_name.rar <folderName>
+d.
+| rar a -pYourPasswordHere pic.rar <imageName>
+| rar l pic.rar
+e.
+| rar x pic.rar   /home/boldoo/Desktop
+--------------------------------------
+Даалгавар 2
+a.
+| dpkg -l zim
+b.
+| sudo apt-cache search <search_term>
+c.
+sudo apt-get autoremove <packageName>
+d.
+| sudo apt-get update
+e.
+| sudo apt-get downlaod is zugeeerl tatna not installed
+| sudo apt-get install zim
+f.
+* clean is all package files
+* autoclean only outdated package files
+| sudo apt-get remove zim
+
+* ii is installed
+* rc is fileuud n uldsen
+* un is buren ustsan
+
+
+
+
+
