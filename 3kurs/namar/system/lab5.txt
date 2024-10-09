@@ -10,7 +10,7 @@ d.
 | sudo usermod -aG lab6 bold # Энэ комманд нь "bold" хэрэглэгчийг "lab6" группд нэмнэ.
 | sudo gpasswd -d bold lab6 
 e.
-| groups bold
+| groups boldsufin
 f. 
 | su - bold
 | touch file1.txt file2.txt file3.txt
