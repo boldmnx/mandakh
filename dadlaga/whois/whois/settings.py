@@ -29,9 +29,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whois_app',
+    'corsheaders',
 ]
+CORS_ALLOW_HEADERS = '*'
+
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:8000',
+    'http://127.0.0.1:5500', ]
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -139,12 +149,17 @@ resultMessages = {
 
 def connectDB():
     con = psycopg2.connect(
-        host = '192.168.0.15',
+        host='localhost',
+        dbname='cv',
+        user='postgres',
+        password='1000',
+        port='5432',
+        # host = '192.168.0.15',
         # host='59.153.86.254',
-        dbname='qrlesson',
-        user='userlesson',
-        password='123',
-        port='5938',
+        # dbname='qrlesson',
+        # user='userlesson',
+        # password='123',
+        # port='5938',
     )
     return con
 # connectDB

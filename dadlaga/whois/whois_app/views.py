@@ -6,151 +6,93 @@ from django.views.decorators.csrf import csrf_exempt
 from whois.settings import sendResponse, connectDB, disconnectDB
 
 
-def index(request):
-    return render(request, 'index.html', {'aichitsu': 'Hello world'})
-# hamaaralgui
+# def getPerson(request):
+#     jsons = json.loads(request.body)
+#     action = jsons['action']
+#     pid = jsons['pid']
+#     con = connectDB()
+#     cur = con.cursor()
+#     query = f'''SELECT 
+#     pd.firstname, 
+#     pd.lastname, 
+#     pd.headline, 
+#     pd.address, 
+#     pd.phone, 
+#     pd.email, 
+#     pd.linkedin, 
+#     pd.github, 
+#     pd.facebook, 
+#     pd.city, 
+#     pd.summary,
+#     json_agg(json_build_object(
+#         'institution', e.institution,
+#         'location', e.location,
+#         'start_year', e.start_year,
+#         'graduation_year', e.graduation_year,
+#         'description', e.description
+#     )) AS education,
+#     json_agg(json_build_object(
+#         'job_title', ex.job_title,
+#         'company', ex.company,
+#         'location', ex.location,
+#         'start_date', ex.start_date,
+#         'end_date', ex.end_date,
+#         'responsibilities', ex.responsibilities
+#     )) AS experience,
+#     json_agg(json_build_object(
+#         'skill', s.skill
+#     )) AS skills,
+#     json_agg(json_build_object(
+#         'name', c.name,
+#         'institution', c.institution,
+#         'year', c.year
+#     )) AS certifications,
+#     json_agg(json_build_object(
+#         'name', p.name,
+#         'description', p.description,
+#         'url', p.url
+#     )) AS projects,
+#     json_agg(json_build_object(
+#         'language', l.language
+# 	)) AS languages,
+#     json_agg(h.hobbies) AS hobbies
+# FROM 
+#     whois.t_person_details pd
+# LEFT JOIN whois.t_education e ON pd.pid = e.pid 
+# LEFT JOIN whois.t_experience ex ON pd.pid = ex.pid 
+# LEFT JOIN whois.t_skills s ON pd.pid = s.pid 
+# LEFT JOIN whois.t_certifications c ON pd.pid = c.pid 
+# LEFT JOIN whois.t_projects p ON pd.pid = p.pid 
+# LEFT JOIN whois.t_languages l ON pd.pid = l.pid 
+# LEFT JOIN whois.t_hobbies h ON pd.pid = h.pid 
+# where pd.pid={pid}
+# GROUP BY pd.pid;'''
+#     cur.execute(query)
+#     columns = cur.description
+#     respRow = [{columns[index][0]: column
+#                 for index, column in enumerate(value)} for value in cur.fetchall()]
+#     cur.close()
+#     disconnectDB(con)
+#     return sendResponse(200, respRow, action)
 
 
-def gettime(request):
-    ognoo = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    res = {"date": ognoo}
-    return res
-# gettime
-
-
-def get_personal_details(request):
-    jsons = json.loads(request.body)
-    action = jsons['action']
-    try:
-        asuulttoo = jsons["asuulttoo"]
-    except Exception as e:
-        action = action
-        data = [{"error": str(e) + " key error"}]
-        result = sendResponse(404, data, action)
-        return result
-    try:
-
-        myCon = connectDB()
-        cursor = myCon.cursor()
-        query = F"""SELECT  pid, fname, lname, headline, address, phone, email, linkedin, github, facebook, summary
-                    FROM whois.t_person
-                    ORDER BY random() LIMIT {asuulttoo}"""
-        cursor.execute(query)
-        columns = cursor.description
-        respRow = [{columns[index][0]: column
-                    for index, column in enumerate(value)} for value in cursor.fetchall()]
-
-        cursor.close()
-        disconnectDB(myCon)
-
-        data = respRow
-        result = sendResponse(200, data, action)
-        return result
-    except Exception as e:
-        pass
-# get_personal_details
-
-
-def education(request):
-    con = connectDB()
-    cur = con.cursor()
-    query = f'''SELECT eduid, degid, "institution ", location, s_year, d_year, description, bid
-        FROM whois.t_education;'''
-    cur.execute(query)
-    columns = cur.description
-    jsons = json.loads(request.body)
-    action = jsons['action']
-    respRow = [{columns[index][0]: column
-                for index, column in enumerate(value)} for value in cur.fetchall()]
-    cur.close()
-    disconnectDB(con)
-    return sendResponse(200, respRow, action)
-# education
-
-
-def experience(request):
-    con = connectDB()
-    cur = con.cursor()
-    query = f'''SELECT expid, pid, jobid, company, location, start_date, end_date, respons
-        FROM whois.t_experience;'''
-    cur.execute(query)
-    columns = cur.description
-    jsons = json.loads(request.body)
-    action = jsons['action']
-    respRow = [{columns[index][0]: column
-                for index, column in enumerate(value)} for value in cur.fetchall()]
-    cur.close()
-    disconnectDB(con)
-    return sendResponse(200, respRow, action)
-# experience
-
-
-def skills(request):
-    con = connectDB()
-    cur = con.cursor()
-    query = f'''SELECT skid, profid, skill, pid
-        FROM whois.t_skills;'''
-    cur.execute(query)
-    columns = cur.description
-    jsons = json.loads(request.body)
-    action = jsons['action']
-    respRow = [{columns[index][0]: column
-                for index, column in enumerate(value)} for value in cur.fetchall()]
-    cur.close()
-    disconnectDB(con)
-    return sendResponse(200, respRow, action)
-# skills
-
-
-def certifications(request):
-    con = connectDB()
-    cur = con.cursor()
-    query = f'''SELECT cerid, pid, name, institution, year
-        FROM whois.t_certifications;'''
-    cur.execute(query)
-    columns = cur.description
-    jsons = json.loads(request.body)
-    action = jsons['action']
-    respRow = [{columns[index][0]: column
-                for index, column in enumerate(value)} for value in cur.fetchall()]
-    cur.close()
-    disconnectDB(con)
-    return sendResponse(200, respRow, action)
-# certifications
-
-
-def projects(request):
-    con = connectDB()
-    cur = con.cursor()
-    query = f'''SELECT projid, pid, project_name, description, url
-        FROM whois.t_projects;'''
-    cur.execute(query)
-    columns = cur.description
-    jsons = json.loads(request.body)
-    action = jsons['action']
-    respRow = [{columns[index][0]: column
-                for index, column in enumerate(value)} for value in cur.fetchall()]
-    cur.close()
-    disconnectDB(con)
-    return sendResponse(200, respRow, action)
-# projects
-
-
-def languages(request):
-    con = connectDB()
-    cur = con.cursor()
-    query = f'''SELECT lanid, pid, language, lprofid
-        FROM whois.t_languages;'''
-    cur.execute(query)
-    columns = cur.description
-    jsons = json.loads(request.body)
-    action = jsons['action']
-    respRow = [{columns[index][0]: column
-                for index, column in enumerate(value)} for value in cur.fetchall()]
-    cur.close()
-    disconnectDB(con)
-    return sendResponse(200, respRow, action)
-# languages
+def cv_register(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            fname = data['firstname']
+            con = connectDB()
+            cur = con.cursor()
+            cur.execute(f'''insert into whois.t_person_details(firstname)
+                            VALUES('{fname}')''')
+            print('------------------------------------'+fname)
+            cur.close()
+            con.commit()
+            disconnectDB()
+            respRow = {'kakak': 'sa'}
+            return sendResponse(200, respRow)
+        except Exception as e:
+            return e
 
 
 @csrf_exempt
@@ -165,30 +107,9 @@ def home(request):
             return JsonResponse(json.loads(result))
         if 'action' in jsons:
             action = jsons['action']
-            if action == 'gettime':
-                result = gettime(request)
+            if action == "cv_register":
+                result = cv_register(request)
                 return JsonResponse(json.loads(result))
-            elif action == "get_personal_details":
-                result = get_personal_details(request)
-                return JsonResponse(json.loads(result))
-            elif action == 'education':
-                res = education(request)
-                return JsonResponse(json.loads(res))
-            elif action == 'experience':
-                res = experience(request)
-                return JsonResponse(json.loads(res))
-            elif action == 'skills':
-                res = skills(request)
-                return JsonResponse(json.loads(res))
-            elif action == 'certifications':
-                res = certifications(request)
-                return JsonResponse(json.loads(res))
-            elif action == 'projects':
-                res = projects(request)
-                return JsonResponse(json.loads(res))
-            elif action == 'languages':
-                res = languages(request)
-                return JsonResponse(json.loads(res))
             else:
                 action = "action not found"
                 data = []
