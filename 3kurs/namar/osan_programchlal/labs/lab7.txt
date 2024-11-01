@@ -1,0 +1,56 @@
+Даалгавар 1
+* delete a single node
+| match(n {name:'Charlie'}) delete n
+* delete all nodes and rel
+| match(n) detach delete n
+* delete node with realtionship
+| match(p{name:'Carrie-Anne Moss'})-[r]->() delete r
+* remove property
+| match(n{name:'Andy'}) remove n.age return n
+* remove all prop
+| MATCH (n) set n={}
+* reomve label
+| MATCH (n:LabelName) REMOVE n:LabelName
+* remove multilabel
+| MATCH (n) REMOVE n:Label1:Label2
+* combine two query
+| RETURN n
+UNION ALL
+MATCH (n:Label2)
+RETURN n
+* combine query and remove dublicate
+| MATCH (n:Label1)
+RETURN n
+UNION
+MATCH (n:Label2)
+RETURN n
+------------------------
+Даалгавар 2
+1. MATCH (m:New_movie)
+REMOVE m:New_movie
+
+MATCH (m:Old_movie)
+REMOVE m:Old_movie
+2. MATCH (m:movie)
+RETURN m
+3. MATCH (p:Person)
+WHERE p.name CONTAINS 'Aaron' OR p.name CONTAINS 'Tom' OR p.name CONTAINS 'Andy' 
+      OR p.name CONTAINS 'Anthony' OR p.name CONTAINS 'Bill'
+REMOVE p.gender
+4. MATCH (p:Person)
+WHERE p.name CONTAINS 'Angela' OR p.name CONTAINS 'Annabella' 
+      OR p.name CONTAINS 'Audrey' OR p.name CONTAINS 'Christina'
+REMOVE p.gender
+5. MATCH (m:movie)
+REMOVE m.lengthInMinutes
+6. MATCH (p:Person)
+REMOVE p.birthplace
+7.MATCH (p:Person)-[r:HAS_CONTACT {name: 'mungun dun'}]-(p2:Person)
+set r ={mungunDun:1000,gereeDugaar:11}
+RETURN p, type(r), p2;
+8. 
+match(p)-[r:HAS_CONTACT]-()
+set r.mungunDun=null
+return p,r
+
+

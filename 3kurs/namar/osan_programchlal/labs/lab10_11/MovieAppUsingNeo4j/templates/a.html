@@ -1,0 +1,22 @@
+{% block body_block %}
+<!-- Popular People Section -->
+<section class="container mx-auto p-6">
+    <h3 class="text-2xl font-semibold mb-6">Top People</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Person Card Loop -->
+        {% for person in data %}
+        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+            <img src="https://via.placeholder.com/300x450" alt="Person Photo" class="w-full h-64 object-cover">
+            <div class="p-4">
+                <h4 class="text-lg font-semibold">Name: {{ person.name }}</h4>
+                <p class="text-gray-400">Biography: {{ person.biography }}</p>
+                <p class="text-gray-400">Date of Birth: {{ person.date_of_birth }}</p>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- End Person Card Loop -->
+
+    </div>
+</section>
+{% endblock %}

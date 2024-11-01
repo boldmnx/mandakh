@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%block title%} Director{%endblock%}
+
+{% block body_block %}
+
+<section class="container mx-auto p-6">
+    <h3 class="text-2xl font-semibold mb-6">All Director</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {% for person in data %}
+        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden w-64 mx-auto">
+            <!-- Set a fixed width and centered -->
+            <!-- <img src="https://via.placeholder.com/300x200" alt="Placeholder Image" class="w-full h-32 object-cover"> -->
+            <!-- Image width stays full -->
+            <div class="p-2">
+                <h4 class="text-lg font-semibold">Name: {{ person.name }}</h4>
+                <p class="text-gray-400">Born: {{ person.born }}</p>
+                <p class="text-gray-400"> {{ loop.index }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
+
+{% endblock %}
