@@ -1,0 +1,30 @@
+name: assets_and_media
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  transparent_image: ^2.0.0  # Add this line
+  video_player: ^2.9.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter:
+  assets:
+    - assets/images/
+
+  uses-material-design: true

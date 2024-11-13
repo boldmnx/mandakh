@@ -1,0 +1,33 @@
+node prop role (1-admin)
+-label 
+
+admin -buh
+user- setgegdel bichih
+guest- harah
+
+flash-mess damjulh
+
+
+match(p:Person)
+
+with p, SPLIT(p.name,' ') as name
+with p,name,  collect(toLower(name[0]+ name[1])) AS lowername
+
+set p+={email:name[0]+'.'+name[1]+'gmail.com',password:apoc.util.sha256(lowername),userRole:1}
+ return lowername
+
+
+
+
+
+
+
+
+
+match(p:Person)
+
+with SPLIT(p.name,' ') as name
+p+={email:name[0]+'.'+name[1]+'gmail.com',password:}
+
+ return p
+online schi hash

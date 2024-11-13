@@ -1,0 +1,4 @@
+
+1. merge(m:Movie:MongolianMovie{title:"37-р точка"})
+return m
+2.
