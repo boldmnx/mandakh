@@ -1,5 +1,5 @@
 # mandakh
-
+https://drive.google.com/drive/folders/1n0hIQGTryNmi83qASsqgpvYwcsEdWQMG?usp=sharing
 #find /path/to/base_directory -type f -name "\*.extention" -exec rm {} \;
 
 -https://www.pexels.com/
