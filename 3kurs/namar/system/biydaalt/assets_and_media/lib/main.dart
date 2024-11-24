@@ -79,10 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               child: Column(
                 children: [
+                  Text('from local'),
                   Image.asset('assets/images/cat.jpg', height: 200),
                   SizedBox(
                     width: 50,
                   ),
+                  Text('video'),
                   _controller.value.isInitialized
                       ? Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -107,8 +109,13 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               child: Column(
                 children: [
+                  Text('from internet'),
+                  SizedBox(
+                    width: 50,
+                  ),
                   Image.network('https://picsum.photos/250?image=9'),
                   SizedBox(width: 20),
+                  Text('Fade'),
                   FadeInImage.memoryNetwork(
                     placeholder: kTransparentImage,
                     image:

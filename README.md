@@ -1,7 +1,9 @@
 # mandakh
-# https://drive.google.com/drive/folders/1n0hIQGTryNmi83qASsqgpvYwcsEdWQMG?usp=sharing
+##### https://drive.google.com/drive/folders/1n0hIQGTryNmi83qASsqgpvYwcsEdWQMG?usp=sharing
 # https://drive.google.com/drive/folders/1nllR7_ealTjwJyBW8ZQzvVGQ0fYyvGgz?usp=sharing
 
+
+without flash format - easybcd install w10
 
 #find /path/to/base_directory -type f -name "\*.extention" -exec rm {} \;
 
@@ -12,9 +14,11 @@
 -programiz
 -playcode.io
 -spellcheck.gov.mn
--speelcheck
+https://www.trustpilot.com/
 
 to do
+1. file read, write hiih using py
+https://drive.google.com/drive/folders/1nllR7_ealTjwJyBW8ZQzvVGQ0fYyvGgz
 
 1. historytei orlogo zarlaga
 
