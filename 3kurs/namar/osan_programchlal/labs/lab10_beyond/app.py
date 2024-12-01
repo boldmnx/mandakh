@@ -189,17 +189,37 @@ def writer():
     start = (page-1)*limit
     with get_driver() as driver:
         rec, summary, keys = driver.execute_query(
-            "match(p:Person)-[r:WROTE]-() return distinct p.name as name, p.born as born"
+            "match(p:Person)-[r:WROTE]-() return distinct p.name as name, p.born as born, id(p) as id"
         )
 
         pn = Pagination(page=page, per_page=limit, total=len(
             rec), css_framework='tailwind')
         records, summary, keys = driver.execute_query(
-            f'''match(p:Person)-[r:WROTE]-() return distinct p.name as name, p.born as born, p.img as img skip {
+            f'''match(p:Person)-[r:WROTE]-() return distinct p.name as name, p.born as born, p.img as img, id(p) as id skip {
                 start} limit {limit}'''
         )
     return render_template('writer.html', data=records, count=len(rec), pn=pn)
 # writer
+
+
+@app.route('/director/<int:writer_id>')
+def writer_detail(writer_id):
+    with get_driver() as driver:
+        writer, summary, keys = driver.execute_query(
+            f'''MATCH(p:Person)-[:WROTE]-(m:Movie)
+                    WHERE id(p)={writer_id}
+                RETURN
+                    p.name as name,
+                    p.born as born,
+                    COLLECT(m.title) as movie,
+                    p.img as img
+                '''
+        )
+    if writer is None:
+        return "director not found", 404
+
+    return render_template('writer_detail.html', person=writer[0])
+# writer detail
 
 
 @app.route('/acter')
@@ -216,11 +236,31 @@ def acter():
             rec), css_framework='tailwind')
 
         records, summary, keys = driver.execute_query(
-            f'''match(p:Person)-[r:ACTED_IN]-() return distinct p.name as name, p.born as born, p.img as img skip {
+            f'''match(p:Person)-[r:ACTED_IN]-() return distinct p.name as name, p.born as born, p.img as img, id(p) as id skip {
                 start} limit {limit}'''
         )
     return render_template('acter.html', data=records, pn=pn, count=len(rec))
 # actor
+
+
+@app.route('/acter/<int:acter_id>')
+def acter_detail(acter_id):
+    with get_driver() as driver:
+        acter, summary, keys = driver.execute_query(
+            f'''MATCH(p:Person)-[:ACTED_IN]-(m:Movie)
+                    WHERE id(p)={acter_id}
+                RETURN
+                    p.name as name,
+                    p.born as born,
+                    COLLECT(m.title) as movies,
+                    p.img as img
+                '''
+        )
+    if acter is None:
+        return "director not found", 404
+
+    return render_template('acter_detail.html', person=acter[0])
+# acter detail
 
 
 @app.route('/movie/<int:movie_id>')
@@ -238,7 +278,10 @@ def movie_detail(movie_id):
                     m.released AS released,
                     m.img AS img,
                     m.tagline AS tagline,
-                    id(m) AS id,
+                    COLLECT(DISTINCT id(cast)) AS cast_id,
+                    COLLECT(DISTINCT id(director)) AS director_id,
+                    COLLECT(DISTINCT id(writer)) AS writer_id,
+                    COLLECT(DISTINCT id(p)) AS review_id,
                     COLLECT(DISTINCT cast.name) AS cast,
                     COLLECT(DISTINCT director.name) AS director,
                     COLLECT(DISTINCT writer.name) AS writer,
@@ -259,7 +302,7 @@ def director_detail(director_id):
             f'''MATCH(p:Person)
                     WHERE id(p)={director_id}
                     OPTIONAL MATCH(p)-[:DIRECTED]-(m:Movie)
-                RETURN 
+                RETURN
                     p.name as name,
                     p.born as born,
                     COLLECT(DISTINCT m.title) as movies,
@@ -286,11 +329,31 @@ def producer():
             rec), css_framework='tailwind')
 
         records, summary, keys = driver.execute_query(
-            f'''match(p:Person)-[r:PRODUCED]-() return distinct p.name as name, p.born as born, p.img as img skip {
+            f'''match(p:Person)-[r:PRODUCED]-() return distinct p.name as name, p.born as born, p.img as img, id(p) as id skip {
                 start} limit {limit}'''
         )
     return render_template('producer.html', data=records, pn=pn, count=len(rec))
-# actor
+# producer
+
+
+@app.route('/producer/<int:producer_id>')
+def producer_detail(producer_id):
+    with get_driver() as driver:
+        producer, summary, keys = driver.execute_query(
+            f'''MATCH(p:Person)
+                    WHERE id(p)={producer_id}
+                    OPTIONAL MATCH(p)-[:PRODUCED]-(m:Movie)
+                RETURN
+                    p.name as name,
+                    p.born as born,
+                    COLLECT(DISTINCT m.title) as movies,
+                    p.img as img'''
+        )
+    if producer is None:
+        return "director not found", 404
+
+    return render_template('producer_detail.html', person=producer[0])
+# producer detail
 
 
 @app.route('/review')
@@ -299,15 +362,29 @@ def review():
     page = int(request.args.get('page', 1))
     start = (page-1)*limit
     with get_driver() as driver:
-        rec, summary, keys = driver.execute_query(
-            '             match(p:Person)-[r:REVIEWED]-(m:Movie) return distinct p.name as name, r.summary as summary,r.rating as rating, m.title as title'
+        rec, summary, keys = driver.execute_query('''
+                match(p:Person)-[r:REVIEWED]-(m:Movie)
+                return
+                    p.name as name,
+                    p.born as born,
+                    p.img as img,
+                    COLLECT(DISTINCT r.summary) as summary,
+                    COLLECT(DISTINCT r.rating) as rating,
+                    COLLECT(DISTINCT m.title) as title'''
         )
         pn = Pagination(page=page, per_page=limit, total=len(
             rec), css_framework='tailwind')
 
         records, summary, keys = driver.execute_query(
-            f'''match(p:Person)-[r:REVIEWED]-(m:Movie) return distinct p.name as name, r.summary as summary,r.rating as rating, m.title as title skip {
-                start} limit {limit}'''
+            f'''match(p:Person)-[r:REVIEWED]-(m:Movie)
+                return
+                    p.name as name,
+                    p.born as born,
+                    p.img as img,
+                    COLLECT(DISTINCT r.summary) as summary,
+                    COLLECT(DISTINCT r.rating) as rating,
+                    COLLECT(DISTINCT m.title) as title
+                skip {start} limit {limit}'''
         )
     return render_template('review.html', data=records, pn=pn, count=len(rec))
 # review

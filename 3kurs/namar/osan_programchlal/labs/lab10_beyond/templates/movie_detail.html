@@ -21,20 +21,20 @@
       <div class="mt-6">
         <h4 class="text-xl font-semibold text-white">Жүжигчид:</h4>
         <ul class="list-disc ml-6 text-gray-400">
-          {% for actor in movie.cast %}
-            <li>{{ actor }}</li>
+          {% for i in range (movie.cast | length) %}
+            <li><a href="{{url_for('acter_detail', acter_id=movie.cast_id[i] )}}">{{ movie.cast[i] }}</a> </li>
           {% endfor %}
         </ul>
       </div>
 
       <div class="mt-6">
         <h4 class="text-xl font-semibold text-white">Найруулагч:</h4>
-        <p class="text-gray-400">{{ movie.director | join(', ') }}</p>
+        <p class="text-gray-400"><a href="#"> {{movie.director | join(', ') }}</a></p>
       </div>
 
       <div class="mt-6">
         <h4 class="text-xl font-semibold text-white">Зохиолч:</h4>
-        <p class="text-gray-400">{{  movie.writer  | join(', ') | default('Зохиолчийн мэдээлэл олдсонгүй', true) }}</p>
+        <p class="text-gray-400"><a href="#">{{  movie.writer  | join(', ') | default('Зохиолчийн мэдээлэл олдсонгүй', true) }}</a></p>
       </div>
 
 
@@ -42,7 +42,7 @@
         <h4 class="text-xl font-semibold text-white">Cэтгэгдэл:</h4>
         <ul class="list-disc ml-6 text-gray-400">
             {% for i in range(movie.reviewedPerson|length) %}
-            <li>{{ movie.reviewedPerson[i] }}: {{ movie.review[i] }}</li>
+            <li><a href="#">{{ movie.reviewedPerson[i] }}</a>: {{ movie.review[i] }}</li>
           {% endfor %}</ul>
       </div>
       <!-- Go Back Button -->
