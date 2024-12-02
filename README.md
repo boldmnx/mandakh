@@ -3,6 +3,9 @@
 
 #### https://drive.google.com/drive/folders/1Q0RNOIqpQy-237ZpbD_FIuXcdD90H26C?usp=sharing - google drive
 
+
+###### generate java project - https://start.spring.io/
+
 without flash format - easybcd install w10
 
 #find /path/to/base_directory -type f -name "\*.extention" -exec rm {} \;
