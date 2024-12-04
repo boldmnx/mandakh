@@ -1,17 +1,16 @@
-from flask import Flask, render_template, request, jsonify, redirect
+from flask import Flask, render_template, request, jsonify, redirect, url_for, flash, session
 from neo4j import GraphDatabase
 import os
+from functools import wraps
 from flask_cors import CORS
 from flask_paginate import Pagination, get_page_parameter
+from datetime import datetime
+import bcrypt
 
 app = Flask(__name__)
 CORS(app)
 
-
-MOVIE_IMG = os.path.join('static', 'movies')
-
-app.config['UPLOAD_FOLDER'] = MOVIE_IMG
-file_path = os.path.join(app.config['UPLOAD_FOLDER'], 'bold')
+app.secret_key = 'your_unique_and_secret_key_here'
 
 
 URI = 'bolt://localhost:7687'
@@ -22,9 +21,84 @@ def get_driver():
     return GraphDatabase.driver(uri=URI, auth=AUTH)
 
 
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if not session: 
+        if request.method == 'POST':
+            email = request.form['email']
+            password = request.form['password']
+
+            with get_driver() as driver:
+                user, b, c = driver.execute_query(f'''MATCH(p:User)
+                                                    WHERE p.email ='{email}'
+                                                    RETURN p.email as email, p.password as storedPass, p.userRole as role
+                                                ''')
+
+                if not user:
+                    flash('Мэйл буруу байна.')
+                    return redirect(url_for('login'))
+                    # login_user(user_obj)
+
+                if bcrypt.checkpw(password.encode('utf-8'), user[0]['storedPass'].encode('utf-8')):
+                    session['role'] = user[0]['role']
+                    flash(f"Амжилттай нэвтэрлээ. {user[0]['email']}")
+                    return redirect(url_for('index'))
+
+                flash('нууц үг бууу байна.')
+                return redirect(url_for('login'))
+        return render_template('login/login.html')
+    return redirect(url_for('index'))
+
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash("You have been logged out.")
+    return redirect(url_for('index'))
+
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if not session :
+        if request.method == 'POST':
+            email = request.form['email']
+            password = request.form['password']
+            repeat_password = request.form['repeat_password']
+            userRole = request.form['userRole']
+
+            if password != repeat_password:
+                flash("Password таарахгүй байна")
+                return redirect(url_for('signup'))
+
+            hashed_password = bcrypt.hashpw(password.encode(
+                'utf-8'), bcrypt.gensalt()).decode('utf-8')
+            with get_driver() as driver:
+                user, b, c = driver.execute_query(f'''MATCH(p:User)
+                                                    WHERE p.email ='{email}'
+                                                    RETURN p.email
+                                                ''')
+                if user is None:
+                    flash('Бүртгэлтэй байна."')
+                    return redirect(url_for('signup'))
+                    # login_user(user_obj)
+
+                query = '''Create (p:User{email:$email,
+                                        password:$hashed_password,
+                                        userRole:$userRole})
+                                return p                    '''
+                res, b, c = driver.execute_query(
+                    query, email=email, hashed_password=hashed_password, userRole=userRole)
+
+                flash("Амжилттай бүртгэгдлээ.", "success")
+                return redirect(url_for('login'))
+        elif request.method == 'GET':
+            return render_template('login/signup.html')
+    return redirect(url_for('index'))
+
 @app.route('/search', methods=['POST', 'GET'])
 def search():
-
     limit = 3
     page = int(request.args.get('page', 1))
     start = (page-1)*limit
@@ -65,8 +139,6 @@ def search():
                         skip {start} limit {limit}'''
             pageyearSearch, summary, keys = con.execute_query(
                 paginateMovieSearch)
-
-            print(f'############################3{movieYear}')
 
             return render_template('search.html', moviedata=pageyearSearch, countmovie=len(movieYear), pn=pn, pnPeople=pn, startyear=startyear[:4], endyear=endyear[:4], search_term=search_term)
 
@@ -124,14 +196,12 @@ def search():
             return render_template('search.html', data=pageperson, count=len(people), search_term=search_term, pnPeople=pnPeople,
                                    pn=pn, moviedata=pagemovie, countmovie=len(movie))
 
-    return render_template('search.html', data=[], count=0, search_term=search_term
-                           )
+    return render_template('search.html', data=[], count=0, search_term=search_term)
 
 
 @app.route('/', methods=['GET'])
 def index():
     if request.method == 'GET':
-
         with get_driver() as driver:
             records, summary, keys = driver.execute_query(
                 "match(m:Movie) return m.title as title, m.released as released, m.img as img, m.tagline as tagline limit 6"
@@ -158,7 +228,7 @@ def movies():
                 start} limit {limit}'''
         )
 
-    return render_template('movies.html', data=records, pn=pn, count=len(rec))
+    return render_template('movie/movies.html', data=records, pn=pn, count=len(rec))
 # movies
 
 
@@ -178,8 +248,8 @@ def director():
                 start} limit {limit}'''
         )
 
-    return render_template('director.html', data=records, count=len(rec), pn=pn)
-# director
+    return render_template('person/director.html', data=records, count=len(rec), pn=pn)
+# director`~`
 
 
 @app.route('/writer')
@@ -198,11 +268,11 @@ def writer():
             f'''match(p:Person)-[r:WROTE]-() return distinct p.name as name, p.born as born, p.img as img, id(p) as id skip {
                 start} limit {limit}'''
         )
-    return render_template('writer.html', data=records, count=len(rec), pn=pn)
+    return render_template('person/writer.html', data=records, count=len(rec), pn=pn)
 # writer
 
 
-@app.route('/director/<int:writer_id>')
+@app.route('/writer/<int:writer_id>')
 def writer_detail(writer_id):
     with get_driver() as driver:
         writer, summary, keys = driver.execute_query(
@@ -218,7 +288,7 @@ def writer_detail(writer_id):
     if writer is None:
         return "director not found", 404
 
-    return render_template('writer_detail.html', person=writer[0])
+    return render_template('person/writer_detail.html', person=writer[0])
 # writer detail
 
 
@@ -239,7 +309,7 @@ def acter():
             f'''match(p:Person)-[r:ACTED_IN]-() return distinct p.name as name, p.born as born, p.img as img, id(p) as id skip {
                 start} limit {limit}'''
         )
-    return render_template('acter.html', data=records, pn=pn, count=len(rec))
+    return render_template('person/acter.html', data=records, pn=pn, count=len(rec))
 # actor
 
 
@@ -259,7 +329,7 @@ def acter_detail(acter_id):
     if acter is None:
         return "director not found", 404
 
-    return render_template('acter_detail.html', person=acter[0])
+    return render_template('person/acter_detail.html', person=acter[0])
 # acter detail
 
 
@@ -291,7 +361,7 @@ def movie_detail(movie_id):
     if movie is None:
         return "Movie not found", 404
 
-    return render_template('movie_detail.html', movie=movie[0])
+    return render_template('movie/movie_detail.html', movie=movie[0])
 # movie detail
 
 
@@ -301,17 +371,23 @@ def director_detail(director_id):
         director, summary, keys = driver.execute_query(
             f'''MATCH(p:Person)
                     WHERE id(p)={director_id}
-                    OPTIONAL MATCH(p)-[:DIRECTED]-(m:Movie)
+                    OPTIONAL MATCH(p)-[:DIRECTED]-(director:Movie)
+                    OPTIONAL MATCH(p)-[:WROTE]-(writer:Movie)
+                    OPTIONAL MATCH(p)-[:ACTED_IN]-(acter:Movie)
+                    OPTIONAL MATCH(p)-[:PRODUCED]-(producer:Movie)
                 RETURN
                     p.name as name,
                     p.born as born,
-                    COLLECT(DISTINCT m.title) as movies,
-                    p.img as img'''
+                    p.img as img,
+                    COLLECT(DISTINCT director.title) as dmovies,
+                    COLLECT(DISTINCT writer.title) as wmovies,
+                    COLLECT(DISTINCT acter.title) as amovies,
+                    COLLECT(DISTINCT producer.title) as pmovies'''
         )
     if director is None:
         return "director not found", 404
 
-    return render_template('director_detail.html', person=director[0])
+    return render_template('person/director_detail.html', person=director[0])
 # director detail
 
 
@@ -332,7 +408,7 @@ def producer():
             f'''match(p:Person)-[r:PRODUCED]-() return distinct p.name as name, p.born as born, p.img as img, id(p) as id skip {
                 start} limit {limit}'''
         )
-    return render_template('producer.html', data=records, pn=pn, count=len(rec))
+    return render_template('person/producer.html', data=records, pn=pn, count=len(rec))
 # producer
 
 
@@ -352,7 +428,7 @@ def producer_detail(producer_id):
     if producer is None:
         return "director not found", 404
 
-    return render_template('producer_detail.html', person=producer[0])
+    return render_template('person/producer_detail.html', person=producer[0])
 # producer detail
 
 
@@ -371,7 +447,7 @@ def review():
                     COLLECT(DISTINCT r.summary) as summary,
                     COLLECT(DISTINCT r.rating) as rating,
                     COLLECT(DISTINCT m.title) as title'''
-        )
+                                                  )
         pn = Pagination(page=page, per_page=limit, total=len(
             rec), css_framework='tailwind')
 
@@ -386,7 +462,7 @@ def review():
                     COLLECT(DISTINCT m.title) as title
                 skip {start} limit {limit}'''
         )
-    return render_template('review.html', data=records, pn=pn, count=len(rec))
+    return render_template('person/review.html', data=records, pn=pn, count=len(rec))
 # review
 
 

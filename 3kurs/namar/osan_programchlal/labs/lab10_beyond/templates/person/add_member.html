@@ -1,0 +1,31 @@
+<section class="container mx-auto p-6">
+    <h3 class="text-2xl font-semibold mb-6">Кинонд гишүүн бүртгэх</h3>
+    <form method="post" action="{{ url_for('assign_member') }}" class="space-y-4">
+        <!-- Жүжигчин -->
+        <div>
+            <label for="actor" class="block text-gray-300">Жүжигчин</label>
+            <input type="text" id="actor" name="actor"
+                class="w-full px-4 py-2 rounded bg-gray-800 text-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+        </div>
+        <!-- Найруулагч -->
+        <div>
+            <label for="director" class="block text-gray-300">Найруулагч</label>
+            <input type="text" id="director" name="director"
+                class="w-full px-4 py-2 rounded bg-gray-800 text-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+        </div>
+        <!-- Зохиолч -->
+        <div>
+            <label for="writer" class="block text-gray-300">Зохиолч</label>
+            <input type="text" id="writer" name="writer"
+                class="w-full px-4 py-2 rounded bg-gray-800 text-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+        </div>
+        <!-- Продюсер -->
+        <div>
+            <label for="producer" class="block text-gray-300">Продюсер</label>
+            <input type="text" id="producer" name="producer"
+                class="w-full px-4 py-2 rounded bg-gray-800 text-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+        </div>
+        <button type="submit"
+            class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Бүртгэх</button>
+    </form>
+</section>

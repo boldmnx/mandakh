@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block title %} Write Detail - {{ person.name }} {% endblock %}
+
+{% block body_block %}
+<section class="container mx-auto p-6">
+    <div class="flex flex-col md:flex-row bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+
+        <div class="w-full md:w-1/3">
+            <img src="{{url_for('static', filename='images/people/'+person.img)}}" alt="Placeholder Image"
+                class="w-cover h-80 object-cover">
+        </div>
+
+        <div class="w-full md:w-2/3 p-6">
+            <h3 class="text-3xl font-semibold text-white">{{ person.name }}</h3>
+            <p class="text-gray-400 mt-2">Төрсөн огноо: {{ person.born }}</p>
+
+            <div class="mt-6">
+                <h4 class="text-xl font-semibold text-white">Зохиолыг бичсэн кинонууд:</h4>
+                <ul class="list-disc ml-6 text-gray-400">
+                    {% for movie in person.movie %}
+                    <li>{{ movie }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="mt-6">
+                <a href="{{ url_for('writer') }}"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Буцах</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
