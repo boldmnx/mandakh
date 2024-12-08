@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block body_block %}
+<section class="container mx-auto p-4">
+    <h3 class="text-2xl font-semibold mb-6">Гишүүн бүртгэх</h3>
+    <div class="flex flex-wrap gap-6">
+        <form class="w-full flex flex-wrap gap-6" id="form">
+            <!-- Кино сонгох (Searchable) -->
+            <div class="flex-1 min-w-[250px]">
+                <label for="search-box" class="block text-gray-300 mb-2">Кино сонгох</label>
+                <input type="text" id="search-box" placeholder="Type to search..." autocomplete="off"
+                    class="px-4 py-2 border bg-gray-800 rounded-md shadow-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <!-- Search results container -->
+                <div id="search-results" class="mt-2 max-w-sm w-full border rounded-md shadow-md hidden"></div>
+            </div>
+
+            <!-- Үүрэг сонгох -->
+            <div class="flex-1 min-w-[250px]">
+                <label for="role" class="block text-gray-300 mb-2">Үүрэг сонгох</label>
+                <select id="role" 
+                    class="px-4 py-2 rounded bg-gray-800 text-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 w-full">
+                    <option value="">-- Үүрэг сонгох --</option>   
+                </select>
+            </div>
+
+            <!-- Хүн сонгох (Searchable) -->
+            <div class="flex-1 min-w-[250px]">
+                <label for="search-person" class="block text-gray-300 mb-2">Хүн сонгох</label>
+                <input type="text" id="search-person" placeholder="Type to search..." autocomplete="off" 
+                    class="px-4 py-2 border bg-gray-800 rounded-md shadow-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <!-- Search results container -->
+                <div id="search-person-results" class="mt-2 max-w-sm w-full border rounded-md shadow-md hidden"></div>
+            </div>
+
+            <!-- Бүртгэх товч -->
+            <div>
+                <button type="submit"
+                    class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 w-full mt-4 max-w-[200px] mx-auto">
+                    Бүртгэх
+                </button>
+            </div>
+        </form>
+        <div class="p-4 rounded mb-4 bg-green-100 text-green-700 hidden" id="alert-message">
+        </div>
+    </div>
+</section>
+
+<!-- External JS -->
+<script src="{{url_for('static', filename='js/add_member.js')}}"></script>
+{% endblock %}

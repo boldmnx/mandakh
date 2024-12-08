@@ -1,10 +1,11 @@
+
 <section class="container mx-auto p-6">
     <h3 class="text-2xl font-semibold mb-6">Кино бүртгэх</h3>
-    <form method="post" action="{{ url_for('index') }}" enctype="multipart/form-data" class="space-y-4">
+    <form method="post" action="{{ url_for('addMovie') }}" enctype="multipart/form-data" class="space-y-4">
         <!-- Киноны нэр -->
         <div>
             <label for="movie-name" class="block text-gray-300">Киноны нэр</label>
-            <input type="text" id="movie-name" name="movie_name"
+            <input type="text" id="movie-name" name="title"
                 class="w-full px-4 py-2 rounded bg-gray-800 text-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 required />
         </div>
@@ -16,14 +17,14 @@
         </div>
         <!-- Нээлт хийсэн огноо -->
         <div>
-            <label for="release-date" class="block text-gray-300">Нээлт хийсэн огноо</label>
-            <input type="date" id="release-date" name="release_date"
+            <label for="released" class="block text-gray-300">Нээлт хийсэн огноо</label>
+            <input type="date" id="release-date" name="released"
                 class="w-full px-4 py-2 rounded bg-gray-800 text-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
         </div>
         <!-- Постер зураг -->
         <div>
             <label for="poster" class="block text-gray-300">Постер зураг</label>
-            <input type="file" id="poster" name="poster"
+            <input type="file" id="poster" name="img"
                 class="w-full text-gray-300 bg-gray-800 p-2 rounded focus:outline-none" />
         </div>
         <button type="submit"

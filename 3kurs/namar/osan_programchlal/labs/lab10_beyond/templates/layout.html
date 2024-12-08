@@ -18,25 +18,35 @@
             {% if session %}
             <a href="{{url_for('index')}}" class="text-gray-300 mx-2 hover:text-white">Home</a>
             <a href="{{ url_for('movies') }}" class="text-gray-300 mx-2 hover:text-white">Movies</a>
-            <!-- Dropdown for Form -->
-            {% if session['role']=='1' %}
-            <div class="relative group inline-block">
-                <button class="text-gray-300 mx-2 hover:text-white  focus:outline-none">
-                    Add Movie ▼
-                </button>
-                <div
-                    class="absolute hidden group-hover:block bg-gray-900 text-white border border-gray-700 p-4 rounded-lg mt-2 z-10">
-                    {% include 'movie/add_movie.html' %}
-                </div>
-            </div>
-            {%endif%}
             <!-- <a href="{{ url_for('review') }}" class="text-gray-300 mx-2 hover:text-white">Review</a> -->
-            <a href="{{ url_for('director') }}" class="text-gray-300 mx-2 hover:text-white">Director</a>
+                <!-- Dropdown for Form -->
+                {% if session['role']=='1' %}
+                <div class="relative group inline-block">
+                    <button class="text-gray-300 mx-2 hover:text-white  focus:outline-none">
+                        Add Movie ▼
+                    </button>
+                    <div
+                        class="absolute hidden group-hover:block bg-gray-900 text-white border border-gray-700 p-4 rounded-lg mt-2 z-10">
+                        {% include 'movie/add_movie.html' %}
+                    </div>
+                </div>
+    
+                <div class="relative group inline-block">
+                    <button class="text-gray-300 mx-2 hover:text-white  focus:outline-none">
+                        Add Person ▼
+                    </button>
+                    <div
+                        class="absolute hidden group-hover:block bg-gray-900 text-white border border-gray-700 p-4 rounded-lg mt-2 z-10">
+                        {% include 'person/add_person.html' %}
+                    </div>
+                </div>
+                
+                <a href="{{ url_for('add_member') }}" class="text-gray-300 mx-2 hover:text-white">Add member</a>
+                {%endif%}
             <a href="{{ url_for('writer') }}" class="text-gray-300 mx-2 hover:text-white">Writer</a>
             <a href="{{ url_for('acter') }}" class="text-gray-300 mx-2 hover:text-white">Acter</a>
             <a href="{{ url_for('producer') }}" class="text-gray-300 mx-2 hover:text-white">Producer</a>
             <a href="{{ url_for('logout') }}" class="text-gray-300 mx-2 hover:text-white">logout</a>
-
             {% else %}
             <a href="{{url_for('index')}}" class="text-gray-300 mx-2 hover:text-white">Home</a>
             <a href="{{ url_for('movies') }}" class="text-gray-300 mx-2 hover:text-white">Movies</a>

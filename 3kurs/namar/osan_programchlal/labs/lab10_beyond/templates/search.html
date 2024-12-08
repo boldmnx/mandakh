@@ -10,7 +10,8 @@
             <img src="{{url_for('static', filename='images/movies/'+(i.image if i.image else 'default.jpg'))}}"
                 alt="Movie Poster" class="w-full h-64 object-contain">
             <div class="p-4">
-                <h4 class="text-lg font-semibold">Title: {{ i.title }}</h4>
+                <h4 class="text-lg font-semibold"><a href="{{ url_for('movie_detail', movie_id=i.id ) }}"
+                        class="text-yellow-500 hover:text-yellow-400"> Title: {{ i.title }}</a></h4>
                 <p class="text-gray-400">Tagline: {{ i.tagline }}</p>
                 <p class="text-gray-400">Release Date: {{ i.released }}</p>
             </div>
@@ -21,11 +22,11 @@
         <!-- Previous Page Link -->
         {% if pn.has_prev %}
         <a href="{{ url_for('search', page=pn.prev_num, search=search_term, startyear=startyear, endyear=endyear) }}"
-           class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200">Previous</a>
+            class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200">Previous</a>
         {% else %}
         <span class="bg-gray-500 text-gray-300 px-4 py-2 rounded-lg cursor-not-allowed">Previous</span>
         {% endif %}
-    
+
         <!-- Page Number Links -->
         {% for page in pn.pages %}
         {% if page %}
@@ -37,16 +38,16 @@
         <span class="text-white px-4 py-2">...</span>
         {% endif %}
         {% endfor %}
-    
+
         <!-- Next Page Link -->
         {% if pn.has_next %}
         <a href="{{ url_for('search', page=pn.next_num, search=search_term, startyear=startyear, endyear=endyear) }}"
-           class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200">Next</a>
+            class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200">Next</a>
         {% else %}
         <span class="bg-gray-500 text-gray-300 px-4 py-2 rounded-lg cursor-not-allowed">Next</span>
         {% endif %}
     </div>
-        {%else%}
+    {%else%}
     <p>Кино олдсонгүй</p>
     {%endif%}
 </section>

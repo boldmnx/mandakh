@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, redirect, url_for, flash, session
+from flask import Flask, render_template, request, jsonify, redirect, url_for, flash, session, jsonify
 from neo4j import GraphDatabase
 import os
 from functools import wraps
@@ -6,6 +6,9 @@ from flask_cors import CORS
 from flask_paginate import Pagination, get_page_parameter
 from datetime import datetime
 import bcrypt
+import json
+from werkzeug.utils import secure_filename
+
 
 app = Flask(__name__)
 CORS(app)
@@ -21,11 +24,9 @@ def get_driver():
     return GraphDatabase.driver(uri=URI, auth=AUTH)
 
 
-
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if not session: 
+    if not session:
         if request.method == 'POST':
             email = request.form['email']
             password = request.form['password']
@@ -55,13 +56,13 @@ def login():
 @app.route('/logout')
 def logout():
     session.clear()
-    flash("You have been logged out.")
+    # flash("You have been logged out.")_flashes
     return redirect(url_for('index'))
 
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    if not session :
+    if not session:
         if request.method == 'POST':
             email = request.form['email']
             password = request.form['password']
@@ -97,6 +98,7 @@ def signup():
             return render_template('login/signup.html')
     return redirect(url_for('index'))
 
+
 @app.route('/search', methods=['POST', 'GET'])
 def search():
     limit = 3
@@ -121,7 +123,8 @@ def search():
                         RETURN m.title AS title,
                             m.released AS released,
                             m.image AS image,
-                            m.tagline AS tagline
+                            m.tagline AS tagline,
+                            id(m) as id
                         order by m.released asc'''
             movieYear, summary, keys = con.execute_query(queryMovieYear)
 
@@ -134,7 +137,8 @@ def search():
                         RETURN m.title AS title,
                             m.released AS released,
                             m.image AS image,
-                            m.tagline AS tagline
+                            m.tagline AS tagline,
+                            id(m) as id
                         order by m.released asc
                         skip {start} limit {limit}'''
             pageyearSearch, summary, keys = con.execute_query(
@@ -150,7 +154,7 @@ def search():
                             m.title as title,
                             m.released as released,
                             m.image as image,
-                            m.tagline as tagline'''
+                            m.tagline as tagline, id(m) as id'''
 
             movie, summary, keys = con.execute_query(queryMovie)
             pn = Pagination(page=page, per_page=limit, total=len(
@@ -163,35 +167,31 @@ def search():
                             m.title as title,
                             m.released as released,
                             m.image as image,
+                            id(m) as id,
                             m.tagline as tagline skip {start} limit {limit}'''
             pagemovie, summary, keys = con.execute_query(paginateMovie)
 
             # movie
 
             queryPeople = f'''
-                        MATCH(m:Person)-[r]-(p)
+                        MATCH(m:Person)
                         WHERE toLower(m.name) CONTAINS toLower('{search_term}')
                         return
                             m.name as name,
-                            m.born as born,
-                            COLLECT(r.roles) as role ,
-                            COLLECT(p.title)  as title,
-                            COLLECT(type(r))  as rel'''
+                            m.born as born'''
 
             people, summary, keys = con.execute_query(queryPeople)
             pnPeople = Pagination(page=page, per_page=limit, total=len(
                 people), css_framework='tailwind')
 
             paginatepeople = f'''
-                        MATCH(m:Person)-[r]-(p)
+                        MATCH(m:Person)
                         WHERE toLower(m.name) CONTAINS toLower('{search_term}')
                         return
                             m.name as name,
-                            m.born as born,
-                            COLLECT(r.roles) as role ,
-                            COLLECT(p.title)  as title,
-                            COLLECT(type(r))  as rel skip {start} limit {limit}'''
+                            m.born as born   skip {start} limit {limit}'''
             pageperson, summary, keys = con.execute_query(paginatepeople)
+
             # people
             return render_template('search.html', data=pageperson, count=len(people), search_term=search_term, pnPeople=pnPeople,
                                    pn=pn, moviedata=pagemovie, countmovie=len(movie))
@@ -204,10 +204,9 @@ def index():
     if request.method == 'GET':
         with get_driver() as driver:
             records, summary, keys = driver.execute_query(
-                "match(m:Movie) return m.title as title, m.released as released, m.img as img, m.tagline as tagline limit 6"
+                "match(m:Movie) return m.title as title, m.released as released, m.img as img, m.tagline as tagline, id(m) as id limit 6"
             )
         return render_template('index.html', data=records, count=len(records), key=keys)
-
 # index
 
 
@@ -230,6 +229,148 @@ def movies():
 
     return render_template('movie/movies.html', data=records, pn=pn, count=len(rec))
 # movies
+
+
+@app.route('/addMovie', methods=['POST'])
+def addMovie():
+    if request.method == 'POST':
+        img = request.files['img']
+        if img:
+            secureImg = secure_filename(img.filename)
+            imgPath = os.path.join('static/images/movies/', secureImg)
+            img.save(imgPath)
+        else:
+            secureImg = ''
+        title = request.form['title']
+        released = request.form['released']
+        tagline = request.form['tagline']
+        lastAccess = 'Та бүртгэлтэй байна'
+        with get_driver() as driver:
+            try:
+
+                query = ''' MERGE(m:Movie{title: toLower($title),released:$released}) 
+                            ON CREATE SET m+={img:toLower($secureImg),tagline:toLower($tagline)}
+                            ON MATCH SET m+={lastAccess: toLower($lastAccess)}
+                            RETURN m.lastAccess as lastAccess'''
+                data, b, c = driver.execute_query(
+                    query, title=title, released=released, tagline=tagline, secureImg=secureImg, lastAccess=lastAccess)
+
+                if data[0]['lastAccess'] is not None:
+                    flash('Энэ кино бүртгэлтэй байна')
+                    return redirect(url_for('index'))
+
+                flash('Кино амжилттай нэмэгдлээ')
+                return redirect(url_for('index'))
+
+            except Exception as e:
+                flash(f'Кино нэмэгдсэнгүй: {e}')
+                return redirect(url_for('index'))
+
+    # addMovie
+
+
+@app.route('/json')
+def jsonFile():
+    with GraphDatabase.driver(uri=URI, auth=AUTH) as driver:
+        querySearchMovie = request.args.get('m', '').lower()
+        querySearchPerson = request.args.get('p', '').lower()
+
+        queryMovie = '''MATCH(m:Movie) RETURN m.title as title'''
+        allMovie, b, c = driver.execute_query(queryMovie)
+
+        queryPerson = 'MATCH(p:Person) RETURN p.name as name'
+        allPerson, b, c = driver.execute_query(queryPerson)
+        queryRel = '''  MATCH ()-[r]-()
+                              WHERE type(r) IN ['ACTED_IN', 'DIRECTED', 'PRODUCED', 'WROTE']
+                            RETURN DISTINCT
+                                CASE
+                                    WHEN type(r) = 'ACTED_IN' THEN 'Жүжигчин'
+                                    WHEN type(r) = 'DIRECTED' THEN 'Найруулагч'
+                                    WHEN type(r) = 'PRODUCED' THEN 'Продюсер'
+                                    WHEN type(r) = 'WROTE' THEN 'Зохиолч'
+                                END AS rel, type(r) as reliantionship
+                        '''
+        allRel, b, c = driver.execute_query(queryRel)
+
+        jsonMovie = []
+        for name in allMovie:
+            if name['title'] and querySearchMovie in name['title']:
+                jsonMovie.append(name['title'])
+
+        jsonPerson = []
+        for name in allPerson:
+            if name['name'] and querySearchPerson in name['name']:
+                jsonPerson.append(name['name'])
+
+        jsonRel = []
+        for name in allRel:
+            jsonRel.append({'id': name['reliantionship'], 'name': name['rel']})
+
+        return jsonify(movies=jsonMovie, people=jsonPerson, rel=jsonRel)
+
+
+@app.route('/add_member', methods=['GET', 'POST',])
+def add_member():
+    if request.method == 'GET':
+        return render_template('add_member.html')
+    elif request.method == 'POST':
+        jsons = request.data
+        data = json.loads(jsons)
+
+        with get_driver() as driver:
+            movieName = data['title']
+            queryMovie = '''MATCH (m:Movie{title:$movieName}) RETURN m.title as title'''
+            movie, b, c = driver.execute_query(queryMovie, movieName=movieName)
+
+            print(data)
+            if not movie:
+                return jsonify(error="Холбох киноны нэр баазад бүртгэлгүй байна.")
+
+            personQuery = '''MATCH(p:Person{name:$name}) RETURN p.name '''
+            personName = data['name']
+            person, b, c = driver.execute_query(personQuery, name=personName)
+            if not person:
+                return jsonify(error='Холбох хүний нэр баазад бүртгэлгүй байна.')
+
+            if not data['rel']:
+                return jsonify(error='Холбоосын төрөлөө оруулна уу.')
+
+            createRelQuery = '''MATCH(p:Person{name:$name}),(m:Movie{title:$title})
+                                MERGE (p)-[:{rel}]->(m)'''.replace('{rel}', data['rel'])
+            try:
+                driver.execute_query(
+                    createRelQuery, name=data['name'], title=data['title'])
+                return jsonify(success='Амжилттай гишүүн бүртгэлээ')
+            except Exception as e:
+                return jsonify(error=f'Холболтын алдаа: {e}')
+
+
+@app.route('/addPerson', methods=['POST'])
+def add_person():
+    if request.method == 'POST':
+        img = request.files['img']
+        if img:
+            secureImg = secure_filename(img.filename)
+            imgPath = os.path.join('static/images/movies/', secureImg)
+            img.save(imgPath)
+        else:
+            secureImg = ''
+        name = request.form['name']
+        born = request.form['born']
+        with get_driver() as driver:
+            try:
+
+                query = '''MERGE(p:Person{name:$name,born:$born,img:$secureImg})'''
+                driver.execute_query(
+                    query, name=name, born=born, secureImg=secureImg,)
+                flash('Хүн амжилттай нэмэгдлээ')
+                return redirect(url_for('index'))
+
+            except Exception as e:
+                flash(f'Хүн нэмэгдсэнгүй: {e}')
+                return redirect(url_for('index'))
+
+    # addPerson
 
 
 @app.route('/director')
@@ -467,4 +608,4 @@ def review():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=3001)
+    app.run(debug=True, port=3000)

@@ -5,7 +5,7 @@
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <div class="p-4 rounded mb-4 bg-green-100 text-green-700" id="alertmsg">
-        {{ messages[0] }}
+        {{ messages }}
     </div>
     {% endif %}
     {% endwith %}
@@ -20,7 +20,10 @@
                 alt="Movie Poster" class="w-full h-64 object-contain">
 
             <div class="p-4">
-                <h4 class="text-lg font-semibold">{{key[0]}}: {{ i.title }}</h4>
+
+                <h4 class="text-lg font-semibold">Title: <a href="{{ url_for('movie_detail', movie_id=i.id ) }}"
+                        class="text-yellow-500 hover:text-yellow-400">{{ i.title }}</a></h4>
+
                 <p class="text-gray-400">{{key[3]}}: {{ i.tagline }}</p>
                 <p class="text-gray-400">{{key[1]}} date: {{ i.released }}</p>
             </div>
