@@ -322,7 +322,6 @@ def add_member():
             queryMovie = '''MATCH (m:Movie{title:$movieName}) RETURN m.title as title'''
             movie, b, c = driver.execute_query(queryMovie, movieName=movieName)
 
-            print(data)
             if not movie:
                 return jsonify(error="Холбох киноны нэр баазад бүртгэлгүй байна.")
 
