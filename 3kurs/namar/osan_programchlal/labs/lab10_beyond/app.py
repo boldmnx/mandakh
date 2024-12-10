@@ -32,9 +32,9 @@ def login():
             password = request.form['password']
 
             with get_driver() as driver:
-                user, b, c = driver.execute_query(f'''MATCH(p:User)
+                user, b, c = driver.execute_query(f'''MATCH(p:Person)
                                                     WHERE p.email ='{email}'
-                                                    RETURN p.email as email, p.password as storedPass, p.userRole as role
+                                                    RETURN p.email as email, p.password as storedPass, p.userRole as role, id(p) as id
                                                 ''')
 
                 if not user:
@@ -44,12 +44,15 @@ def login():
 
                 if bcrypt.checkpw(password.encode('utf-8'), user[0]['storedPass'].encode('utf-8')):
                     session['role'] = user[0]['role']
+                    session['id'] = user[0]['id']
                     flash(f"Амжилттай нэвтэрлээ. {user[0]['email']}")
                     return redirect(url_for('index'))
 
                 flash('нууц үг бууу байна.')
                 return redirect(url_for('login'))
+            
         return render_template('login/login.html')
+    
     return redirect(url_for('index'))
 
 
@@ -76,7 +79,7 @@ def signup():
             hashed_password = bcrypt.hashpw(password.encode(
                 'utf-8'), bcrypt.gensalt()).decode('utf-8')
             with get_driver() as driver:
-                user, b, c = driver.execute_query(f'''MATCH(p:User)
+                user, b, c = driver.execute_query(f'''MATCH(p:Person)
                                                     WHERE p.email ='{email}'
                                                     RETURN p.email
                                                 ''')
@@ -85,10 +88,10 @@ def signup():
                     return redirect(url_for('signup'))
                     # login_user(user_obj)
 
-                query = '''Create (p:User{email:$email,
+                query = '''Create (p:Person{name:'',email:$email,
                                         password:$hashed_password,
                                         userRole:$userRole})
-                                return p                    '''
+                                return p.id as id  '''
                 res, b, c = driver.execute_query(
                     query, email=email, hashed_password=hashed_password, userRole=userRole)
 
@@ -177,6 +180,7 @@ def search():
                         MATCH(m:Person)
                         WHERE toLower(m.name) CONTAINS toLower('{search_term}')
                         return
+                            m.img as image,
                             m.name as name,
                             m.born as born'''
 
@@ -188,6 +192,7 @@ def search():
                         MATCH(m:Person)
                         WHERE toLower(m.name) CONTAINS toLower('{search_term}')
                         return
+                            m.img as image,
                             m.name as name,
                             m.born as born   skip {start} limit {limit}'''
             pageperson, summary, keys = con.execute_query(paginatepeople)
@@ -334,14 +339,14 @@ def add_member():
             if not data['rel']:
                 return jsonify(error='Холбоосын төрөлөө оруулна уу.')
 
-            createRelQuery = '''MATCH(p:Person{name:$name}),(m:Movie{title:$title})
-                                MERGE (p)-[:{rel}]->(m)'''.replace('{rel}', data['rel'])
-            try:
-                driver.execute_query(
-                    createRelQuery, name=data['name'], title=data['title'])
-                return jsonify(success='Амжилттай гишүүн бүртгэлээ')
-            except Exception as e:
-                return jsonify(error=f'Холболтын алдаа: {e}')
+
+            createRelQuery = '''MATCH(p:Person{name:$personName}), (m:Movie{title:$movieName}) 
+            MERGE (p)-[r:ACTED_IN]->(m) SET r.role = $role'''
+
+            driver.execute_query(
+                createRelQuery, personName=personName, movieName=movieName, role=data['role'])
+
+        return jsonify({'message': 'Амжилттай нэмэгдлээ!'})
 
 
 @app.route('/addPerson', methods=['POST'])
@@ -350,7 +355,7 @@ def add_person():
         img = request.files['img']
         if img:
             secureImg = secure_filename(img.filename)
-            imgPath = os.path.join('static/images/movies/', secureImg)
+            imgPath = os.path.join('static/images/people/', secureImg)
             img.save(imgPath)
         else:
             secureImg = ''
@@ -473,35 +478,52 @@ def acter_detail(acter_id):
 # acter detail
 
 
-@app.route('/movie/<int:movie_id>')
+@app.route('/movie/<int:movie_id>', methods=['GET', 'POST'])
 def movie_detail(movie_id):
-    with get_driver() as driver:
-        movie, summary, keys = driver.execute_query(
-            f'''MATCH (m:Movie)
-                    WHERE id(m) = {movie_id}
-                    OPTIONAL MATCH (m)-[:ACTED_IN]-(cast:Person)
-                    OPTIONAL MATCH (m)-[:DIRECTED]-(director:Person)
-                    optional  MATCH (m)-[:WROTE]-(writer:Person)
-                    optional  MATCH (m)-[r:REVIEWED]-(p:Person)
-                RETURN
-                    m.title AS title,
-                    m.released AS released,
-                    m.img AS img,
-                    m.tagline AS tagline,
-                    COLLECT(DISTINCT id(cast)) AS cast_id,
-                    COLLECT(DISTINCT id(director)) AS director_id,
-                    COLLECT(DISTINCT id(writer)) AS writer_id,
-                    COLLECT(DISTINCT id(p)) AS review_id,
-                    COLLECT(DISTINCT cast.name) AS cast,
-                    COLLECT(DISTINCT director.name) AS director,
-                    COLLECT(DISTINCT writer.name) AS writer,
-                    COLLECT(DISTINCT r.summary) as review,
-                    COLLECT(DISTINCT p.name) as reviewedPerson'''
-        )
-    if movie is None:
-        return "Movie not found", 404
+    if request.method == 'GET':
+        with get_driver() as driver:
+            movie, summary, keys = driver.execute_query(
+                f'''MATCH (m:Movie)
+                        WHERE id(m) = {movie_id}
+                        OPTIONAL MATCH (m)-[:ACTED_IN]-(cast:Person)
+                        OPTIONAL MATCH (m)-[:DIRECTED]-(director:Person)
+                        optional  MATCH (m)-[:WROTE]-(writer:Person)
+                        optional  MATCH (m)-[r:REVIEWED]-(p:Person)
+                    RETURN
+                        m.title AS title,
+                        m.released AS released,
+                        m.img AS img,
+                        m.tagline AS tagline,
+                        id(m) as id,
+                        COLLECT(DISTINCT id(cast)) AS cast_id,
+                        COLLECT(DISTINCT id(director)) AS director_id,
+                        COLLECT(DISTINCT id(writer)) AS writer_id,
+                        COLLECT(DISTINCT id(p)) AS review_id,
+                        COLLECT(DISTINCT cast.name) AS cast,
+                        COLLECT(DISTINCT director.name) AS director,
+                        COLLECT(DISTINCT writer.name) AS writer,
+                        COLLECT(DISTINCT r.summary) as review,
+                        COLLECT(DISTINCT p.name) as reviewedPerson'''
+            )
+        if movie is None:
+            return "Movie not found", 404
+        return render_template('movie/movie_detail.html', movie=movie[0])
+    elif request.method == 'POST':
+        print(f'#######################################{session['id']}')
+        with get_driver() as driver:
+            review = request.form['review']
+            query = '''MATCH (m:Movie), (p:Person)
+                        WHERE id(m)=$mid and id(p)=$pid
+                        MERGE (m)-[r:REVIEWED]-(p)
+                        SET r.summary = $summary
+                        RETURN m, p, r
+                    '''
 
-    return render_template('movie/movie_detail.html', movie=movie[0])
+            movie, summary, keys = driver.execute_query(
+                query, summary=review, pid=session['id'], mid=movie_id)
+            
+        return redirect(url_for('movie_detail', movie_id=movie_id))
+
 # movie detail
 
 

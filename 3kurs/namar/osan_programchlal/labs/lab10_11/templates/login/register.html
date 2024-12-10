@@ -1,0 +1,24 @@
+{%extends 'index.html' %}
+{% block content %}
+<br><br>
+<form action="" method="post">    
+    Нэр:
+
+    <input type="text" name="name"><br><br>
+
+    Үүрэг:
+    <select name="role">
+        <option value="">---------------------</option>
+        <option value="1">Admin</option>
+        <option value="2">User</option>
+    </select><br><br>
+
+    Нууц үг:
+    <input type="password" name="password"><br><br>
+    Нууц үг давтах:
+    <input type="password" name="repassword"><br><br>
+
+    <button type="submit">Бүртгүүлэх</button>
+</form>
+
+{% endblock %}
