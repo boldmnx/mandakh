@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>alert</title>
+    <script>
+      setTimeout(message, 3000);
+      function message() {
+        document.getElementById("msg").style.display = "none";
+      }
+    </script>
+  </head>
+  <body>
+    {%with messages = get_flashed_messages(with_categories=true)%}
+     {%if
+    messages%}
+    <div id="msg" class="alert alert-{{messages[-1][0]}}">
+      {{messages[-1][1]}}
+    </div>
+    {%else%}
+    <div id="msg"></div>
+    {%endif%} {%endwith%}
+  </body>
+</html>

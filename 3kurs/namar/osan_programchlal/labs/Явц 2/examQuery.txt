@@ -1,8 +1,0 @@
-MERGE(b:Bagsh{name:'Бат',gender:'Эр',born:'1999'})
-MERGE(a:AlbanTushaal{name:'Ахлах багш',acode:'a1'})
-MERGE(e:ErdmiinZereg{name:'Доктор', ecode:'e1'})
-MERGE(t:Tenhim{name:'Мат',tcode:'t1'})
-
-MERGE(b)-[:AlbanTushaal]-(a)
-MERGE(b)-[:ErdmiinZereg]-(e)
-MERGE(b)-[:Tenhim]-(t)

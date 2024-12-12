@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    Its Home
+    <hr>
+    <table border="1">
+        <thead>
+            <th>Овог Нэр</th>
+            <th>Тэнхим</th>
+            <th>Эрдмийн зэрэг</th>
+            <th>Албан тушаал</th>
+        </thead>
+        <tbody>
+            {%for i in allBagsh %}
+            <tr>
+                <td>{{ i.name }} </td>
+                <td>{{ i.Tenhim }} </td>
+                <td>{{ i.ErdmiinZereg }} </td>
+                <td>{{ i.albanTushaal }} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <form action="/addTenhim" method="post">
+        <p>Тэнхим</p>
+        код:
+        <input type="text" name="acode"><br><br>
+        Нэр:
+        <input type="text" name="name"><br><br>
+        <button type="submit">Тэнхим нэмэх</button>
+    </form>
+    <br>
+    <br>
+    <form action="/albantushaal" method="post">
+        <p>albantushaal</p>
+        код
+        <input type="text" name="acode"><br><br>
+        Нэр
+        <input type="text" name="name"><br><br>
+        <button type="submit">albantushaal нэмэх</button>
+    </form>
+    <br>
+    <br>
+
+    <form action="/erdmiinZereg" method="post">
+        <p>erdmiinZereg</p>
+        код
+        <input type="text" name="acode"><br><br>
+        Нэр
+        <input type="text" name="name"><br><br>
+        <button type="submit">erdmiinZereg нэмэх</button>
+    </form>
+    <br>
+    <br>
+
+    <form action="/bagsh" method="post">
+        <p>bagsh</p>
+
+        Нэр:
+        <input type="text" name="name"><br><br>
+        оюутаны код:
+
+        <input type="text" name="acode"><br><br>
+        Он:
+        <input type="text" name="createdDate"><br><br>
+        <select name="atushaal">
+            <option value="">--- албан тушаал ---</option>
+            {% for i in allAlbanTushaal %}
+            <option value="{{ i.name }}">{{ i.name }}</option>
+            {% endfor %}
+        </select>
+        <select name="ezereg">
+            <option value="">---- Эрдмийн зэрэг ----</option>
+            {% for i in allErdmiinZereg %}
+            <option value="{{ i.name }}">{{ i.name }}</option>
+            {% endfor %}
+        </select>
+        <select name="tenhim">allTenhim
+            <option value="">--- Тэнхим ---</option>
+            {% for i in allTenhim %}
+            <option value="{{ i.name }}">{{ i.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">bagsh нэмэх</button>
+    </form>
+    <br>
+    <br><br>
+    <br>
+
+
+
+</body>
+
+</html>

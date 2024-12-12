@@ -1,24 +1,23 @@
 {%extends 'index.html' %}
 {% block content %}
-<br><br>
-<form action="" method="post">    
-    Нэр:
+<form accept="/register" method="post">
+    <div class="mb-3 mt-3">
+        <label class="form-label">Нэр:</label>
+        <input type="text" class="form-control" name="name" placeholder="Нэрээ оруулна оруулна уу" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Нууц үг:</label>
+        <input type="password" class="form-control" placeholder="Нууц үгээ оруулна уу" name="password" required>
+    </div>
 
-    <input type="text" name="name"><br><br>
-
-    Үүрэг:
-    <select name="role">
-        <option value="">---------------------</option>
-        <option value="1">Admin</option>
-        <option value="2">User</option>
-    </select><br><br>
-
-    Нууц үг:
-    <input type="password" name="password"><br><br>
-    Нууц үг давтах:
-    <input type="password" name="repassword"><br><br>
-
-    <button type="submit">Бүртгүүлэх</button>
+    <div class="mb-3">
+        <label class="form-label">Нууц үг давтах:</label>
+        <input type="password" class="form-control" placeholder="Нууц үгээ давтаж оруулна уу" name="repassword"
+            required>
+    </div>
+    <button type="submit" class="btn btn-primary">Бүртгүүлэх</button>
 </form>
-
+<br>
+<br>
+{% include 'alert.html' %}
 {% endblock %}

@@ -10,7 +10,8 @@
     </script>
   </head>
   <body>
-    {%with messages = get_flashed_messages(with_categories=true)%} {%if
+    {%with messages = get_flashed_messages(with_categories=true)%}
+     {%if
     messages%}
     <div id="msg" class="alert alert-{{messages[-1][0]}}">
       {{messages[-1][1]}}
