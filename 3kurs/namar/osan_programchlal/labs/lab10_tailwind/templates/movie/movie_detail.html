@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block title %} Movie Detail - {{ movie.title }} {% endblock %}
+
+{% block body_block %}
+<section class="container mx-auto p-6">
+  <div class="flex flex-col md:flex-row bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+
+    <!-- Movie Poster -->
+    <div class="w-full md:w-1/3">
+      <img src="{{ url_for('static', filename='images/movies/' + (movie.img or 'default.jpg')) }}" alt="Movie Poster"
+        class="w-cover h-cover object-cover">
+    </div>
+
+    <!-- Movie Details -->
+    <div class="w-full md:w-2/3 p-6">
+      <h3 class="text-3xl font-semibold text-white">{{ movie.title }}</h3>
+      <p class="text-gray-400 mt-2">Tagline: {{ movie.tagline }}</p>
+      <p class="text-gray-400 mt-2">Release Date: {{ movie.released }}</p>
+      <p class="text-gray-300 mt-4">{{ movie.description }}</p>
+
+      <div class="mt-6">
+        <h4 class="text-xl font-semibold text-white">Жүжигчид:</h4>
+        <ul class="list-disc ml-6 text-gray-400">
+          {% for i in range (movie.cast | length) %}
+          <li><a href="{{url_for('acter_detail', acter_id=movie.cast_id[i] )}}">{{ movie.cast[i] }}</a> </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="mt-6">
+        <h4 class="text-xl font-semibold text-white">Найруулагч:</h4>
+        <p class="text-gray-400"><a href="#"> {{movie.director | join(', ') }}</a></p>
+      </div>
+
+      <div class="mt-6">
+        <h4 class="text-xl font-semibold text-white">Зохиолч:</h4>
+        <p class="text-gray-400"><a href="#">{{ movie.writer | join(', ') | default('Зохиолчийн мэдээлэл олдсонгүй',
+            true) }}</a></p>
+      </div>
+
+      <div class="mt-6">
+        <h4 class="text-xl font-semibold text-white">Сэтгэгдэл:</h4>
+        <ul class="list-disc ml-6 text-gray-400">
+          {% for i in range(movie.reviewedPerson|length) %}
+          <li><a href="#">{{ movie.reviewedPerson[i] }}</a>: {{ movie.review[i] }}</li>
+          {% endfor %}
+        </ul>
+        {% if session['role']==2 %}
+        <form action="{{ url_for('movie_detail', movie_id=movie.id) }}" method="post">
+          <input type="text" name="review" class="border border-gray-400 p-2 rounded-lg bg-blue" placeholder="Сэтгэгдэл бичих">
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Сэтгэгдэл нэмэх</button>
+        </form>
+        {% endif %}
+      </div>
+      
+      <!-- Go Back Button -->
+      <div class="mt-6">
+        <a href="{{ url_for('movies') }}"
+          class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Буцах</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

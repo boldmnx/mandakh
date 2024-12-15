@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/addMember" method="post">
+
+    <!-- Movie -->
+    Movie name <br>
+    <input type="text" name="movie" list="data" class="form-control"  required
+        placeholder="Киноны нэрээ сонгоно уу">
+    <datalist id="data">
+        {% for i in result %}
+        <option value="{{i.title}}"></option>
+        {% endfor %}
+    </datalist>
+    <br>
+    <!-- Rel -->
+    Холбоо <br>
+    <select name="role" class="form-control" id="rel" required>
+        <option value="">-- сонгоно уу --</option>
+        {% for i in rel %}
+        <option value="{{i.id}}">{{i.role}}</option>
+        {% endfor %}
+    </select>
+    <input type="text" id="roleName" name="roleName" style="display: none;" placeholder="Үүрэгээ оруулна уу"
+        class="form-control">
+        <br>
+    <!-- Person -->
+    Person name <br>
+    <input type="text" name="name" list="person" required class="form-control" 
+        placeholder="Хүний нэрийг сонгоно уу">
+    <datalist id="person">
+        {% for i in person %}
+        <option value="{{i.name}}"></option>
+        {% endfor %}
+    </datalist>
+    <br>
+    <button type="submit" class="form-control bg-success">Бүртгүүлэх</button>
+</form>
+<br>
+<br>
+<br>
+{% include 'alert.html'%}
+<script src="{{url_for('static', filename='js/role.js')}}">
+</script>
+{% endblock %}

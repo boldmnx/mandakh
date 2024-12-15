@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+
+    <title>Home</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{url_for('static', filename='js/darkMode.js')}}"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- Font Awesome icons -->
+
+</head>
+
+<body>
+
+    <!-- #region Nav-->
+    <nav class="navbar navbar-expand-sm bg-dark  navbar-dark">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                {% if 'name' in session %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/movies">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/people">People</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout ({{session['name']}})</a>
+                </li>
+
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </nav>
+    <!-- #endregion -->
+
+    <br>
+    <div class="container">
+        {% if 'name' in session %}
+        <div class="d-flex gap-2">
+            <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Search
+                </button>
+                <ul class="dropdown-menu" style="min-width: 400px;">
+                    <li class="dropdown-item">
+                        {% if 'name' in session %}
+                        <form class="d-flex" action="{{url_for('searchMovie')}}" method="post">
+                            <input class="form-control me-2 " name="searchTitle" type="search"
+                                placeholder="Search person" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search person</button>
+                        </form>
+                        {% endif %}
+                    </li>
+                    <li class="dropdown-item">
+                        {% if 'name' in session %}
+                        <form class="d-flex" action="{{url_for('searchMovie')}}" method="post">
+                            <input class="form-control me-2 " name="searchTitle" type="search"
+                                placeholder="Search movie" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search movie</button>
+                        </form>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+            <!-- Search -->
+
+            {% if session['role']==1 %}
+            <a href="/addMovie">
+                <button class="btn btn-primary" type="button">
+                    Add Person
+                </button>
+            </a>
+            <a href="/addMovie">
+                <button class="btn btn-primary" type="button">
+                    Add Movie
+                </button>
+            </a>
+            <a href="/addMember">
+                <button class="btn btn-primary" type="button">
+                    Add Member
+                </button>
+            </a>
+            {% endif %}
+            <button id="toggleDarkMode" class="btn btn-dark">Dark Mode</button>
+            <!-- Button -->
+        </div>
+        {% endif %}
+
+        <br>
+        <div class="row">
+            {% block content %}
+
+            {% endblock %}
+            <br>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark  text-white py-1 mt-5">
+        <div class="text-center pt-3">
+            <p>&copy; 2024 Khongorzul Company. </p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

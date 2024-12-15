@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <h2>Movie Detail</h2>
+    <div class="card" style="width:400px">
+        {% for i in getMovie %}
+        <img class="card-img-top" src="{{url_for('static', filename='media/' + (i.img if i.img else 'image.png'))}}"
+            alt="Card image" style="width:400px" height="200px">
+        <div class="card-body">
+            <h4 class="card-title">{{i.name}}</h4>
+            <p class="card-text"><strong>Нээлт хийсэн он:</strong> {{ i.released }}</p>
+            <p class="card-text"><strong>Жүжигчид:</strong> {{i.aname | join(', ')| default('Жүжигчид алга
+                байна',true)}}</p>
+            <p class="card-text"><strong>Найруулагч:</strong> {{i.dname | join(', ')| default('Найруулагч алга
+                байна',true)}}</p>
+            <p class="card-text"><strong>Продюсер:</strong> {{i.pname | join(', ')| default('Продюсер алга
+                байна',true)}}</p>
+            <p class="card-text"><strong>Зохиолч:</strong> {{i.wname | join(', ')| default('Зохиолч алга байна',true)}}
+            </p>
+            <p class="card-text">
+                <strong>Сэтгэгдэл: </strong>
+                {%if session['role']==2 %}
+                <form method="post" action="{{url_for('movieDetails', mid=i.mid)}}">
+                    <textarea name="comment"></textarea>
+                    <input type="submit">
+                </form>
+                <hr>
+                {% endif %}
+
+                {% if i.summary %}
+                <ul>
+                {% for j in range(i.summary | length)%}
+                    {% for a in i.summary[j] %}
+                    <li>
+                        <strong> {{i.rname[j]}}</strong>: <span>{{ a }}</span>
+                    </li>
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+                {% else %}
+                Сэтгэгдэл алга байна
+                {% endif %}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

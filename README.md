@@ -10,6 +10,11 @@ without flash format - easybcd install w10
 
 #find /path/to/base_directory -type f -name "\*.extention" -exec rm {} \;
 
+git ls-files | xargs du -h | sort -rh | head -10
+git config --global http.postBuffer 524288000
+
+
+gamma
 -https://www.pexels.com/
 -monkeytyping.com
 -https://www.000webhost.com/

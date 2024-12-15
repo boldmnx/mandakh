@@ -1,0 +1,38 @@
+{% extends 'layout.html'%}
+
+{%block body_block%}
+<section class="container mx-auto p-6">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="p-4 rounded mb-4 bg-green-100 text-green-700" id="alertmsg">
+        {{ messages }}
+    </div>
+    {% endif %}
+    {% endwith %}
+    <h3 class="text-2xl font-semibold mb-6">Top Movies</h3>
+    {%if data%}
+    <p>{{count}} кино олдлоо</p><br>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for i in data %}
+        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+
+            <img src="{{ url_for('static', filename='images/movies/'+ (i.img if i.img else 'default.jpg') )}}"
+                alt="Movie Poster" class="w-full h-64 object-contain">
+
+            <div class="p-4">
+
+                <h4 class="text-lg font-semibold">Title: <a href="{{ url_for('movie_detail', movie_id=i.id ) }}"
+                        class="text-yellow-500 hover:text-yellow-400">{{ i.title }}</a></h4>
+
+                <p class="text-gray-400">{{key[3]}}: {{ i.tagline }}</p>
+                <p class="text-gray-400">{{key[1]}} date: {{ i.released }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {%else%}
+    <p>Кино олдсонгүй</p>
+    {%endif%}
+</section>
+
+{%endblock%}

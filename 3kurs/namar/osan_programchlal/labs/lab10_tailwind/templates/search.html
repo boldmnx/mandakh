@@ -1,0 +1,106 @@
+{% extends 'layout.html'%}
+{%block body_block%}
+<section class="container mx-auto p-6">
+    <h2 class="text-2xl font-semibold mb-6">Search: "{{search_term}}"</h2>
+    <h3 class="text-2xl font-semibold mb-6"><a href="#">Movies ({{countmovie}}) - view all</a></h3>
+    {%if moviedata%}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for i in moviedata %}
+        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+            <img src="{{url_for('static', filename='images/movies/'+(i.image if i.image else 'default.jpg'))}}"
+                alt="Movie Poster" class="w-full h-64 object-contain">
+            <div class="p-4">
+                <h4 class="text-lg font-semibold"><a href="{{ url_for('movie_detail', movie_id=i.id ) }}"
+                        class="text-yellow-500 hover:text-yellow-400"> Title: {{ i.title }}</a></h4>
+                <p class="text-gray-400">Tagline: {{ i.tagline }}</p>
+                <p class="text-gray-400">Release Date: {{ i.released }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mt-6 flex justify-center space-x-2">
+        <!-- Previous Page Link -->
+        {% if pn.has_prev %}
+        <a href="{{ url_for('search', page=pn.prev_num, search=search_term, startyear=startyear, endyear=endyear) }}"
+            class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200">Previous</a>
+        {% else %}
+        <span class="bg-gray-500 text-gray-300 px-4 py-2 rounded-lg cursor-not-allowed">Previous</span>
+        {% endif %}
+
+        <!-- Page Number Links -->
+        {% for page in pn.pages %}
+        {% if page %}
+        <a href="{{ url_for('search', page=page, search=search_term, startyear=startyear, endyear=endyear) }}" class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200 
+          {% if page == pn.page %} bg-blue-500 {% endif %}">
+            {{ page }}
+        </a>
+        {% else %}
+        <span class="text-white px-4 py-2">...</span>
+        {% endif %}
+        {% endfor %}
+
+        <!-- Next Page Link -->
+        {% if pn.has_next %}
+        <a href="{{ url_for('search', page=pn.next_num, search=search_term, startyear=startyear, endyear=endyear) }}"
+            class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200">Next</a>
+        {% else %}
+        <span class="bg-gray-500 text-gray-300 px-4 py-2 rounded-lg cursor-not-allowed">Next</span>
+        {% endif %}
+    </div>
+    {%else%}
+    <p>Кино олдсонгүй</p>
+    {%endif%}
+</section>
+
+<section class="container mx-auto p-6">
+    <h3 class="text-2xl font-semibold mb-6"><a href="#">People ({{count}}) - view all</a></h3>
+    {%if data%}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for i in data %}
+        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+            
+            <img src="{{url_for('static', filename='images/people/'+(i.image if i.image else 'default.jpg'))}}" alt="Movie Poster" class="w-full h-64 object-cover">
+
+            <div class="p-4">
+                <h4 class="text-lg font-semibold">Нэр: {{ i.name }}</h4>
+                <p class="text-gray-400">Төрсөн огноо: {{ i.born }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="mt-6 flex justify-center space-x-2">
+        <!-- Previous Page Link -->
+        {% if pnPeople.has_prev %}
+        <a href="{{ pnPeople.prev_url }}"
+            class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200">Previous</a>
+        {% else %}
+        <span class="bg-gray-500 text-gray-300 px-4 py-2 rounded-lg cursor-not-allowed">Previous</span>
+        {% endif %}
+
+        <!-- Page Number Links -->
+        {% for page in pnPeople.pages %}
+        {% if page %}
+        <a href="{{ url_for('search', page=page, search=search_term, startyear=startyear, endyear=endyear) }}" class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200 
+          {% if page == pnPeople.page %} bg-blue-500 {% endif %}">
+            {{ page }}
+        </a>
+        {% else %}
+        <span class="text-white px-4 py-2">...</span>
+        {% endif %}
+        {% endfor %}
+
+        <!-- Next Page Link -->
+        {% if pnPeople.has_next %}
+        <a href="{{ pnPeople.next_url }}"
+            class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200">Next</a>
+        {% else %}
+        <span class="bg-gray-500 text-gray-300 px-4 py-2 rounded-lg cursor-not-allowed">Next</span>
+        {% endif %}
+    </div>
+
+    {%else%}
+    <p>Хүн олдсонгүй</p>
+    {%endif%}
+</section>
+{%endblock%}

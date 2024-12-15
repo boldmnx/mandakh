@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-3">
+    <div class="mt-4 p-5 bg-dark text-white rounded">
+        {%if session %}
+        <h1>Hello ({{ session['name'] }})</h1>
+        {%else%}
+        <h1>Hello (guest)</h1>
+        {%endif%}
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+{% include 'alert.html' %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Movie List ({{ count }})</h2>
+<br>
+{% for i in movies %}
+<div class="col-md-4">
+    <div class="card" style="width:400px">
+        <img class="card-img-top" src="{{url_for('static', filename='media/' + (i.img if i.img else 'image.png') )}}"
+            alt="Card image" style="width:400px" height="200px">
+        <div class="card-body">
+            <h4 class="card-title">{{i.title}}</h4>
+            <p class="card-text">Нээлт хийсэн он :{{ i.released }}</p>
+            <p class="card-text">Tagline: {{ i.tagline }}</p>
+            <a href="{{url_for('movieDetails', mid=i.mid)}}" class="btn btn-primary">Дэлгэрэнгүй</a>
+        </div>
+    </div>
+    <br>
+</div>
+{% endfor %}
+{{ pn.links }}
+{% endblock %}
