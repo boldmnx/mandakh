@@ -1,0 +1,12 @@
+1. typescript- js дараагийн түвшин (type zaaj ugdg)
+2. eslint- бичиглэлийн алдааг илрүүлдэг
+3. app router- auth/login/page.js pages- auth/login.js
+4. Laravel - PHP web framework(mvc)
+5. Vue.js -JS frontend framework
+6. callback - function dotor function
+7. promise - success, error utga butsaana
+8. async - paralel 2 function ajillah bolomjtoi. Promise butsaadag
+9. Promise - async function үр дүнг буцаадаг object
+10. await - Function-ний үйлдэл дуустал дараа мөр лүү орохгүй хүлээнэ. Мөн заавал
+   async function дотор бичигдэж түүнийгээ зарлах хэрэгтэй
+11. async/await, callback, promise эдгээр нь 3лаа async үйлдэлүүдийг дэмждэгч бичиглэл хэрэглээ нь өөр
