@@ -8,8 +8,6 @@
 ###### techsmith, terabox
 
 
-sasa
-
 without flash format - easybcd install w10
 
 #find /path/to/base_directory -type f -name "\*.extention" -exec rm {} \;
